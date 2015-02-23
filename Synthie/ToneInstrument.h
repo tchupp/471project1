@@ -11,7 +11,7 @@ public:
 
 	virtual void Start() override;
 	virtual bool Generate() override;
-	virtual void SetNote(CNote *note) override;
+	virtual void SetNote(CNote *note, double secPerBeat) override;
 
 	void SetFreq(double f) { mSinewave.SetFreq(f); }
 

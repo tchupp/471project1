@@ -38,7 +38,7 @@ bool CToneInstrument::Generate()
 	return mTime < mDuration;
 }
 
-void CToneInstrument::SetNote(CNote* note)
+void CToneInstrument::SetNote(CNote* note, double secPerBeat)
 {
 	// Get a list of all attribute nodes and the
 	// length of that list
@@ -69,7 +69,8 @@ void CToneInstrument::SetNote(CNote* note)
 		if (name == "duration")
 		{
 			value.ChangeType(VT_R8);
-			SetDuration(value.dblVal);
+			// number of beats * seconds per beat = seconds for note
+			SetDuration(value.dblVal * secPerBeat);
 		}
 		else if (name == "note")
 		{

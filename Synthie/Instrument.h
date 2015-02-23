@@ -10,5 +10,5 @@ public:
 	CInstrument();
 	virtual ~CInstrument();
 
-	virtual void SetNote(CNote *note) = 0;
+	virtual void SetNote(CNote *note, double secPerBeat) = 0;
 };

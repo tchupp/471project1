@@ -76,7 +76,7 @@ bool CSynthesizer::Generate(double* frame)
 		if (instrument != NULL)
 		{
 			instrument->SetSampleRate(GetSampleRate());
-			instrument->SetNote(note);
+			instrument->SetNote(note, mSecPerBeat);
 			instrument->Start();
 
 			mInstruments.push_back(instrument);
