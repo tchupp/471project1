@@ -2,6 +2,7 @@
 
 #include <list>
 #include <vector>
+#include "ChorusEffect.h"
 
 class CNote;
 class CInstrument;
@@ -56,4 +57,7 @@ private:
 	int mCurrentNote; //!< The current note we are playing
 	int mMeasure; //!< The current measure
 	double mBeat; //!< The current beat within the measure
+
+	//! Effects
+	CChorusEffect	mChorusEffect;
 };
