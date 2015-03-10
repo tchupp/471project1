@@ -14,11 +14,10 @@ CScratchInstrumentFactory::~CScratchInstrumentFactory()
 }
 
 
-CScratchInstrument* CScratchInstrumentFactory::CreateInstrument()
+CInstrument* CScratchInstrumentFactory::CreateInstrument()
 {
-	CScratchInstrument* instrument = new CScratchInstrument();
-	instrument->GetPlayer()->SetSamples(&mWaveL[0],
-		&mWaveR[0], int(mWaveL.size()));
+	auto instrument = new CScratchInstrument();
+	instrument->SetSamples(&mWaveL[0], &mWaveR[0], int(mWaveL.size()));
 
 	return instrument;
 }

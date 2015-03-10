@@ -14,7 +14,7 @@ public:
 	virtual bool Generate() override;
 	virtual void SetNote(CNote* note, double secPerBeat) override;
 
-	CWavFilePlayer* GetPlayer() { return &mWavPlayer; }
+	void SetSamples(short* sL, short* sR, int n) { mWavPlayer.SetSamples(sL, sR, n); }
 
 private:
 	CWavFilePlayer mWavPlayer;

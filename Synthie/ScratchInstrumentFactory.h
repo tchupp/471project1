@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 
-class CScratchInstrument;
 class CInstrument;
 class CNote;
 
@@ -12,7 +11,7 @@ public:
 	virtual ~CScratchInstrumentFactory();
 
 	void SetNote(CNote* note);
-	CScratchInstrument* CreateInstrument();
+	CInstrument* CreateInstrument();
 
 	bool LoadFile(const char* fileName);
 

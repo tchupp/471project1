@@ -28,6 +28,6 @@ bool CScratchInstrument::Generate()
 }
 
 //! not implemented
-void CScratchInstrument::SetNote(CNote *note, double secPerBeat)
+void CScratchInstrument::SetNote(CNote* note, double secPerBeat)
 {
 }
