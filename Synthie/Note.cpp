@@ -11,12 +11,13 @@ CNote::~CNote()
 {
 }
 
-void CNote::XmlLoad(IXMLDOMNode* xml, std::wstring& instrument)
+void CNote::XmlLoad(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& feature, std::wstring& waveform)
 {
 	// Remember the xml node and the instrument.
 	mNode = xml;
 	mInstrument = instrument;
-
+	mFeature = feature;
+	mWaveform = waveform;
 	// Get a list of all attribute nodes and the
 	// length of that list
 	CComPtr<IXMLDOMNamedNodeMap> attributes;

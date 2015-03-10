@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Synthesizer.h"
 #include "ToneInstrument.h"
+#include "Subtractive.h"
 #include "xmlhelp.h"
 #include "Note.h"
 #include <algorithm>
@@ -9,7 +10,7 @@ using namespace std;
 
 const wstring TONE_INSTRUMENT = L"ToneInstrument";
 const wstring SCRATCH_INSTRUMENT = L"ScratchInstrument";
-
+const wstring SUBTRACTIVE_INSTRUMENT = L"SubtractiveInstrument";
 
 CSynthesizer::CSynthesizer()
 {
@@ -81,7 +82,10 @@ bool CSynthesizer::Generate(double* frame)
 			mScratchFactory.SetNote(note);
 			instrument = mScratchFactory.CreateInstrument();
 		}
-
+		else if (note->Instrument() == SUBTRACTIVE_INSTRUMENT)
+		{
+			instrument = new CSubtractive(note->Feature(), note->Waveform());
+		}
 		// Configure the instrument object
 		if (instrument != nullptr)
 		{
@@ -211,7 +215,7 @@ void CSynthesizer::OpenScore(CString& filename)
 
 	CComPtr<IXMLDOMNode> node;
 	pXMLDoc->get_firstChild(&node);
-	for (int i = 0; node != NULL; i++ , NextNode(node))
+	for (int i = 0; node != NULL; i++, NextNode(node))
 	{
 		// Get the name of the node
 		CComBSTR nodeName;
@@ -286,6 +290,8 @@ void CSynthesizer::XmlLoadScore(IXMLDOMNode* xml)
 void CSynthesizer::XmlLoadInstrument(IXMLDOMNode* xml)
 {
 	wstring instrument = L"";
+	wstring feature = L"";
+	wstring waveform = L"";
 
 	// Get a list of all attribute nodes and the
 	// length of that list
@@ -313,6 +319,15 @@ void CSynthesizer::XmlLoadInstrument(IXMLDOMNode* xml)
 		{
 			instrument = value.bstrVal;
 		}
+		else if (name == "feature")
+		{
+			feature = value.bstrVal;
+		}
+
+		else if (name == "waveform")
+		{
+			waveform = value.bstrVal;
+		}
 	}
 
 
@@ -326,13 +341,13 @@ void CSynthesizer::XmlLoadInstrument(IXMLDOMNode* xml)
 
 		if (name == L"note")
 		{
-			XmlLoadNote(node, instrument);
+			XmlLoadNote(node, instrument, feature, waveform);
 		}
 	}
 }
 
-void CSynthesizer::XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument)
+void CSynthesizer::XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& feature, std::wstring& waveform)
 {
 	m_notes.push_back(CNote());
-	m_notes.back().XmlLoad(xml, instrument);
+	m_notes.back().XmlLoad(xml, instrument, feature, waveform);
 }
