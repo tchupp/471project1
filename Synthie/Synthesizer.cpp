@@ -7,6 +7,9 @@
 
 using namespace std;
 
+const wstring TONE_INSTRUMENT = L"ToneInstrument";
+const wstring SCRATCH_INSTRUMENT = L"ScratchInstrument";
+
 
 CSynthesizer::CSynthesizer()
 {
@@ -20,6 +23,8 @@ CSynthesizer::CSynthesizer()
 	mBpm = 120;
 	mSecPerBeat = 0.5;
 	mBeatsPerMeasure = 4;
+
+	mScratchFactory.LoadFile("wav/rave1.wav");
 }
 
 
@@ -66,14 +71,19 @@ bool CSynthesizer::Generate(double* frame)
 		//
 
 		// Create the instrument object
-		CInstrument* instrument = NULL;
-		if (note->Instrument() == L"ToneInstrument")
+		CInstrument* instrument = nullptr;
+		if (note->Instrument() == TONE_INSTRUMENT)
 		{
 			instrument = new CToneInstrument();
 		}
+		else if (note->Instrument() == SCRATCH_INSTRUMENT)
+		{
+			mScratchFactory.SetNote(note);
+			instrument = mScratchFactory.CreateInstrument();
+		}
 
 		// Configure the instrument object
-		if (instrument != NULL)
+		if (instrument != nullptr)
 		{
 			instrument->SetSampleRate(GetSampleRate());
 			instrument->SetNote(note, mSecPerBeat);

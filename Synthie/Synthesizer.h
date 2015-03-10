@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include "ChorusEffect.h"
+#include "ScratchInstrumentFactory.h"
 
 class CNote;
 class CInstrument;
@@ -60,4 +61,7 @@ private:
 
 	//! Effects
 	CChorusEffect	mChorusEffect;
+
+	//! Scratch Factory
+	CScratchInstrumentFactory mScratchFactory;
 };
