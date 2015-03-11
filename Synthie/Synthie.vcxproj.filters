@@ -93,6 +93,15 @@
     <ClCompile Include="Subtractive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SawtoothWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="audio\DirSound.h">
@@ -180,6 +189,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Subtractive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SawtoothWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareWave.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

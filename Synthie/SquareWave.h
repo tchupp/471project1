@@ -1,10 +1,11 @@
 #pragma once
 #include "AudioNode.h"
-class CSineWave : public CAudioNode
+class CSquareWave :
+	public CAudioNode
 {
 public:
-	CSineWave();
-	virtual ~CSineWave();
+	CSquareWave();
+	virtual ~CSquareWave();
 	//! Start audio generation
 	virtual void Start() override;
 

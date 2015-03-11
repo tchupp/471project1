@@ -8,7 +8,6 @@ CSubtractive::CSubtractive(std::wstring feature, std::wstring waveform)
 	mDuration = 0.1;
 	stringToFeature(feature);
 	stringToWaveform(waveform);
-	mPhase = mSinewave.GetPhase();
 }
 
 
@@ -20,31 +19,62 @@ void CSubtractive::Start()
 {
 	mSinewave.SetSampleRate(GetSampleRate());
 	mSinewave.Start();
+
+	mSawtooth.SetSampleRate(GetSampleRate());
+	mSawtooth.Start();
+
+	mTriangle.SetSampleRate(GetSampleRate());
+	mTriangle.Start();
+
+	mSquare.SetSampleRate(GetSampleRate());
+	mSquare.Start();
+
 	mTime = 0;
 
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
-	mAR.SetSource(&mSinewave);
+
+	if (mFeature == Sawtooth)
+	{
+		mAR.SetSource(&mSawtooth);
+	}
+	else if (mFeature == Triangle)
+	{
+		mAR.SetSource(&mTriangle);
+	}
+	else if (mFeature == Square)
+	{
+		mAR.SetSource(&mSquare);
+	}
+	else
+	{
+		mAR.SetSource(&mSinewave);
+	}
 	mAR.SetSampleRate(GetSampleRate());
 	mAR.SetDuration(mDuration);
 	mAR.Start();
 }
 
-
 bool CSubtractive::Generate()
 {
-	mSinewave.Generate();
-	// Tell the component to generate an audio sample
-	switch (mWaveform)
+	if (mFeature == Sawtooth)
 	{
-	case Square:
-		GenerateSquare();
-	case Sawtooth:
-		GenerateSawtooth();
-	case Triangle:
-		GenerateTriangle();
+		mSawtooth.Generate();
 	}
-
+	else if (mFeature == Triangle)
+	{
+		mTriangle.Generate();
+	}
+	else if (mFeature == Square)
+	{
+		mSquare.Generate();
+	}
+	else
+	{
+		mSinewave.Generate();
+	}
+	
+	/*mSinewave.Generate();*/
 	auto valid = mAR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
@@ -135,15 +165,19 @@ void CSubtractive::stringToFeature(std::wstring feature)
 	}
 }
 
-bool CSubtractive::GenerateSawtooth()
+void CSubtractive::SetFreq(double f)
 {
-	return true;
+	mSinewave.SetFreq(f);
+	mSawtooth.SetFreq(f);
+	mTriangle.SetFreq(f);
+	mSquare.SetFreq(f);
 }
-bool CSubtractive::GenerateTriangle()
+
+void CSubtractive::SetAmplitude(double a)
 {
-	return true;
-}
-bool CSubtractive::GenerateSquare()
-{
-	return true;
+	mSinewave.SetAmplitude(a);
+	mSawtooth.SetAmplitude(a);
+	mTriangle.SetAmplitude(a);
+	mSquare.SetAmplitude(a);
+
 }
