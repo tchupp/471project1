@@ -16,6 +16,10 @@ public:
 
 	void SetSamples(short* sL, short* sR, int n) { mWavPlayer.SetSamples(sL, sR, n); }
 
+	void SetDuration(double d) { mDuration = d; }
+
 private:
 	CWavFilePlayer mWavPlayer;
+	double mDuration;
+	double mTime;
 };
