@@ -22,9 +22,6 @@ public:
 	enum Waveform { Sawtooth, Triangle, Square };
 	enum Feature { Reson, Polyphony, FilterEnvelope, Envelope };
 
-	void stringToWaveform(std::wstring waveform);
-	void stringToFeature(std::wstring feature);
-
 private:
 	CSineWave mSinewave;
 	CSawtoothWave mSawtooth;
@@ -36,5 +33,6 @@ private:
 	Feature mFeature;
 	Waveform mWaveform;
 
-	
+	void StringToWaveform(std::wstring waveform);
+	void StringToFeature(std::wstring feature);
 };

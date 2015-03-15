@@ -6,6 +6,7 @@
 CScratchInstrument::CScratchInstrument()
 {
 	mDuration = 0.1;
+	mType = Baby;
 }
 
 
@@ -67,5 +68,29 @@ void CScratchInstrument::SetNote(CNote* note, double secPerBeat)
 			// number of beats * seconds per beat = seconds for note
 			SetDuration(value.dblVal * secPerBeat);
 		}
+		else if (name == "feature")
+		{
+			SetScratchType(value.bstrVal);
+		}
+	}
+}
+
+void CScratchInstrument::SetScratchType(std::wstring type)
+{
+	if (type == L"baby")
+	{
+		mType = Baby;
+	}
+	else if (type == L"scribble")
+	{
+		mType = Scribble;
+	}
+	else if (type == L"chirp")
+	{
+		mType = Chirp;
+	}
+	else if (type == L"transform")
+	{
+		mType = Transform;
 	}
 }

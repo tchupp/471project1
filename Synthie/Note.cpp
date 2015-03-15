@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Note.h"
 
+using namespace std;
+
 
 CNote::CNote()
 {
@@ -11,7 +13,7 @@ CNote::~CNote()
 {
 }
 
-void CNote::XmlLoad(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& feature, std::wstring& waveform)
+void CNote::XmlLoad(IXMLDOMNode* xml, wstring& instrument, wstring& feature, wstring& waveform)
 {
 	// Remember the xml node and the instrument.
 	mNode = xml;

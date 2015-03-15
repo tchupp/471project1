@@ -6,8 +6,8 @@
 CSubtractiveInstrument::CSubtractiveInstrument(std::wstring feature, std::wstring waveform)
 {
 	mDuration = 0.1;
-	stringToFeature(feature);
-	stringToWaveform(waveform);
+	StringToFeature(feature);
+	StringToWaveform(waveform);
 }
 
 
@@ -125,7 +125,7 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 	}
 }
 
-void CSubtractiveInstrument::stringToWaveform(std::wstring waveform)
+void CSubtractiveInstrument::StringToWaveform(std::wstring waveform)
 {
 	if (waveform == L"sawtooth")
 	{
@@ -141,7 +141,7 @@ void CSubtractiveInstrument::stringToWaveform(std::wstring waveform)
 	}
 }
 
-void CSubtractiveInstrument::stringToFeature(std::wstring feature)
+void CSubtractiveInstrument::StringToFeature(std::wstring feature)
 {
 	if (feature == L"Reson")
 	{

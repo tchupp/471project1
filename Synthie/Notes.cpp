@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Notes.h"
 #include <map>
-#include <string>
 
 using namespace std;
 
@@ -20,7 +19,7 @@ double NoteToFrequency(const WCHAR *name)
         g_initialized = true;
     }
 
-    map<wstring, double>::iterator f = g_name2freq.find(name);
+    auto f = g_name2freq.find(name);
     if(f == g_name2freq.end())
         return 0;
 

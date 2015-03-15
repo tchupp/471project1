@@ -3,6 +3,7 @@
    <instrument instrument="ScratchInstrument">
       <note measure="1" beat="1" duration="4" feature="baby"/>
 	  <note measure="2" beat="1" duration="4" feature="scribble"/>
-	  <note measure="3" beat="1" duration="4" feature="orbit"/>
+	  <note measure="3" beat="1" duration="4" feature="chirp"/>
+	  <note measure="4" beat="1" duration="4" feature="transform"/>
    </instrument>
 </score>
