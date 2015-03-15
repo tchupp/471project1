@@ -2,24 +2,32 @@
 //! will be derived from
 
 #pragma once
+#include "Instrument.h"
 #include <vector>
-class CAudioEffect
+
+
+class CAudioEffect : 
+	public CInstrument
 {
 public:
 	virtual ~CAudioEffect();
 
 	virtual void Process(double *frameIn, double *frameOut) = 0;
 
-	virtual void XmlLoad(IXMLDOMNode * xml) = 0;
+	void SetDelay(double delay) { mDelay = delay; }
+
+	void SetWet(double wet) { mWet = wet; }
+
+	void SetDry(double dry) { mDry = dry; }
 
 protected:
 	CAudioEffect();
 
 private:
-
-	// Left & Right queues for stereo audio
-	std::vector<double>		mLeftQueue;
-	std::vector<double>		mRightQueue;
-
+	//! The average delay 
+	double	mDelay;
+	double	mWet;
+	double	mDry;
+	std::vector<short> mQueue;
 };
 
