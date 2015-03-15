@@ -86,6 +86,10 @@ bool CSynthesizer::Generate(double* frame)
 		{
 			instrument = new CSubtractiveInstrument(note->Feature(), note->Waveform());
 		}
+		else if (note->Instrument() == L"Chorus")
+		{
+			mChorusEffect.SetNote(note, mSecPerBeat);
+		}
 		// Configure the instrument object
 		if (instrument != nullptr)
 		{

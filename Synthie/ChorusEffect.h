@@ -14,8 +14,6 @@ public:
 
 	virtual bool Generate() override;
 
-	virtual void SetNote(CNote *note, double secPerBeat) override;
-
 private:
 	//! The speed the delay is varied
 	double	mRate;

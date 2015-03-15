@@ -20,6 +20,8 @@ public:
 
 	void SetDry(double dry) { mDry = dry; }
 
+	virtual void SetNote(CNote *note, double secPerBeat) override;
+
 protected:
 	CAudioEffect();
 
