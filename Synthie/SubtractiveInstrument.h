@@ -10,7 +10,7 @@
 class CSubtractiveInstrument : public CInstrument
 {
 public:
-	CSubtractiveInstrument(std::wstring feature, std::wstring waveform);
+	CSubtractiveInstrument();
 	virtual ~CSubtractiveInstrument();
 	virtual void Start() override;
 	virtual bool Generate() override;
@@ -26,21 +26,21 @@ public:
 
 	enum Waveform { Sawtooth, Triangle, Square };
 
-	enum Feature { Reson, Polyphony, FilterEnvelope, Envelope };
-
 private:
 	CSineWave mSinewave;
 	CSawtoothWave mSawtooth;
 	CTriangleWave mTriangle;
 	CSquareWave mSquare;
+
+	double mResonFrequency;
+	double mResonBandwidth;
+
 	double mDuration;
 	double mTime;
 	CADSR mADSR;
-	Feature mFeature;
 	Waveform mWaveform;
 
 	void StringToWaveform(std::wstring waveform);
-	void StringToFeature(std::wstring feature);
 
 	struct FilterTerm
 	{

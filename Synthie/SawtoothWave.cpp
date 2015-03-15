@@ -37,7 +37,7 @@ void CSawtoothWave::SetWavetables()
 	mWavetable.resize(tableSize);
 	auto time = 0.;
 
-	for (auto i = 0; i < tableSize; i++, time += 1. / GetSampleRate())
+	for (auto i = 0; i < tableSize; i++ , time += 1. / GetSampleRate())
 	{
 		auto sawtoothSample = 0.;
 		int nyquist = GetSampleRate() / 2;

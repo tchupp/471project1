@@ -4,14 +4,10 @@
 #include "Notes.h"
 
 double const RESONGAIN = 10;
-double const RESONBANDWIDTH = 0.01;
-double const RESONFREQUENCY = 0.02;
 
-CSubtractiveInstrument::CSubtractiveInstrument(std::wstring feature, std::wstring waveform)
+CSubtractiveInstrument::CSubtractiveInstrument()
 {
 	mDuration = 0.1;
-	StringToFeature(feature);
-	StringToWaveform(waveform);
 }
 
 
@@ -95,6 +91,8 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 	note->Node()->get_attributes(&attributes);
 	long len;
 	attributes->get_length(&len);
+	
+	StringToWaveform(note->Waveform());
 
 	// Loop over the list of attributes
 	for (int i = 0; i < len; i++)
@@ -106,7 +104,6 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 		// Get the name of the attribute
 		CComBSTR name;
 		attrib->get_nodeName(&name);
-
 
 		// Get the value of the attribute.  A CComVariant is a variable
 		// that can have any type. It loads the attribute value as a
@@ -126,6 +123,17 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 		{
 			SetFreq(NoteToFrequency(value.bstrVal));
 		}
+		else if (name == "resonfrequency")
+		{
+			value.ChangeType(VT_R8);
+			mResonFrequency = value.dblVal;
+		}
+
+		else if (name == "resonbandwidth")
+		{
+			value.ChangeType(VT_R8);
+			mResonBandwidth = value.dblVal;
+		}
 	}
 }
 
@@ -142,26 +150,6 @@ void CSubtractiveInstrument::StringToWaveform(std::wstring waveform)
 	else if (waveform == L"square")
 	{
 		mWaveform = Square;
-	}
-}
-
-void CSubtractiveInstrument::StringToFeature(std::wstring feature)
-{
-	if (feature == L"Reson")
-	{
-		mFeature = Reson;
-	}
-	else if (feature == L"Polyphony")
-	{
-		mFeature = Polyphony;
-	}
-	else if (feature == L"FilterEnvelope")
-	{
-		mFeature = FilterEnvelope;
-	}
-	else if (feature == L"Envelope")
-	{
-		mFeature = Envelope;
 	}
 }
 
@@ -183,8 +171,8 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 
 void CSubtractiveInstrument::ResonFilter()
 {
-	double R = 1 - RESONBANDWIDTH / 2;
-	double costheta = (2 * R * cos(2 * PI * RESONFREQUENCY)) / (1 + pow(R, 2));
+	double R = 1 - mResonBandwidth / 2;
+	double costheta = (2 * R * cos(2 * PI * mResonFrequency)) / (1 + pow(R, 2));
 	double sintheta = sqrt(1 - pow(costheta, 2));
 	double A = (1 - pow(R, 2)) * sintheta;
 	A = A * RESONGAIN;
@@ -231,7 +219,7 @@ void CSubtractiveInstrument::ProcessFilter()
 	double weight;
 
 	auto sampleFrames = mDuration * GetSampleRate();
-	for (int i = 0; i < sampleFrames; i++, time += 1. / GetSampleRate())
+	for (int i = 0; i < sampleFrames; i++ , time += 1. / GetSampleRate())
 	{
 		//audio[0] = (i + 1) * 10;
 		//audio[1] = (i + 1) * 10 + 1;
