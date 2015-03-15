@@ -84,7 +84,7 @@ bool CSynthesizer::Generate(double* frame)
 		}
 		else if (note->Instrument() == SUBTRACTIVE_INSTRUMENT)
 		{
-			instrument = new CSubtractiveInstrument(note->Feature(), note->Waveform());
+			instrument = new CSubtractiveInstrument();
 		}
 		// Configure the instrument object
 		if (instrument != nullptr)
@@ -319,10 +319,6 @@ void CSynthesizer::XmlLoadInstrument(IXMLDOMNode* xml)
 		{
 			instrument = value.bstrVal;
 		}
-		else if (name == "feature")
-		{
-			feature = value.bstrVal;
-		}
 
 		else if (name == "waveform")
 		{
@@ -341,13 +337,13 @@ void CSynthesizer::XmlLoadInstrument(IXMLDOMNode* xml)
 
 		if (name == L"note")
 		{
-			XmlLoadNote(node, instrument, feature, waveform);
+			XmlLoadNote(node, instrument, waveform);
 		}
 	}
 }
 
-void CSynthesizer::XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& feature, std::wstring& waveform)
+void CSynthesizer::XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& waveform)
 {
 	m_notes.push_back(CNote());
-	m_notes.back().XmlLoad(xml, instrument, feature, waveform);
+	m_notes.back().XmlLoad(xml, instrument, waveform);
 }

@@ -53,7 +53,7 @@ private:
 
 	void XmlLoadScore(IXMLDOMNode* xml);
 	void XmlLoadInstrument(IXMLDOMNode* xml);
-	void XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& feature, std::wstring& waveform);
+	void XmlLoadNote(IXMLDOMNode* xml, std::wstring& instrument, std::wstring& waveform);
 
 	int mCurrentNote; //!< The current note we are playing
 	int mMeasure; //!< The current measure
