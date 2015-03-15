@@ -21,7 +21,6 @@ void CSubtractiveInstrument::Start()
 	//mSinewave.Start();
 
 	mTime = 0;
-	ResonFilter();
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
 
@@ -29,7 +28,6 @@ void CSubtractiveInstrument::Start()
 	{
 		mSawtooth.SetSampleRate(GetSampleRate());
 		mSawtooth.Start();
-		mReson.SetSource(&mSawtooth);
 		mADSR.SetSource(&mSawtooth);
 		
 	}
@@ -37,24 +35,18 @@ void CSubtractiveInstrument::Start()
 	{
 		mTriangle.SetSampleRate(GetSampleRate());
 		mTriangle.Start();
-		mReson.SetSource(&mTriangle);
 		mADSR.SetSource(&mTriangle);
 	}
 	else if (mWaveform == Square)
 	{
 		mSquare.SetSampleRate(GetSampleRate());
 		mSquare.Start();
-		mReson.SetSource(&mSquare);
 		mADSR.SetSource(&mSquare);	
 	}
 	else
 	{
-		mReson.SetSource(&mSinewave);
 		mADSR.SetSource(&mSinewave);
 	}
-	mReson.SetSampleRate(GetSampleRate());
-	mReson.SetDuration(mDuration);
-	mReson.Start();
 
 	mADSR.SetSampleRate(GetSampleRate());
 	mADSR.SetDuration(mDuration);
@@ -80,7 +72,6 @@ bool CSubtractiveInstrument::Generate()
 		mSinewave.Generate();
 	}
 
-	auto filterValid = mReson.Generate();
 	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.

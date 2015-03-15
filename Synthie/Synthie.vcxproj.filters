@@ -123,6 +123,12 @@
     <ClCompile Include="FlangeEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseWave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterEnvelope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AdditiveInstrument.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -240,6 +246,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AdditiveInstrument.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterEnvelope.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
