@@ -231,7 +231,7 @@ void CSubtractiveInstrument::ProcessFilter()
 	double weight;
 
 	auto sampleFrames = mDuration * GetSampleRate();
-	for (int i = 0; i < sampleFrames; i++, time += 1. / GetSampleRate())
+	for (int i = 0; i < sampleFrames; i++ , time += 1. / GetSampleRate())
 	{
 		//audio[0] = (i + 1) * 10;
 		//audio[1] = (i + 1) * 10 + 1;

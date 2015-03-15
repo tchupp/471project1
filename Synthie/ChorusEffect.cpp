@@ -25,7 +25,7 @@ bool CChorusEffect::Generate()
 	return false;
 }
 
-void CChorusEffect::SetNote(CNote *note, double secPerBeat)
+void CChorusEffect::SetNote(CNote* note, double secPerBeat)
 {
 	// Get a list of all attribute nodes and the
 	// length of that list
@@ -66,5 +66,4 @@ void CChorusEffect::SetNote(CNote *note, double secPerBeat)
 
 		//TODO(jordan)   Other attributes relevant to Chorus
 	}
-
 }

@@ -68,7 +68,7 @@ void CScratchInstrument::SetNote(CNote* note, double secPerBeat)
 			// number of beats * seconds per beat = seconds for note
 			SetDuration(value.dblVal * secPerBeat);
 		}
-		else if (name == "feature")
+		else if (name == "scratch")
 		{
 			SetScratchType(value.bstrVal);
 		}

@@ -215,7 +215,7 @@ void CSynthesizer::OpenScore(CString& filename)
 
 	CComPtr<IXMLDOMNode> node;
 	pXMLDoc->get_firstChild(&node);
-	for (int i = 0; node != NULL; i++, NextNode(node))
+	for (int i = 0; node != NULL; i++ , NextNode(node))
 	{
 		// Get the name of the node
 		CComBSTR nodeName;
