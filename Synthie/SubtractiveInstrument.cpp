@@ -213,5 +213,67 @@ void CSubtractiveInstrument::ResonFilter()
 
 void CSubtractiveInstrument::ProcessFilter()
 {
+	short audio[2];
 
+	const int QUEUESIZE = 200000;
+
+
+	std::vector<short> queue_x;
+	std::vector<short> queue_y;
+	queue_x.resize(QUEUESIZE);
+	queue_y.resize(QUEUESIZE);
+
+	int wrloc = 0;
+	int rdloc = 0;
+
+	double time = 0;
+	int delaylength;
+	double weight;
+
+	auto sampleFrames = mDuration * GetSampleRate();
+	for (int i = 0; i < sampleFrames; i++, time += 1. / GetSampleRate())
+	{
+		//audio[0] = (i + 1) * 10;
+		//audio[1] = (i + 1) * 10 + 1;
+
+		wrloc = (wrloc + 2) % QUEUESIZE;
+		queue_x[wrloc] = audio[0];
+		queue_x[wrloc + 1] = audio[1];
+		audio[0] = 0;
+		audio[1] = 0;
+		//int delaylength = int((DELAY * SampleRate() + 0.5)) * 2;
+
+		if (mNumXFilters > 0)
+		{
+			for (auto j = mFilterXTerms.cbegin(); j != mFilterXTerms.cend(); ++j)
+			{
+				FilterTerm term = *j;
+				//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
+				delaylength = term.m_delay * 2;;
+				weight = term.m_weight;
+
+				rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+				audio[0] = audio[0] + queue_x[rdloc] * weight;
+				rdloc = (rdloc + 1) % QUEUESIZE;
+				audio[1] = audio[1] + queue_x[rdloc] * weight;
+			}
+		}
+		if (mNumYFilters > 0)
+		{
+			for (auto j = mFilterYTerms.cbegin(); j != mFilterYTerms.cend(); ++j)
+			{
+				FilterTerm term = *j;
+				//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
+				delaylength = term.m_delay * 2;
+				weight = term.m_weight;
+
+				rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+				audio[0] = audio[0] + queue_y[rdloc] * weight;
+				rdloc = (rdloc + 1) % QUEUESIZE;
+				audio[1] = audio[1] + queue_y[rdloc] * weight;
+			}
+		}
+		queue_y[wrloc] = audio[0];
+		queue_y[wrloc + 1] = audio[1];
+	}
 }
