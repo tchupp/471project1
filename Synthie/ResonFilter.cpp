@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ResonFilter.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -21,16 +22,73 @@ void CResonFilter::Start()
 
 bool CResonFilter::Generate()
 {
-	// percentage for the ramp
-	double fac = 1;
+	double audio[2];
 
-	mFrame[0] = fac * mSource->Frame(0);
-	mFrame[1] = fac * mSource->Frame(1);
+	const int QUEUESIZE = 2 * GetSampleRate();
 
-	// Update time
-	mTime += GetSamplePeriod();
-	// We return true until the time reaches the duration.
-	return mTime < mDuration;
+	std::vector<double> queue_x;
+	std::vector<double> queue_y;
+	queue_x.resize(QUEUESIZE);
+	queue_y.resize(QUEUESIZE);
+
+	int wrloc = 0;
+	int rdloc = 0;
+
+	double time = 0;
+	int delaylength;
+	double weight;
+
+	audio[0] = mSource->Frame(0);
+	audio[1] = mSource->Frame(1);
+
+	wrloc = (wrloc + 2) % QUEUESIZE;
+	queue_x[wrloc] = audio[0];
+	queue_x[wrloc + 1] = audio[1];
+	audio[0] = 0;
+	audio[1] = 0;
+	//int delaylength = int((DELAY * SampleRate() + 0.5)) * 2;
+
+	if (mNumXFilters > 0)
+	{
+		for (auto j = mFilterXTerms.cbegin(); j != mFilterXTerms.cend(); ++j)
+		{
+			FilterTerm term = *j;
+			//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
+			delaylength = term.m_delay * 2;;
+			weight = term.m_weight;
+
+			rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+			audio[0] = audio[0] + queue_x[rdloc] * weight;
+			rdloc = (rdloc + 1) % QUEUESIZE;
+			audio[1] = audio[1] + queue_x[rdloc] * weight;
+		}
+	}
+	if (mNumYFilters > 0)
+	{
+		for (auto j = mFilterYTerms.cbegin(); j != mFilterYTerms.cend(); ++j)
+		{
+			FilterTerm term = *j;
+			//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
+			delaylength = term.m_delay * 2;
+			weight = term.m_weight;
+
+			rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
+			audio[0] = audio[0] + queue_y[rdloc] * weight;
+			rdloc = (rdloc + 1) % QUEUESIZE;
+			audio[1] = audio[1] + queue_y[rdloc] * weight;
+		}
+
+		queue_y[wrloc] = audio[0];
+		queue_y[wrloc + 1] = audio[1];
+
+		mFrame[0] = fac * mSource->Frame(0);
+		mFrame[1] = fac * mSource->Frame(1);
+
+		// Update time
+		mTime += GetSamplePeriod();
+		// We return true until the time reaches the duration.
+		return mTime < mDuration;
+	}
 }
 
 void CResonFilter::SetResonParameters()

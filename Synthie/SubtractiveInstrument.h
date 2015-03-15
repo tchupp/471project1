@@ -22,7 +22,6 @@ public:
 
 	void SetDuration(double d) { mDuration = d; }
 
-	void ProcessFilter();
 	void ResonFilter();
 
 	enum Waveform { Sawtooth, Triangle, Square };

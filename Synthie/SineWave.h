@@ -22,6 +22,8 @@ public:
 	double GetAmp() { return mAmp; }
 	double GetPhase() { return mPhase; }
 
+	double GetWavetableSize() { return mWavetable.size(); }
+
 	//! Set the sine wave amplitude
 	void SetAmplitude(double a) { mAmp = a; }
 

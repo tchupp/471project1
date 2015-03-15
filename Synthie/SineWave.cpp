@@ -42,4 +42,5 @@ void CSineWave::SetWavetables()
 		auto sineSample = mAmp * sin(time * 2 * PI * mFreq);
 		mWavetable[i] = sineSample;
 	}
+
 }
