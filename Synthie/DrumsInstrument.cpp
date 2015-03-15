@@ -62,11 +62,6 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 		CComVariant value;
 		attrib->get_nodeValue(&value);
 
-		if (name == "duration")
-		{
-			value.ChangeType(VT_R8);
-			// number of beats * seconds per beat = seconds for note
-			SetDuration(value.dblVal * secPerBeat);
-		}
+
 	}
 }
