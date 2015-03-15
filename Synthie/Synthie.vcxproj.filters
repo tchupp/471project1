@@ -13,47 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Header Files\Don%27t touch">
+      <UniqueIdentifier>{91a5d336-f302-42c4-a005-6b4c13c400de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Don%27t touch">
+      <UniqueIdentifier>{3cdc1318-9862-4fa8-8580-33b03fbaa5c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="audio\DirSound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audio\DirSoundSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audio\DirSoundStream.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Notes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Progress.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProgressDlg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Synthie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SynthieView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audio\Wave.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audio\WaveformBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="audio\WaveformWnd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Synthesizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,53 +69,47 @@
     <ClCompile Include="SquareWave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="audio\DirSound.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\DirSoundStream.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\DirSoundSource.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="Notes.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="Progress.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressDlg.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\Wave.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\WaveformBuffer.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\WaveformWnd.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="Synthie.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
+    <ClCompile Include="SynthieView.cpp">
+      <Filter>Source Files\Don%27t touch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="audio\DirSound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="audio\DirSoundSource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="audio\DirSoundStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Notes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Progress.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProgressDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Synthie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SynthieView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="audio\Wave.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="audio\WaveformBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="audio\WaveformWnd.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Synthesizer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -162,9 +123,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ToneInstrument.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="xmlhelp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Note.h">
@@ -199,6 +157,54 @@
     </ClInclude>
     <ClInclude Include="SquareWave.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\DirSound.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\DirSoundSource.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\DirSoundStream.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="Notes.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="Progress.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressDlg.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="Synthie.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="SynthieView.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\Wave.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\WaveformBuffer.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\WaveformWnd.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="xmlhelp.h">
+      <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Don%27t touch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
