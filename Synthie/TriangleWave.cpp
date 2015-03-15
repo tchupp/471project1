@@ -33,7 +33,7 @@ bool CTriangleWave::Generate()
 
 void CTriangleWave::SetWavetables()
 {
-	auto tableSize = GetSampleRate() / mFreq;
+	auto tableSize = GetSampleRate();
 
 	mWavetable.resize(tableSize);
 	auto time = 0.;
