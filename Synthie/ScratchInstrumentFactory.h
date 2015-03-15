@@ -1,17 +1,17 @@
 #pragma once
+#include "InstrumentFactory.h"
 #include <vector>
 
-class CInstrument;
 class CNote;
 
-class CScratchInstrumentFactory
+class CScratchInstrumentFactory : public CInstrumentFactory
 {
 public:
 	CScratchInstrumentFactory();
 	virtual ~CScratchInstrumentFactory();
 
-	void SetNote(CNote* note);
-	CInstrument* CreateInstrument();
+	virtual void SetNote(CNote* note) override;
+	virtual CInstrument* CreateInstrument() override;
 
 	bool LoadFile(const char* fileName);
 

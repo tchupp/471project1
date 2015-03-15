@@ -111,6 +111,12 @@
     <ClCompile Include="TriangleWave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InstrumentFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrumsInstrumentFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Synthesizer.h">
@@ -210,6 +216,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TriangleWave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InstrumentFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DrumsInstrumentFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
