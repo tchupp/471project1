@@ -136,6 +136,7 @@
     <ClCompile Include="ChorusEffect.cpp" />
     <ClCompile Include="DrumsInstrument.cpp" />
     <ClCompile Include="DrumsInstrumentFactory.cpp" />
+    <ClCompile Include="FilterEnvelope.cpp" />
     <ClCompile Include="FlangeEffect.cpp" />
     <ClCompile Include="Instrument.cpp" />
     <ClCompile Include="InstrumentFactory.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="ChorusEffect.h" />
     <ClInclude Include="DrumsInstrument.h" />
     <ClInclude Include="DrumsInstrumentFactory.h" />
+    <ClInclude Include="FilterEnvelope.h" />
     <ClInclude Include="FlangeEffect.h" />
     <ClInclude Include="Instrument.h" />
     <ClInclude Include="InstrumentFactory.h" />

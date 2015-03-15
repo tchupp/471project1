@@ -31,6 +31,7 @@ void CToneInstrument::Start()
 
 bool CToneInstrument::Generate()
 {
+	mSinewave.Generate();
 	// Tell the component to generate an audio sample
 	auto valid = mADSR.Generate();
 

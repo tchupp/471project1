@@ -22,7 +22,6 @@ void CADSR::Start()
 
 bool CADSR::Generate()
 {
-	mSource->Generate();
 	// percentage for the ramp
 	double fac;
 

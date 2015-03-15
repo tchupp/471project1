@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseWave.h"
+
 class CWavFilePlayer : public BaseWave
 {
 public:
