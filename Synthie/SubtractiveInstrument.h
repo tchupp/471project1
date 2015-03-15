@@ -31,7 +31,10 @@ private:
 	CSawtoothWave mSawtooth;
 	CTriangleWave mTriangle;
 	CSquareWave mSquare;
+
 	double mResonFrequency;
+	double mResonBandwidth;
+
 	double mDuration;
 	double mTime;
 	CADSR mADSR;

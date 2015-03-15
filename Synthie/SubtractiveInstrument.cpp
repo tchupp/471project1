@@ -4,8 +4,6 @@
 #include "Notes.h"
 
 double const RESONGAIN = 10;
-double const RESONBANDWIDTH = 0.01;
-double const RESONFREQUENCY = 0.02;
 
 CSubtractiveInstrument::CSubtractiveInstrument()
 {
@@ -130,6 +128,12 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 			value.ChangeType(VT_R8);
 			mResonFrequency = value.dblVal;
 		}
+
+		else if (name == "resonbandwidth")
+		{
+			value.ChangeType(VT_R8);
+			mResonBandwidth = value.dblVal;
+		}
 	}
 }
 
@@ -167,8 +171,8 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 
 void CSubtractiveInstrument::ResonFilter()
 {
-	double R = 1 - RESONBANDWIDTH / 2;
-	double costheta = (2 * R * cos(2 * PI * RESONFREQUENCY)) / (1 + pow(R, 2));
+	double R = 1 - mResonBandwidth / 2;
+	double costheta = (2 * R * cos(2 * PI * mResonFrequency)) / (1 + pow(R, 2));
 	double sintheta = sqrt(1 - pow(costheta, 2));
 	double A = (1 - pow(R, 2)) * sintheta;
 	A = A * RESONGAIN;
