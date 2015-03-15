@@ -22,6 +22,8 @@ public:
 	//! Set the sine wave amplitude
 	void SetAmplitude(double a) { mAmp = a; }
 
+
+
 private:
 	double mFreq;
 	double mAmp;

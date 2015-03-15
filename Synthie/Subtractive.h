@@ -36,4 +36,6 @@ private:
 	CADSR mADSR;
 	Feature mFeature;
 	Waveform mWaveform;
+
+	
 };

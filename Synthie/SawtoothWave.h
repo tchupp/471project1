@@ -1,5 +1,9 @@
 #pragma once
 #include "AudioNode.h"
+#include <vector>
+
+using namespace std;
+
 class CSawtoothWave : public CAudioNode
 {
 public:
@@ -21,9 +25,14 @@ public:
 	//! Set the sine wave amplitude
 	void SetAmplitude(double a) { mAmp = a; }
 
+	void SetWavetables();
+
+	short RangeBound(double sample);
+
 private:
 	double mFreq;
 	double mAmp;
-	double mPhase;
+	int mPhase;
+	vector<short>mWavetable;
 };
 

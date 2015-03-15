@@ -17,33 +17,30 @@ CSubtractive::~CSubtractive()
 
 void CSubtractive::Start()
 {
-	mSinewave.SetSampleRate(GetSampleRate());
-	mSinewave.Start();
-
-	mSawtooth.SetSampleRate(GetSampleRate());
-	mSawtooth.Start();
-
-	mTriangle.SetSampleRate(GetSampleRate());
-	mTriangle.Start();
-
-	mSquare.SetSampleRate(GetSampleRate());
-	mSquare.Start();
+	//mSinewave.SetSampleRate(GetSampleRate());
+	//mSinewave.Start();
 
 	mTime = 0;
 
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
 
-	if (mFeature == Sawtooth)
+	if (mWaveform == Sawtooth)
 	{
+		mSawtooth.SetSampleRate(GetSampleRate());
+		mSawtooth.Start();
 		mADSR.SetSource(&mSawtooth);
 	}
-	else if (mFeature == Triangle)
+	else if (mWaveform == Triangle)
 	{
+		mTriangle.SetSampleRate(GetSampleRate());
+		mTriangle.Start();
 		mADSR.SetSource(&mTriangle);
 	}
-	else if (mFeature == Square)
+	else if (mWaveform == Square)
 	{
+		mSquare.SetSampleRate(GetSampleRate());
+		mSquare.Start();
 		mADSR.SetSource(&mSquare);
 	}
 	else
@@ -57,15 +54,15 @@ void CSubtractive::Start()
 
 bool CSubtractive::Generate()
 {
-	if (mFeature == Sawtooth)
+	if (mWaveform == Sawtooth)
 	{
 		mSawtooth.Generate();
 	}
-	else if (mFeature == Triangle)
+	else if (mWaveform == Triangle)
 	{
 		mTriangle.Generate();
 	}
-	else if (mFeature == Square)
+	else if (mWaveform == Square)
 	{
 		mSquare.Generate();
 	}
