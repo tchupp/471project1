@@ -32,7 +32,6 @@ void CToneInstrument::Start()
 bool CToneInstrument::Generate()
 {
 	// Tell the component to generate an audio sample
-	mSinewave.Generate();
 	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
