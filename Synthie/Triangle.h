@@ -1,8 +1,8 @@
 #pragma once
+
 #include "AudioNode.h"
 #include <vector>
 
-using namespace std;
 class CTriangle : public CAudioNode
 {
 public:
@@ -27,12 +27,10 @@ public:
 
 	void SetWavetables();
 
-	short RangeBound(double sample);
-
 private:
 	double mFreq;
 	double mAmp;
 	int mPhase;
-	vector<short>mWavetable;
+	std::vector<double> mWavetable;
 };
 

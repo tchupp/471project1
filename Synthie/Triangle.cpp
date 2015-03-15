@@ -1,10 +1,8 @@
 #include "stdafx.h"
 #include "Triangle.h"
-
 #include <cmath>
 
 using namespace std;
-
 
 CTriangle::CTriangle()
 {
@@ -12,7 +10,6 @@ CTriangle::CTriangle()
 	mAmp = 0.1;
 	mFreq = 440;
 }
-
 
 CTriangle::~CTriangle()
 {
@@ -37,35 +34,21 @@ bool CTriangle::Generate()
 void CTriangle::SetWavetables()
 {
 	mWavetable.resize(GetSampleRate());
-	double time = 0;
-	int count = 0;
-	for (int i = 0; i < (GetSampleRate()); i++, time += 1. / GetSampleRate())
+	auto time = 0.;
+	auto count = 0;
+	for (auto i = 0; i < GetSampleRate(); i++ , time += 1. / GetSampleRate())
 	{
-		short triangleSample = 0;
+		auto triangleSample = 0.;
 		int nyquist = GetSampleRate() / 2;
-		int harm = 1;
+		auto harm = 1.;
 
 		while (mFreq * harm < nyquist)
 		{
-			triangleSample += RangeBound(pow(-1, count) * mAmp / pow(harm, 2) 
-				* sin(time * 2 * PI * mFreq * harm));
-			harm += 1;
+			triangleSample += pow(-1, count) * mAmp / pow(harm, 2)
+				* sin(time * 2 * PI * mFreq * harm);
+			harm += 2;
 			count++;
 		}
-		mWavetable[i] = RangeBound(triangleSample);
+		mWavetable[i] = triangleSample;
 	}
-}
-
-short CTriangle::RangeBound(double sample)
-{
-	if (sample > 32767)
-	{
-		return 32767;
-	}
-	else if (sample < -32768)
-	{
-		return -32768;
-	}
-
-	return short(sample);
 }

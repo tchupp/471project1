@@ -1,11 +1,14 @@
 #pragma once
+
 #include "AudioNode.h"
+#include <vector>
 
 class CSineWave : public CAudioNode
 {
 public:
 	CSineWave();
 	virtual ~CSineWave();
+
 	//! Start audio generation
 	virtual void Start() override;
 
@@ -22,10 +25,11 @@ public:
 	//! Set the sine wave amplitude
 	void SetAmplitude(double a) { mAmp = a; }
 
-
+	void SetWavetables();
 
 private:
 	double mFreq;
 	double mAmp;
-	double mPhase;
+	int mPhase;
+	std::vector<double> mWavetable;
 };

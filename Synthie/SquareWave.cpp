@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "SquareWave.h"
 
-#include <cmath>
-
 using namespace std;
 
 CSquareWave::CSquareWave()
@@ -27,7 +25,7 @@ bool CSquareWave::Generate()
 	mFrame[0] = mWavetable[mPhase];
 	mFrame[1] = mFrame[0];
 
-	mPhase = (mPhase+1) % mWavetable.size();
+	mPhase = (mPhase + 1) % mWavetable.size();
 
 	return true;
 }
@@ -35,36 +33,19 @@ bool CSquareWave::Generate()
 void CSquareWave::SetWavetables()
 {
 	mWavetable.resize(GetSampleRate());
-	double time = 0.;
-	auto sr = GetSampleRate();
+	auto time = 0.;
 
-	for (int i = 0; i < sr; i++, time += 1. / sr)
+	for (auto i = 0; i < GetSampleRate(); i++ , time += 1. / GetSampleRate())
 	{
-		double squareSample = 0;
+		auto squareSample = 0.;
 		int nyquist = GetSampleRate() / 2;
-		int harm = 1;
+		auto harm = 1.;
 
 		while (mFreq * harm < nyquist)
 		{
-			squareSample += RangeBound(mAmp / harm * sin(time * 2 * PI * mFreq * harm));
+			squareSample += mAmp / harm * sin(time * 2 * PI * mFreq * harm);
 			harm += 2;
 		}
-		mWavetable[i] =	RangeBound(squareSample);
-		auto hello = true;
+		mWavetable[i] = squareSample;
 	}
 }
-
-short CSquareWave::RangeBound(double sample)
-{
-	if (sample > 32767)
-	{
-		return 32767;
-	}
-	else if (sample < -32768)
-	{
-		return -32768;
-	}
-
-	return short(sample);
-}
-

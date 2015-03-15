@@ -54,9 +54,6 @@
     <ClCompile Include="WavFilePlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Subtractive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SawtoothWave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -108,6 +105,9 @@
     <ClCompile Include="ADSR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SubtractiveInstrument.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Synthesizer.h">
@@ -141,9 +141,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WavFilePlayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Subtractive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SawtoothWave.h">
@@ -204,6 +201,9 @@
       <Filter>Header Files\Don%27t touch</Filter>
     </ClInclude>
     <ClInclude Include="ADSR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubtractiveInstrument.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

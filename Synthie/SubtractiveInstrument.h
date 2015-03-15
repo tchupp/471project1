@@ -5,13 +5,12 @@
 #include "SquareWave.h"
 #include "SawtoothWave.h"
 #include "ADSR.h"
-#include <string>
 
-class CSubtractive : public CInstrument
+class CSubtractiveInstrument : public CInstrument
 {
 public:
-	CSubtractive(std::wstring feature, std::wstring waveform);
-	virtual ~CSubtractive();
+	CSubtractiveInstrument(std::wstring feature, std::wstring waveform);
+	virtual ~CSubtractiveInstrument();
 	virtual void Start() override;
 	virtual bool Generate() override;
 	virtual void SetNote(CNote *note, double secPerBeat) override;

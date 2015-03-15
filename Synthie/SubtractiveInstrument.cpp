@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "Subtractive.h"
+#include "SubtractiveInstrument.h"
 #include "Note.h"
 #include "Notes.h"
 
-CSubtractive::CSubtractive(std::wstring feature, std::wstring waveform)
+CSubtractiveInstrument::CSubtractiveInstrument(std::wstring feature, std::wstring waveform)
 {
 	mDuration = 0.1;
 	stringToFeature(feature);
@@ -11,11 +11,11 @@ CSubtractive::CSubtractive(std::wstring feature, std::wstring waveform)
 }
 
 
-CSubtractive::~CSubtractive()
+CSubtractiveInstrument::~CSubtractiveInstrument()
 {
 }
 
-void CSubtractive::Start()
+void CSubtractiveInstrument::Start()
 {
 	//mSinewave.SetSampleRate(GetSampleRate());
 	//mSinewave.Start();
@@ -52,7 +52,7 @@ void CSubtractive::Start()
 	mADSR.Start();
 }
 
-bool CSubtractive::Generate()
+bool CSubtractiveInstrument::Generate()
 {
 	if (mWaveform == Sawtooth)
 	{
@@ -70,8 +70,7 @@ bool CSubtractive::Generate()
 	{
 		mSinewave.Generate();
 	}
-	
-	/*mSinewave.Generate();*/
+
 	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
@@ -84,7 +83,7 @@ bool CSubtractive::Generate()
 	return valid;
 }
 
-void CSubtractive::SetNote(CNote* note, double secPerBeat)
+void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 {
 	// Get a list of all attribute nodes and the
 	// length of that list
@@ -126,7 +125,7 @@ void CSubtractive::SetNote(CNote* note, double secPerBeat)
 	}
 }
 
-void CSubtractive::stringToWaveform(std::wstring waveform)
+void CSubtractiveInstrument::stringToWaveform(std::wstring waveform)
 {
 	if (waveform == L"sawtooth")
 	{
@@ -142,7 +141,7 @@ void CSubtractive::stringToWaveform(std::wstring waveform)
 	}
 }
 
-void CSubtractive::stringToFeature(std::wstring feature)
+void CSubtractiveInstrument::stringToFeature(std::wstring feature)
 {
 	if (feature == L"Reson")
 	{
@@ -162,7 +161,7 @@ void CSubtractive::stringToFeature(std::wstring feature)
 	}
 }
 
-void CSubtractive::SetFreq(double f)
+void CSubtractiveInstrument::SetFreq(double f)
 {
 	mSinewave.SetFreq(f);
 	mSawtooth.SetFreq(f);
@@ -170,11 +169,10 @@ void CSubtractive::SetFreq(double f)
 	mSquare.SetFreq(f);
 }
 
-void CSubtractive::SetAmplitude(double a)
+void CSubtractiveInstrument::SetAmplitude(double a)
 {
 	mSinewave.SetAmplitude(a);
 	mSawtooth.SetAmplitude(a);
 	mTriangle.SetAmplitude(a);
 	mSquare.SetAmplitude(a);
-
 }

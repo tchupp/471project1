@@ -3,14 +3,12 @@
 #include "AudioNode.h"
 #include <vector>
 
-using namespace std;
-
-class CSquareWave :
-	public CAudioNode
+class CSquareWave : public CAudioNode
 {
 public:
 	CSquareWave();
 	virtual ~CSquareWave();
+
 	//! Start audio generation
 	virtual void Start() override;
 
@@ -29,11 +27,9 @@ public:
 
 	void SetWavetables();
 
-	short RangeBound(double sample);
-
 private:
 	double mFreq;
 	double mAmp;
 	int mPhase;
-	vector<short>mWavetable;
+	std::vector<double> mWavetable;
 };
