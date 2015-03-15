@@ -4,7 +4,7 @@
 #include "Triangle.h"
 #include "SquareWave.h"
 #include "SawtoothWave.h"
-#include "AR.h"
+#include "ADSR.h"
 #include <string>
 
 class CSubtractive : public CInstrument
@@ -33,7 +33,7 @@ private:
 	CSquareWave mSquare;
 	double mDuration;
 	double mTime;
-	CAR mAR;
+	CADSR mADSR;
 	Feature mFeature;
 	Waveform mWaveform;
 };

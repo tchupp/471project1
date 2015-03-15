@@ -39,9 +39,6 @@
     <ClCompile Include="Note.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AudioEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -108,6 +105,9 @@
     <ClCompile Include="SynthieView.cpp">
       <Filter>Source Files\Don%27t touch</Filter>
     </ClCompile>
+    <ClCompile Include="ADSR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Synthesizer.h">
@@ -126,9 +126,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Note.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AudioEffect.h">
@@ -205,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files\Don%27t touch</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSR.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

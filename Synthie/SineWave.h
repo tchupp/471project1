@@ -1,5 +1,6 @@
 #pragma once
 #include "AudioNode.h"
+
 class CSineWave : public CAudioNode
 {
 public:

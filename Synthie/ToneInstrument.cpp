@@ -22,10 +22,10 @@ void CToneInstrument::Start()
 
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
-	mAR.SetSource(&mSinewave);
-	mAR.SetSampleRate(GetSampleRate());
-	mAR.SetDuration(mDuration);
-	mAR.Start();
+	mADSR.SetSource(&mSinewave);
+	mADSR.SetSampleRate(GetSampleRate());
+	mADSR.SetDuration(mDuration);
+	mADSR.Start();
 }
 
 
@@ -33,11 +33,11 @@ bool CToneInstrument::Generate()
 {
 	// Tell the component to generate an audio sample
 	mSinewave.Generate();
-	auto valid = mAR.Generate();
+	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
-	mFrame[0] = mAR.Frame(0);
-	mFrame[1] = mAR.Frame(1);
+	mFrame[0] = mADSR.Frame(0);
+	mFrame[1] = mADSR.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();

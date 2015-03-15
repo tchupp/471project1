@@ -36,23 +36,23 @@ void CSubtractive::Start()
 
 	if (mFeature == Sawtooth)
 	{
-		mAR.SetSource(&mSawtooth);
+		mADSR.SetSource(&mSawtooth);
 	}
 	else if (mFeature == Triangle)
 	{
-		mAR.SetSource(&mTriangle);
+		mADSR.SetSource(&mTriangle);
 	}
 	else if (mFeature == Square)
 	{
-		mAR.SetSource(&mSquare);
+		mADSR.SetSource(&mSquare);
 	}
 	else
 	{
-		mAR.SetSource(&mSinewave);
+		mADSR.SetSource(&mSinewave);
 	}
-	mAR.SetSampleRate(GetSampleRate());
-	mAR.SetDuration(mDuration);
-	mAR.Start();
+	mADSR.SetSampleRate(GetSampleRate());
+	mADSR.SetDuration(mDuration);
+	mADSR.Start();
 }
 
 bool CSubtractive::Generate()
@@ -75,11 +75,11 @@ bool CSubtractive::Generate()
 	}
 	
 	/*mSinewave.Generate();*/
-	auto valid = mAR.Generate();
+	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
-	mFrame[0] = mAR.Frame(0);
-	mFrame[1] = mAR.Frame(1);
+	mFrame[0] = mADSR.Frame(0);
+	mFrame[1] = mADSR.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();
