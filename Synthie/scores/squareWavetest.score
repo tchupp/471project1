@@ -2,7 +2,7 @@
 <score bpm="120" beatspermeasure="2">
      <instrument instrument="SubtractiveInstrument" waveform="square">
           <note measure="1" beat="1" duration="0.25" note="Bb4" resonfrequency="0.01" resonbandwidth="0.02"/>
-          <note measure="2" beat="1" duration="0.25" note="Bb4" resonfrequency="0.01"/>
+          <note measure="2" beat="1" duration="0.25" note="Bb4" resonfrequency="0.01" resonbandwidth="0.02"/>
        
           <note measure="3" beat="1" duration="0.25" note="Bb4" resonfrequency="0.02" resonbandwidth="0.02"/>
           <note measure="3" beat="2" duration="0.25" note="Bb4" resonfrequency="0.02" resonbandwidth="0.02"/>
