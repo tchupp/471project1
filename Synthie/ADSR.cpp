@@ -6,7 +6,7 @@ CADSR::CADSR()
 {
 	mAttack = 0.05;
 	mDecay = 0.;
-	mDecayTo = 1.;
+	mSustainLevel = 1.;
 	mRelease = 0.05;
 }
 
@@ -22,8 +22,9 @@ void CADSR::Start()
 
 bool CADSR::Generate()
 {
+	mSource->Generate();
 	// percentage for the ramp
-	double fac = mDecayTo;
+	double fac;
 
 	if (mTime <= mAttack) // attack
 	{
@@ -35,11 +36,11 @@ bool CADSR::Generate()
 	}
 	else if (mTime > mAttack && mTime <= mAttack + mDecay) // decay
 	{
-		fac = ((mDecayTo - 1) * ((mTime - (mDuration - mDecay)) / mDecay)) + 1;
+		fac = (mSustainLevel - 1) * ((mTime - (mDuration - mDecay)) / mDecay) + 1;
 	}
 	else // sustain
 	{
-		fac = mDecayTo;
+		fac = mSustainLevel;
 	}
 	mFrame[0] = fac * mSource->Frame(0);
 	mFrame[1] = fac * mSource->Frame(1);
