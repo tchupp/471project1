@@ -1,7 +1,6 @@
 #pragma once
-#include "AudioNode.h"
-class CWavFilePlayer :
-	public CAudioNode
+#include "BaseWave.h"
+class CWavFilePlayer : public BaseWave
 {
 public:
 	CWavFilePlayer();
