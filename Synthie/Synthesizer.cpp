@@ -25,7 +25,7 @@ CSynthesizer::CSynthesizer()
 	mSecPerBeat = 0.5;
 	mBeatsPerMeasure = 4;
 
-	mScratchFactory.LoadFile("wav/scratchs/whiteNoise.wav");
+	mScratchFactory.LoadFile("wav/scratchs/triRise.wav");
 }
 
 
