@@ -35,14 +35,15 @@ private:
 	double mBandwidth;
 	double mDuration;
 	double mTime;
-	double mGain = 10;
+	double mGain;
 
+	int mWrLoc;
 	CAudioNode* mSource;
+
+	std::vector<double> mQueueX;
+	std::vector<double> mQueueY;
 
 	std::vector<FilterTerm> mFilterXTerms;
 	std::vector<FilterTerm> mFilterYTerms;
-
-	int mNumXFilters;
-	int mNumYFilters;
 
 };
