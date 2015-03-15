@@ -142,6 +142,7 @@
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="Progress.cpp" />
     <ClCompile Include="ProgressDlg.cpp" />
+    <ClCompile Include="ResonFilter.cpp" />
     <ClCompile Include="SawtoothWave.cpp" />
     <ClCompile Include="ScratchInstrument.cpp" />
     <ClCompile Include="ScratchInstrumentFactory.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Notes.h" />
     <ClInclude Include="Progress.h" />
     <ClInclude Include="ProgressDlg.h" />
+    <ClInclude Include="ResonFilter.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SawtoothWave.h" />
     <ClInclude Include="ScratchInstrument.h" />

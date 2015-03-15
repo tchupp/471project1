@@ -81,8 +81,8 @@ bool CResonFilter::Generate()
 		queue_y[wrloc] = audio[0];
 		queue_y[wrloc + 1] = audio[1];
 
-		mFrame[0] = fac * mSource->Frame(0);
-		mFrame[1] = fac * mSource->Frame(1);
+		//mFrame[0] = fac * mSource->Frame(0);
+		//mFrame[1] = fac * mSource->Frame(1);
 
 		// Update time
 		mTime += GetSamplePeriod();
