@@ -21,7 +21,7 @@ void CSubtractiveInstrument::Start()
 	//mSinewave.Start();
 
 	mTime = 0;
-
+	ResonFilter();
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
 
