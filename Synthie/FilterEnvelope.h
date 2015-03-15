@@ -1,5 +1,4 @@
 #pragma once
-
 #include "AudioNode.h"
 
 class CFilterEnvelope : public CAudioNode
@@ -14,6 +13,8 @@ public:
 	//! Cause one sample to be generated
 	virtual bool Generate() override;
 
+	//! Set the envelope duration
+	void SetDuration(double duration) { mDuration = duration; }
 	//! Set attack length
 	void SetAttack(double attack) { mAttack = attack; }
 	//! Set Decay length
@@ -26,11 +27,13 @@ public:
 	double GetEnvelopeLevel() { return mEnvelopeLevel; }
 
 private:
+	double mDuration;
 	double mAttack;
 	double mDecay;
 	double mSustainLevel;
 	double mRelease;
 
+	double mTime;
 	double mEnvelopeLevel;
 };
 

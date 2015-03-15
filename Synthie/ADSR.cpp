@@ -36,7 +36,7 @@ bool CADSR::Generate()
 	}
 	else if (mTime > mAttack && mTime <= mAttack + mDecay) // decay
 	{
-		fac = ((mSustainLevel - 1) * ((mTime - (mDuration - mDecay)) / mDecay)) + 1;
+		fac = (mSustainLevel - 1) * ((mTime - (mDuration - mDecay)) / mDecay) + 1;
 	}
 	else // sustain
 	{
