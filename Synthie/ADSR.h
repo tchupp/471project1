@@ -1,8 +1,7 @@
 #pragma once
 #include "AudioNode.h"
 
-class CADSR :
-	public CAudioNode
+class CADSR : public CAudioNode
 {
 public:
 	CADSR();

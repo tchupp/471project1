@@ -29,24 +29,33 @@ void CSubtractiveInstrument::Start()
 	{
 		mSawtooth.SetSampleRate(GetSampleRate());
 		mSawtooth.Start();
+		mReson.SetSource(&mSawtooth);
 		mADSR.SetSource(&mSawtooth);
+		
 	}
 	else if (mWaveform == Triangle)
 	{
 		mTriangle.SetSampleRate(GetSampleRate());
 		mTriangle.Start();
+		mReson.SetSource(&mTriangle);
 		mADSR.SetSource(&mTriangle);
 	}
 	else if (mWaveform == Square)
 	{
 		mSquare.SetSampleRate(GetSampleRate());
 		mSquare.Start();
-		mADSR.SetSource(&mSquare);
+		mReson.SetSource(&mSquare);
+		mADSR.SetSource(&mSquare);	
 	}
 	else
 	{
+		mReson.SetSource(&mSinewave);
 		mADSR.SetSource(&mSinewave);
 	}
+	mReson.SetSampleRate(GetSampleRate());
+	mReson.SetDuration(mDuration);
+	mReson.Start();
+
 	mADSR.SetSampleRate(GetSampleRate());
 	mADSR.SetDuration(mDuration);
 	mADSR.Start();
@@ -71,6 +80,7 @@ bool CSubtractiveInstrument::Generate()
 		mSinewave.Generate();
 	}
 
+	auto filterValid = mReson.Generate();
 	auto valid = mADSR.Generate();
 
 	// Read the component's sample and make it our resulting frame.
@@ -171,32 +181,8 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 
 void CSubtractiveInstrument::ResonFilter()
 {
-	double R = 1 - mResonBandwidth / 2;
-	double costheta = (2 * R * cos(2 * PI * mResonFrequency)) / (1 + pow(R, 2));
-	double sintheta = sqrt(1 - pow(costheta, 2));
-	double A = (1 - pow(R, 2)) * sintheta;
-	A = A * RESONGAIN;
-
-	mFilterXTerms.clear();
-	mFilterYTerms.clear();
-
-	mNumXFilters = 1;
-
-	FilterTerm term;
-	term.m_delay = 0;
-	term.m_weight = A;
-
-	mFilterXTerms.push_back(term);
-
-	term.m_delay = 1;
-	term.m_weight = 2 * R * costheta;
-	mFilterYTerms.push_back(term);
-
-	term.m_delay = 2;
-	term.m_weight = -pow(R, 2);
-	mFilterYTerms.push_back(term);
-
-	ProcessFilter();
+	mReson.SetBandwidth(mResonBandwidth);
+	mReson.SetFrequency(mResonFrequency);
 }
 
 void CSubtractiveInstrument::ProcessFilter()
@@ -204,7 +190,6 @@ void CSubtractiveInstrument::ProcessFilter()
 	short audio[2];
 
 	const int QUEUESIZE = 200000;
-
 
 	std::vector<short> queue_x;
 	std::vector<short> queue_y;
