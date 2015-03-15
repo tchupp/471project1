@@ -3,6 +3,10 @@
 #include "Note.h"
 #include "Notes.h"
 
+double const RESONGAIN = 10;
+double const RESONBANDWIDTH = 0.01;
+double const RESONFREQUENCY = 0.02;
+
 CSubtractiveInstrument::CSubtractiveInstrument(std::wstring feature, std::wstring waveform)
 {
 	mDuration = 0.1;
@@ -175,4 +179,39 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 	mSawtooth.SetAmplitude(a);
 	mTriangle.SetAmplitude(a);
 	mSquare.SetAmplitude(a);
+}
+
+void CSubtractiveInstrument::ResonFilter()
+{
+	double R = 1 - RESONBANDWIDTH / 2;
+	double costheta = (2 * R * cos(2 * PI * RESONFREQUENCY)) / (1 + pow(R, 2));
+	double sintheta = sqrt(1 - pow(costheta, 2));
+	double A = (1 - pow(R, 2)) * sintheta;
+	A = A * RESONGAIN;
+
+	mFilterXTerms.clear();
+	mFilterYTerms.clear();
+
+	mNumXFilters = 1;
+
+	FilterTerm term;
+	term.m_delay = 0;
+	term.m_weight = A;
+
+	mFilterXTerms.push_back(term);
+
+	term.m_delay = 1;
+	term.m_weight = 2 * R * costheta;
+	mFilterYTerms.push_back(term);
+
+	term.m_delay = 2;
+	term.m_weight = -pow(R, 2);
+	mFilterYTerms.push_back(term);
+
+	ProcessFilter();
+}
+
+void CSubtractiveInstrument::ProcessFilter()
+{
+
 }

@@ -5,6 +5,9 @@
 #include "SquareWave.h"
 #include "SawtoothWave.h"
 #include "ADSR.h"
+#include <vector>
+
+using namespace std;
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -19,6 +22,8 @@ public:
 	void SetAmplitude(double a);
 	void SetDuration(double d) { mDuration = d; }
 
+	void ProcessFilter();
+	void ResonFilter();
 	enum Waveform { Sawtooth, Triangle, Square };
 	enum Feature { Reson, Polyphony, FilterEnvelope, Envelope };
 
@@ -35,4 +40,15 @@ private:
 
 	void StringToWaveform(std::wstring waveform);
 	void StringToFeature(std::wstring feature);
+
+	struct FilterTerm {
+		int m_delay;
+		double m_weight;
+	};
+
+	vector<FilterTerm> mFilterXTerms;
+	vector<FilterTerm> mFilterYTerms;
+
+	int mNumXFilters;
+	int mNumYFilters;
 };
