@@ -3,11 +3,11 @@
 #include "AudioNode.h"
 #include <vector>
 
-class CTriangle : public CAudioNode
+class CTriangleWave : public CAudioNode
 {
 public:
-	CTriangle();
-	virtual ~CTriangle();
+	CTriangleWave();
+	virtual ~CTriangleWave();
 
 	//! Start audio generation
 	virtual void Start() override;

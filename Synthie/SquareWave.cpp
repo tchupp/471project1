@@ -32,10 +32,12 @@ bool CSquareWave::Generate()
 
 void CSquareWave::SetWavetables()
 {
-	mWavetable.resize(GetSampleRate());
+	auto tableSize = GetSampleRate() / mFreq;
+
+	mWavetable.resize(tableSize);
 	auto time = 0.;
 
-	for (auto i = 0; i < GetSampleRate(); i++ , time += 1. / GetSampleRate())
+	for (auto i = 0; i < tableSize; i++ , time += 1. / GetSampleRate())
 	{
 		auto squareSample = 0.;
 		int nyquist = GetSampleRate() / 2;

@@ -1,27 +1,27 @@
 #include "stdafx.h"
-#include "Triangle.h"
+#include "TriangleWave.h"
 #include <cmath>
 
 using namespace std;
 
-CTriangle::CTriangle()
+CTriangleWave::CTriangleWave()
 {
 	mPhase = 0;
 	mAmp = 0.1;
 	mFreq = 440;
 }
 
-CTriangle::~CTriangle()
+CTriangleWave::~CTriangleWave()
 {
 }
 
-void CTriangle::Start()
+void CTriangleWave::Start()
 {
 	mPhase = 0;
 	SetWavetables();
 }
 
-bool CTriangle::Generate()
+bool CTriangleWave::Generate()
 {
 	mFrame[0] = mWavetable[mPhase];
 	mFrame[1] = mFrame[0];
@@ -31,12 +31,14 @@ bool CTriangle::Generate()
 	return true;
 }
 
-void CTriangle::SetWavetables()
+void CTriangleWave::SetWavetables()
 {
-	mWavetable.resize(GetSampleRate());
+	auto tableSize = GetSampleRate() / mFreq;
+
+	mWavetable.resize(tableSize);
 	auto time = 0.;
 	auto count = 0;
-	for (auto i = 0; i < GetSampleRate(); i++ , time += 1. / GetSampleRate())
+	for (auto i = 0; i < tableSize; i++ , time += 1. / GetSampleRate())
 	{
 		auto triangleSample = 0.;
 		int nyquist = GetSampleRate() / 2;

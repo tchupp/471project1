@@ -157,7 +157,7 @@
     <ClCompile Include="audio\WaveformBuffer.cpp" />
     <ClCompile Include="audio\WaveformWnd.cpp" />
     <ClCompile Include="ToneInstrument.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TriangleWave.cpp" />
     <ClCompile Include="WavFilePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -191,7 +191,7 @@
     <ClInclude Include="audio\WaveformBuffer.h" />
     <ClInclude Include="audio\WaveformWnd.h" />
     <ClInclude Include="ToneInstrument.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TriangleWave.h" />
     <ClInclude Include="WavFilePlayer.h" />
     <ClInclude Include="xmlhelp.h" />
   </ItemGroup>
