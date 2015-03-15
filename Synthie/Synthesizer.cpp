@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Synthesizer.h"
 #include "ToneInstrument.h"
-#include "Subtractive.h"
+#include "SubtractiveInstrument.h"
 #include "xmlhelp.h"
 #include "Note.h"
 #include <algorithm>
@@ -84,7 +84,7 @@ bool CSynthesizer::Generate(double* frame)
 		}
 		else if (note->Instrument() == SUBTRACTIVE_INSTRUMENT)
 		{
-			instrument = new CSubtractive(note->Feature(), note->Waveform());
+			instrument = new CSubtractiveInstrument(note->Feature(), note->Waveform());
 		}
 		// Configure the instrument object
 		if (instrument != nullptr)
