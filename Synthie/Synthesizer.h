@@ -3,6 +3,7 @@
 #include <list>
 #include <vector>
 #include "ChorusEffect.h"
+#include "FlangeEffect.h"
 #include "ScratchInstrumentFactory.h"
 
 class CNote;
@@ -60,7 +61,8 @@ private:
 	double mBeat; //!< The current beat within the measure
 
 	//! Effects
-	CChorusEffect	mChorusEffect;
+	CChorusEffect mChorusEffect;
+	CFlangeEffect mFlangeEffect;
 
 	//! Scratch Factory
 	CScratchInstrumentFactory mScratchFactory;

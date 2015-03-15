@@ -90,6 +90,10 @@ bool CSynthesizer::Generate(double* frame)
 		{
 			mChorusEffect.SetNote(note, mSecPerBeat);
 		}
+		else if (note->Instrument() == L"Flange")
+		{
+			mFlangeEffect.SetNote(note, mSecPerBeat);
+		}
 		// Configure the instrument object
 		if (instrument != nullptr)
 		{

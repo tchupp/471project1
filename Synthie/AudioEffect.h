@@ -25,11 +25,11 @@ public:
 protected:
 	CAudioEffect();
 
-private:
-	//! The average delay 
 	double	mDelay;
 	double	mWet;
 	double	mDry;
+	int mWrloc;
+	int mRdloc;
 	std::vector<short> mQueue;
 };
 
