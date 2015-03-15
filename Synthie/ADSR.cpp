@@ -22,8 +22,9 @@ void CADSR::Start()
 
 bool CADSR::Generate()
 {
+	mSource->Generate();
 	// percentage for the ramp
-	double fac = mSustainLevel;
+	double fac;
 
 	if (mTime <= mAttack) // attack
 	{
