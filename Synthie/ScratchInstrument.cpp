@@ -19,17 +19,23 @@ void CScratchInstrument::Start()
 	mTime = 0;
 
 	mWavPlayer.SetSampleRate(GetSampleRate());
-	mWavPlayer.Start();
 
-	mAmplitudeFilter.SetSource(&mWavPlayer);
+	mPitchFilter.SetSource(&mWavPlayer);
+	mPitchFilter.SetSampleRate(GetSampleRate());
+	mPitchFilter.SetDuration(mDuration);
+
+	mAmplitudeFilter.SetSource(&mPitchFilter);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
+
+	mPitchFilter.Start();
 	mAmplitudeFilter.Start();
+	mWavPlayer.Start();
 }
 
 bool CScratchInstrument::Generate()
 {
-	mWavPlayer.Generate();
+	mPitchFilter.Generate();
 	mAmplitudeFilter.Generate();
 
 	mFrame[0] = mAmplitudeFilter.Frame(0);

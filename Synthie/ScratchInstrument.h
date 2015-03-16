@@ -1,7 +1,7 @@
 #pragma once
 #include "Instrument.h"
 #include "WavFilePlayer.h"
-
+#include "PitchFilter.h"
 
 class CScratchInstrument :
 	public CInstrument
@@ -22,6 +22,8 @@ public:
 
 private:
 	CWavFilePlayer mWavPlayer;
+	CPitchFilter mPitchFilter;
+
 	double mDuration;
 	double mTime;
 	ScratchType mType;

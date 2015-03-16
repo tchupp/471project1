@@ -25,11 +25,11 @@ bool CFilterEnvelope::Generate()
 {
 	if (mTime <= mAttack) // attack
 	{
-		mEnvelopeLevel = mTime / mAttack;
+		mEnvelopeLevel = mTime / mAttack * mSustainLevel;
 	}
 	else if (mTime > mDuration - mRelease) // release
 	{
-		mEnvelopeLevel = 1 - (mTime - (mDuration - mRelease)) / mRelease;
+		mEnvelopeLevel = (1 - (mTime - (mDuration - mRelease)) / mRelease) * mSustainLevel;
 	}
 	else if (mTime > mAttack && mTime <= mAttack + mDecay) // decay
 	{
