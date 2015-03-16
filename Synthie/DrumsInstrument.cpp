@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "DrumsInstrument.h"
 #include "Note.h"
+#include "Envelope.h"
 
 
 CDrumsInstrument::CDrumsInstrument()
@@ -23,6 +24,9 @@ void CDrumsInstrument::Start()
 
 bool CDrumsInstrument::Generate()
 {
+	// Call generate on the envelope here!! Instead of in a filter
+	mEnvelope->Generate();
+
 	mWavPlayer.Generate();
 
 	mFrame[0] = mWavPlayer.Frame(0);

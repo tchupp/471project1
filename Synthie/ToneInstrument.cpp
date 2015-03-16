@@ -2,6 +2,7 @@
 #include "ToneInstrument.h"
 #include "Note.h"
 #include "Notes.h"
+#include "Envelope.h"
 
 
 CToneInstrument::CToneInstrument()
@@ -31,7 +32,11 @@ void CToneInstrument::Start()
 
 bool CToneInstrument::Generate()
 {
+	// Call generate on the envelope here!! Instead of in a filter
+	mEnvelope->Generate();
+
 	mSinewave.Generate();
+
 	// Tell the component to generate an audio sample
 	auto valid = mAmplitudeFilter.Generate();
 

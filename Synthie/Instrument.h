@@ -23,4 +23,5 @@ public:
 
 protected:
 	CAmplitudeFilter mAmplitudeFilter;
+	CEnvelope* mEnvelope;
 };

@@ -16,5 +16,6 @@ public:
 	CCustomEnvelopeFactory();
 	virtual ~CCustomEnvelopeFactory();
 
-	CCustomEnvelope CreateBabyScratchEnvelope();
+	CEnvelope* CreateBabyScratchEnvelope();
+	CEnvelope* CreateScribbleScratchEnvelope();
 };

@@ -12,6 +12,7 @@ using namespace std;
 
 CCustomEnvelope::CCustomEnvelope()
 {
+	mEnvelopeLevel = 1;
 }
 
 
@@ -30,24 +31,23 @@ void CCustomEnvelope::AddPoint(double time, double level)
 void CCustomEnvelope::Start()
 {
 	sort(mEnvelopePoints.begin(), mEnvelopePoints.end());
+	mTime = 0;
 }
 
 bool CCustomEnvelope::Generate()
 {
-	mTime = 0.2;
 	SetEnvelopePoints();
 	mEnvelopeLevel = GenerateLevelValue();
+
 	mTime += GetSamplePeriod();
 	return mTime < mDuration;
 }
 
 double CCustomEnvelope::GenerateLevelValue()
 {
-	double yLevelValue;
-
-	yLevelValue = (mPreviousEnvelopePoint.mLevel - mNextEnvelopePoint.mLevel) 
-			/ (mPreviousEnvelopePoint.mTime - mNextEnvelopePoint.mTime)
-				* (mTime - mPreviousEnvelopePoint.mTime) + mPreviousEnvelopePoint.mLevel;
+	auto yLevelValue = (mPrevPoint.mLevel - mNextPoint.mLevel)
+		/ (mPrevPoint.mTime - mNextPoint.mTime)
+		* (mTime - mPrevPoint.mTime) + mPrevPoint.mLevel;
 
 	return yLevelValue;
 }
@@ -60,11 +60,10 @@ void CCustomEnvelope::SetEnvelopePoints()
 		///future add a check to see if this is the end of the vector
 		if (mTime > point.mTime)
 		{
-			mPreviousEnvelopePoint = point;
-			mNextEnvelopePoint = mEnvelopePoints[index + 1];
+			mPrevPoint = point;
+			mNextPoint = mEnvelopePoints[index + 1];
 			return;
 		}
 		index++;
 	}
-
 }

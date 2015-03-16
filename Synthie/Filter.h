@@ -8,7 +8,6 @@
 
 #pragma once
 #include "AudioNode.h"
-#include "ADSREnvelope.h"
 
 class CEnvelope;
 
@@ -18,7 +17,7 @@ public:
 	CFilter();
 	virtual ~CFilter();
 
-	void SetEnvelope(CEnvelope envelope) { mEnvelope = envelope; }
+	void SetEnvelope(CEnvelope* envelope) { mEnvelope = envelope; }
 
 	//! Set the source audio
 	void SetSource(CAudioNode* source) { mSource = source; }
@@ -26,7 +25,7 @@ public:
 
 protected:
 	CAudioNode* mSource;
-	CEnvelope mEnvelope;
+	CEnvelope* mEnvelope;
 
 	double mDuration;
 	double mTime;

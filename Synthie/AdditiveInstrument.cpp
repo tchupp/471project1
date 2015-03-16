@@ -2,6 +2,7 @@
 #include "AdditiveInstrument.h"
 #include "Note.h"
 #include "Notes.h"
+#include "Envelope.h"
 #include <sstream>
 
 CAdditiveInstrument::CAdditiveInstrument()
@@ -31,6 +32,9 @@ void CAdditiveInstrument::Start()
 
 bool CAdditiveInstrument::Generate()
 {
+	// Call generate on the envelope here!! Instead of in a filter
+	mEnvelope->Generate();
+
 	// Generate a wave from several sinusoids
 	mCustomWave.Generate();
 

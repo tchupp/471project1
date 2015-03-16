@@ -2,6 +2,7 @@
 #include "SubtractiveInstrument.h"
 #include "Note.h"
 #include "Notes.h"
+#include "Envelope.h"
 
 double const RESONGAIN = 10;
 
@@ -90,6 +91,9 @@ void CSubtractiveInstrument::Start()
 
 bool CSubtractiveInstrument::Generate()
 {
+	// Call generate on the envelope here!! Instead of in a filter
+	mEnvelope->Generate();
+
 	if (mWaveform == Sawtooth)
 	{
 		mSawtooth.Generate();

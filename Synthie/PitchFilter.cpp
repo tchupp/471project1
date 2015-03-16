@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "PitchFilter.h"
+#include "Envelope.h"
 
 
 CPitchFilter::CPitchFilter()
@@ -18,9 +19,10 @@ void CPitchFilter::Start()
 	mPosition = 0;
 	mSampleNum = 0;
 
-	mEnvelope.SetDuration(mDuration);
-	mEnvelope.SetSampleRate(GetSampleRate());
-	mEnvelope.Start();
+	// Make sure you do this!
+	mEnvelope->SetDuration(mDuration);
+	mEnvelope->SetSampleRate(GetSampleRate());
+	mEnvelope->Start();
 
 	mSource->Start();
 	auto valid = mSource->Generate();
@@ -35,13 +37,13 @@ void CPitchFilter::Start()
 
 bool CPitchFilter::Generate()
 {
+	// No need to generate mEnvelope anymore!!
 	mSampleNum = int(mPosition + 0.5) % mQueueL.size();
 
 	mFrame[0] = mQueueL[mSampleNum];
 	mFrame[1] = mQueueR[mSampleNum];
 
-	mEnvelope.Generate();
-	mPosition += mEnvelope.GetEnvelopeLevel();
+	mPosition += mEnvelope->GetEnvelopeLevel();
 
 	if (mSampleNum < 0) mPosition = mQueueL.size();
 

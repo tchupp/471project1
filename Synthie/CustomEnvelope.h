@@ -23,29 +23,27 @@ public:
 	//! Cause one sample to be generated
 	virtual bool Generate() override;
 
-	struct EnvelopePoint { 
+	struct EnvelopePoint
+	{
 		double mTime;
 		double mLevel;
 
-		inline bool operator==(EnvelopePoint p) {
-			if (p.mTime == mTime)
-				return true;
-			else
-				return false;
+		inline bool operator==(EnvelopePoint p)
+		{
+			if (p.mTime == mTime) return true;
+			return false;
 		}
 
-		inline bool operator<(EnvelopePoint p) {
-			if (mTime < p.mTime)
-				return true;
-			else
-				return false;
+		inline bool operator<(EnvelopePoint p)
+		{
+			if (mTime < p.mTime) return true;
+			return false;
 		}
 
-		inline bool operator>(EnvelopePoint p) {
-			if (mTime > p.mTime)
-				return true;
-			else
-				return false;
+		inline bool operator>(EnvelopePoint p)
+		{
+			if (mTime > p.mTime) return true;
+			return false;
 		}
 	};
 
@@ -57,6 +55,6 @@ public:
 
 private:
 	std::vector<EnvelopePoint> mEnvelopePoints;
-	EnvelopePoint mPreviousEnvelopePoint;
-	EnvelopePoint mNextEnvelopePoint;
+	EnvelopePoint mPrevPoint;
+	EnvelopePoint mNextPoint;
 };

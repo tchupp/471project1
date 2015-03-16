@@ -7,6 +7,8 @@
 #include "stdafx.h"
 #include "Note.h"
 #include "ScratchInstrument.h"
+#include "CustomEnvelopeFactory.h"
+#include "CustomEnvelope.h"
 
 
 CScratchInstrument::CScratchInstrument()
@@ -22,6 +24,22 @@ CScratchInstrument::~CScratchInstrument()
 
 void CScratchInstrument::Start()
 {
+	CCustomEnvelopeFactory factory;
+	switch (mType)
+	{
+	case Baby:
+		mEnvelope = factory.CreateBabyScratchEnvelope();
+		break;
+	case Scribble:
+		mEnvelope = factory.CreateScribbleScratchEnvelope();
+		break;
+	default:
+		mEnvelope = new CEnvelope();
+		break;
+	}
+	mPitchFilter.SetEnvelope(mEnvelope);
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
+
 	mTime = 0;
 
 	mWavPlayer.SetSampleRate(GetSampleRate());
@@ -41,6 +59,9 @@ void CScratchInstrument::Start()
 
 bool CScratchInstrument::Generate()
 {
+	// Call generate on the envelope here!! Instead of in a filter
+	mEnvelope->Generate();
+
 	mPitchFilter.Generate();
 	mAmplitudeFilter.Generate();
 
@@ -63,7 +84,7 @@ void CScratchInstrument::SetNote(CNote* note, double secPerBeat)
 	attributes->get_length(&len);
 
 	// Loop over the list of attributes
-	for (int i = 0; i < len; i++)
+	for (auto i = 0; i < len; i++)
 	{
 		// Get attribute i
 		CComPtr<IXMLDOMNode> attrib;

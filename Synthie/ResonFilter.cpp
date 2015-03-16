@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ResonFilter.h"
+#include "Envelope.h"
 
 using namespace std;
 
@@ -26,17 +27,16 @@ void CResonFilter::Start()
 	mQueueY.resize(queueSize);
 	SetResonParameters();
 
-	mEnvelope.SetDuration(mDuration);
-	mEnvelope.SetSampleRate(GetSampleRate());
-	mEnvelope.Start();
+	// Make sure you do this!!
+	mEnvelope->SetDuration(mDuration);
+	mEnvelope->SetSampleRate(GetSampleRate());
+	mEnvelope->Start();
 }
 
 
 bool CResonFilter::Generate()
 {
-	//! generate next envelope
-	mEnvelope.Generate();
-
+	// No need to generate mEnvelope anymore!!
 	double audio[2];
 
 	auto queueSize = int(2 * GetSampleRate());
@@ -77,7 +77,7 @@ bool CResonFilter::Generate()
 	mQueueY[mWrLoc + 1] = audio[1];
 
 	// get envelope level for wet vs dry
-	auto wetLevel = mEnvelope.GetEnvelopeLevel();
+	auto wetLevel = mEnvelope->GetEnvelopeLevel();
 	auto dryLevel = 1 - wetLevel;
 
 	mFrame[0] = wetLevel * audio[0] + dryLevel * mSource->Frame(0);
