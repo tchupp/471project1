@@ -13,6 +13,8 @@ public:
 	void SetSamples(short* sL, short* sR, int n);
 	void SetSpeed(double speed) { mSpeed = speed; }
 
+	virtual void SetWavetables(){};
+
 private:
 	short* mSamplesLeft;
 	short* mSamplesRight;
