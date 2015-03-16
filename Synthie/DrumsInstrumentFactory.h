@@ -18,4 +18,6 @@ public:
 private:
 	std::vector<short> mWaveL;
 	std::vector<short> mWaveR;
+
+	void SetDrumType(std::wstring type);
 };

@@ -61,7 +61,5 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 		// and then read its integer or double value from a member variable.
 		CComVariant value;
 		attrib->get_nodeValue(&value);
-
-
 	}
 }

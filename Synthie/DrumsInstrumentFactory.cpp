@@ -24,7 +24,7 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 	attributes->get_length(&len);
 
 	// Loop over the list of attributes
-	for (int i = 0; i < len; i++)
+	for (auto i = 0; i < len; i++)
 	{
 		// Get attribute i
 		CComPtr<IXMLDOMNode> attrib;
@@ -42,31 +42,10 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 		CComVariant value;
 		attrib->get_nodeValue(&value);
 
-		if (name == "bass")
+		if (name == L"drumType")
 		{
-
+			SetDrumType(value.bstrVal);
 		}
-
-		else if (name == "cymbals")
-		{
-
-		}
-
-		else if (name == "tomshort")
-		{
-
-		}
-		
-		else if (name == "tomlong")
-		{
-
-		}
-
-		else if (name == "snare")
-		{
-
-		}
-
 	}
 }
 
@@ -99,7 +78,30 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 		mWaveL.push_back(frame[0]);
 		mWaveR.push_back(frame[1]);
 	}
-
 	mFile.Close();
 	return true;
+}
+
+void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
+{
+	if (type == L"bass")
+	{
+		LoadFile("wav/drums/bass.wav");
+	}
+	else if (type == L"cymbals")
+	{
+		//LoadFile?
+	}
+	else if (type == L"tomshort")
+	{
+		LoadFile("wav/drums/tomshort.wav");
+	}
+	else if (type == L"tomlong")
+	{
+		LoadFile("wav/drums/tomlong.wav");
+	}
+	else if (type == L"snare")
+	{
+		LoadFile("wav/drums/snare.wav");
+	}
 }
