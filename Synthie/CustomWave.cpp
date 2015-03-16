@@ -38,20 +38,20 @@ void CCustomWave::SetWavetables()
 	mWavetable.resize(tableSize);
 	auto time = 0.;
 
-	double nyquistFrequency = GetSampleRate() / 2;
+	auto nyquistFrequency = GetSampleRate() / 2;
 
 	for (auto i = 0; i < tableSize; i++ , time += 1. / GetSampleRate())
 	{
-		double sineSample = 0;
+		auto sineSample = mAmp * sin(time * 2 * PI * mFreq);
 
 		// Harmonics
 		if (mHarmonics.size() > 0)
 		{
-			// Adding harmonics (index is harmonic, value is amplitude)
-			for (int x = 0; x < mHarmonics.size() && (mFreq * (x + 1)) < nyquistFrequency; x++)
+			// Adding harmonics (index is harmonic, value is amplitude), while below nyquist
+			for (auto x = 0; x < mHarmonics.size() && (mFreq * (x + 1)) < nyquistFrequency; x++)
 			{
 				// Adjusting to fit harmonic number
-				int harmonic = x + 1;
+				auto harmonic = x + 1;
 
 				sineSample += mHarmonics[x] * (mAmp / harmonic) * (sin(time * 2 * PI * harmonic * mFreq));
 			}

@@ -13,5 +13,5 @@ public:
 
 	//! Generate one frame of audio
 	virtual bool Generate() override;
-	virtual void SetWavetables();
+	virtual void SetWavetables() override;
 };

@@ -1,7 +1,6 @@
 #pragma once
 #include "Instrument.h"
 #include "CustomWave.h"
-#include "ADSR.h"
 
 using namespace std;
 
@@ -16,9 +15,9 @@ public:
 	virtual bool Generate() override;
 	virtual void SetNote(CNote *note, double secPerBeat) override;
 
-	void SetFreq(double f) { mHarmonicsWave.SetFreq(f); }
+	void SetFreq(double f) { mCustomWave.SetFreq(f); }
 
-	void SetAmplitude(double a) { mHarmonicsWave.SetAmplitude(a); }
+	void SetAmplitude(double a) { mCustomWave.SetAmplitude(a); }
 
 	void SetDuration(double d) { mDuration = d; }
 
@@ -28,8 +27,5 @@ private:
 	double mDuration;
 	double mTime;
 
-	// The attack-delay-sustain-release object
-	CADSR mADSR;
-	
-	CCustomWave mHarmonicsWave;
+	CCustomWave mCustomWave;
 };

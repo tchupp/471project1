@@ -5,6 +5,7 @@
 #include "ChorusEffect.h"
 #include "FlangeEffect.h"
 #include "ScratchInstrumentFactory.h"
+#include "DrumsInstrumentFactory.h"
 
 class CNote;
 class CInstrument;
@@ -66,4 +67,5 @@ private:
 
 	//! Scratch Factory
 	CScratchInstrumentFactory mScratchFactory;
+	CDrumsInstrumentFactory mDrumsFactory;
 };

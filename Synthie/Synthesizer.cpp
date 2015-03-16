@@ -13,6 +13,7 @@ const wstring TONE_INSTRUMENT = L"ToneInstrument";
 const wstring SCRATCH_INSTRUMENT = L"ScratchInstrument";
 const wstring SUBTRACTIVE_INSTRUMENT = L"SubtractiveInstrument";
 const wstring ADDITIVE_INSTRUMENT = L"AdditiveInstrument";
+const wstring DRUMS_INSTRUMENT = L"DrumsInstrument";
 
 CSynthesizer::CSynthesizer()
 {
@@ -88,6 +89,11 @@ bool CSynthesizer::Generate(double* frame)
 		{
 			instrument = new CSubtractiveInstrument();
 		}
+		else if (note->Instrument() == DRUMS_INSTRUMENT)
+		{
+			mDrumsFactory.SetNote(note);
+			instrument = mDrumsFactory.CreateInstrument();
+		}
 		else if (note->Instrument() == L"Chorus")
 		{
 			mChorusEffect.SetNote(note, mSecPerBeat);
@@ -110,7 +116,6 @@ bool CSynthesizer::Generate(double* frame)
 
 			mInstruments.push_back(instrument);
 		}
-
 		mCurrentNote++;
 	}
 

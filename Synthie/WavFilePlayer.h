@@ -9,6 +9,7 @@ public:
 
 	virtual void Start() override;
 	virtual bool Generate() override;
+	virtual void SetWavetables() override;
 
 	void SetSamples(short* sL, short* sR, int n);
 	void SetSpeed(double speed) { mSpeed = speed; }

@@ -127,7 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdditiveInstrument.cpp" />
-    <ClCompile Include="ADSR.cpp" />
+    <ClCompile Include="AmplitudeFilter.cpp" />
     <ClCompile Include="AudioEffect.cpp" />
     <ClCompile Include="AudioNode.cpp" />
     <ClCompile Include="audio\DirSound.cpp" />
@@ -137,7 +137,9 @@
     <ClCompile Include="ChorusEffect.cpp" />
     <ClCompile Include="DrumsInstrument.cpp" />
     <ClCompile Include="DrumsInstrumentFactory.cpp" />
-    <ClCompile Include="FilterEnvelope.cpp" />
+    <ClCompile Include="Envelope.cpp" />
+    <ClCompile Include="Filter.cpp" />
+    <ClCompile Include="ADSREnvelope.cpp" />
     <ClCompile Include="FlangeEffect.cpp" />
     <ClCompile Include="CustomWave.cpp" />
     <ClCompile Include="Instrument.cpp" />
@@ -145,6 +147,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="PitchFilter.cpp" />
     <ClCompile Include="Progress.cpp" />
     <ClCompile Include="ProgressDlg.cpp" />
     <ClCompile Include="ResonFilter.cpp" />
@@ -166,11 +169,12 @@
     <ClCompile Include="audio\WaveformWnd.cpp" />
     <ClCompile Include="ToneInstrument.cpp" />
     <ClCompile Include="TriangleWave.cpp" />
+    <ClCompile Include="VibratoEffect.cpp" />
     <ClCompile Include="WavFilePlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdditiveInstrument.h" />
-    <ClInclude Include="ADSR.h" />
+    <ClInclude Include="AmplitudeFilter.h" />
     <ClInclude Include="AudioEffect.h" />
     <ClInclude Include="AudioNode.h" />
     <ClInclude Include="audio\DirSound.h" />
@@ -180,7 +184,9 @@
     <ClInclude Include="ChorusEffect.h" />
     <ClInclude Include="DrumsInstrument.h" />
     <ClInclude Include="DrumsInstrumentFactory.h" />
-    <ClInclude Include="FilterEnvelope.h" />
+    <ClInclude Include="Envelope.h" />
+    <ClInclude Include="Filter.h" />
+    <ClInclude Include="ADSREnvelope.h" />
     <ClInclude Include="FlangeEffect.h" />
     <ClInclude Include="CustomWave.h" />
     <ClInclude Include="Instrument.h" />
@@ -188,6 +194,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="Notes.h" />
+    <ClInclude Include="PitchFilter.h" />
     <ClInclude Include="Progress.h" />
     <ClInclude Include="ProgressDlg.h" />
     <ClInclude Include="ResonFilter.h" />
@@ -208,6 +215,7 @@
     <ClInclude Include="audio\WaveformWnd.h" />
     <ClInclude Include="ToneInstrument.h" />
     <ClInclude Include="TriangleWave.h" />
+    <ClInclude Include="VibratoEffect.h" />
     <ClInclude Include="WavFilePlayer.h" />
     <ClInclude Include="xmlhelp.h" />
   </ItemGroup>

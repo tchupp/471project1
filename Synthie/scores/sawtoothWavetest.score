@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <score bpm="120" beatspermeasure="2">
-     <instrument instrument="SubtractiveInstrument" waveform="sawtooth" feature="reson">
+     <instrument instrument="SubtractiveInstrument" waveform="sawtooth">
           <note measure="1" beat="1" duration="0.25" note="Bb4"/>
           <note measure="2" beat="1" duration="0.25" note="Bb4"/>
        

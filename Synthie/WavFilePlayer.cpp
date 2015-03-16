@@ -39,3 +39,7 @@ void CWavFilePlayer::SetSamples(short* sL, short* sR, int n)
 	mSamplesRight = sR;
 	mNumSamples = n;
 }
+
+void CWavFilePlayer::SetWavetables()
+{
+}

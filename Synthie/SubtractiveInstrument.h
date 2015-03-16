@@ -4,9 +4,8 @@
 #include "TriangleWave.h"
 #include "SquareWave.h"
 #include "SawtoothWave.h"
-#include "ADSR.h"
-#include <vector>
 #include "ResonFilter.h"
+#include <vector>
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -19,10 +18,9 @@ public:
 
 	void SetFreq(double f);
 	void SetAmplitude(double a);
-
 	void SetDuration(double d) { mDuration = d; }
 
-	void ResonFilter();
+	void ResonFilterSetup();
 
 	enum Waveform { Sawtooth, Triangle, Square };
 
@@ -37,21 +35,12 @@ private:
 
 	double mDuration;
 	double mTime;
-	CADSR mADSR;
+	
 	CResonFilter mReson;
 	Waveform mWaveform;
 
 	void StringToWaveform(std::wstring waveform);
 
-	struct FilterTerm
-	{
-		int m_delay;
-		double m_weight;
-	};
+	bool mResonFilter;
 
-	std::vector<FilterTerm> mFilterXTerms;
-	std::vector<FilterTerm> mFilterYTerms;
-
-	int mNumXFilters;
-	int mNumYFilters;
 };

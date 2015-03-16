@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "ResonFilter.h"
-#include <algorithm>
 
 using namespace std;
 
@@ -8,6 +7,7 @@ CResonFilter::CResonFilter()
 {
 	mBandwidth = 0.01;
 	mFrequency = 0.02;
+	mGain = 10;
 }
 
 
@@ -15,95 +15,92 @@ CResonFilter::~CResonFilter()
 {
 }
 
+
 void CResonFilter::Start()
 {
 	mTime = 0;
+	mWrLoc = 0;
+
+	auto queueSize = int(2 * GetSampleRate());
+	mQueueX.resize(queueSize);
+	mQueueY.resize(queueSize);
+	SetResonParameters();
+
+	mEnvelope.SetDuration(mDuration);
+	mEnvelope.SetSampleRate(GetSampleRate());
+	mEnvelope.Start();
 }
+
 
 bool CResonFilter::Generate()
 {
+	//! generate next envelope
+	mEnvelope.Generate();
+
 	double audio[2];
 
-	const int QUEUESIZE = 2 * GetSampleRate();
-
-	std::vector<double> queue_x;
-	std::vector<double> queue_y;
-	queue_x.resize(QUEUESIZE);
-	queue_y.resize(QUEUESIZE);
-
-	int wrloc = 0;
-	int rdloc = 0;
-
-	double time = 0;
-	int delaylength;
-	double weight;
+	auto queueSize = int(2 * GetSampleRate());
 
 	audio[0] = mSource->Frame(0);
 	audio[1] = mSource->Frame(1);
 
-	wrloc = (wrloc + 2) % QUEUESIZE;
-	queue_x[wrloc] = audio[0];
-	queue_x[wrloc + 1] = audio[1];
+	mWrLoc = (mWrLoc + 2) % queueSize;
+	mQueueX[mWrLoc] = audio[0];
+	mQueueX[mWrLoc + 1] = audio[1];
+
 	audio[0] = 0;
 	audio[1] = 0;
-	//int delaylength = int((DELAY * SampleRate() + 0.5)) * 2;
 
-	if (mNumXFilters > 0)
+	for (auto xTerm : mFilterXTerms)
 	{
-		for (auto j = mFilterXTerms.cbegin(); j != mFilterXTerms.cend(); ++j)
-		{
-			FilterTerm term = *j;
-			//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
-			delaylength = term.m_delay * 2;;
-			weight = term.m_weight;
+		auto delayLength = xTerm.m_delay * 2;
+		auto rdloc = (mWrLoc + queueSize - delayLength) % queueSize;
 
-			rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
-			audio[0] = audio[0] + queue_x[rdloc] * weight;
-			rdloc = (rdloc + 1) % QUEUESIZE;
-			audio[1] = audio[1] + queue_x[rdloc] * weight;
-		}
+		audio[0] = audio[0] + mQueueX[rdloc] * xTerm.m_weight;
+		rdloc = (rdloc + 1) % queueSize;
+
+		audio[1] = audio[1] + mQueueX[rdloc] * xTerm.m_weight;
 	}
-	if (mNumYFilters > 0)
+
+	for (auto yTerm : mFilterYTerms)
 	{
-		for (auto j = mFilterYTerms.cbegin(); j != mFilterYTerms.cend(); ++j)
-		{
-			FilterTerm term = *j;
-			//delaylength = int((term.m_delay * SampleRate() + 0.5)) * 2;
-			delaylength = term.m_delay * 2;
-			weight = term.m_weight;
+		auto delayLength = yTerm.m_delay * 2;
+		auto rdloc = (mWrLoc + queueSize - delayLength) % queueSize;
 
-			rdloc = (wrloc + QUEUESIZE - delaylength) % QUEUESIZE;
-			audio[0] = audio[0] + queue_y[rdloc] * weight;
-			rdloc = (rdloc + 1) % QUEUESIZE;
-			audio[1] = audio[1] + queue_y[rdloc] * weight;
-		}
+		audio[0] = audio[0] + mQueueY[rdloc] * yTerm.m_weight;
+		rdloc = (rdloc + 1) % queueSize;
 
-		queue_y[wrloc] = audio[0];
-		queue_y[wrloc + 1] = audio[1];
-
-		//mFrame[0] = fac * mSource->Frame(0);
-		//mFrame[1] = fac * mSource->Frame(1);
-
-		// Update time
-		mTime += GetSamplePeriod();
-		// We return true until the time reaches the duration.
-		return mTime < mDuration;
+		audio[1] = audio[1] + mQueueY[rdloc] * yTerm.m_weight;
 	}
+
+	mQueueY[mWrLoc] = audio[0];
+	mQueueY[mWrLoc + 1] = audio[1];
+
+	// get envelope level for wet vs dry
+	auto wetLevel = mEnvelope.GetEnvelopeLevel();
+	auto dryLevel = 1 - wetLevel;
+
+	mFrame[0] = wetLevel * audio[0] + dryLevel * mSource->Frame(0);
+	mFrame[1] = wetLevel * audio[1] + dryLevel * mSource->Frame(1);
+
+	// Update time
+	mTime += GetSamplePeriod();
+	// We return true until the time reaches the duration.
+	return mTime < mDuration;
 }
+
 
 void CResonFilter::SetResonParameters()
 {
-	double R = 1 - mBandwidth / 2;
-	double costheta = (2 * R * cos(2 * PI * mFrequency)) / (1 + pow(R, 2));
-	double sintheta = sqrt(1 - pow(costheta, 2));
-	double A = (1 - pow(R, 2)) * sintheta;
+	auto R = 1. - mBandwidth / 2.;
+	auto costheta = (2. * R * cos(2 * PI * mFrequency)) / (1. + pow(R, 2.));
+	auto sintheta = sqrt(1. - pow(costheta, 2.));
+	auto A = (1. - pow(R, 2.)) * sintheta;
 
 	A = A * mGain;
 
 	mFilterXTerms.clear();
 	mFilterYTerms.clear();
-
-	mNumXFilters = 1;
 
 	FilterTerm term;
 	term.m_delay = 0;
@@ -118,5 +115,4 @@ void CResonFilter::SetResonParameters()
 	term.m_delay = 2;
 	term.m_weight = -pow(R, 2);
 	mFilterYTerms.push_back(term);
-
 }
