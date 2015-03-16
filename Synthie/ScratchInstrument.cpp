@@ -16,17 +16,24 @@ CScratchInstrument::~CScratchInstrument()
 
 void CScratchInstrument::Start()
 {
+	mTime = 0;
+
 	mWavPlayer.SetSampleRate(GetSampleRate());
 	mWavPlayer.Start();
-	mTime = 0;
+
+	mAmplitudeFilter.SetSource(&mWavPlayer);
+	mAmplitudeFilter.SetSampleRate(GetSampleRate());
+	mAmplitudeFilter.SetDuration(mDuration);
+	mAmplitudeFilter.Start();
 }
 
 bool CScratchInstrument::Generate()
 {
 	mWavPlayer.Generate();
+	mAmplitudeFilter.Generate();
 
-	mFrame[0] = mWavPlayer.Frame(0);
-	mFrame[1] = mWavPlayer.Frame(1);
+	mFrame[0] = mAmplitudeFilter.Frame(0);
+	mFrame[1] = mAmplitudeFilter.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();

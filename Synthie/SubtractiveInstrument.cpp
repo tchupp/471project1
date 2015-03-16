@@ -107,12 +107,12 @@ bool CSubtractiveInstrument::Generate()
 		mSinewave.Generate();
 	}
 
-	bool valid = false;
 	if (mResonFilter)
 	{
 		mReson.Generate();
 	}
-	valid = mAmplitudeFilter.Generate();
+
+	auto valid = mAmplitudeFilter.Generate();
 	// Read the component's sample and make it our resulting frame.
 	mFrame[0] = mAmplitudeFilter.Frame(0);
 	mFrame[1] = mAmplitudeFilter.Frame(1);

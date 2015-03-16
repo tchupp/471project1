@@ -1,5 +1,6 @@
 #pragma once
 #include "AudioNode.h"
+#include "AmplitudeFilter.h"
 
 class CNote;
 
@@ -11,4 +12,7 @@ public:
 	virtual ~CInstrument();
 
 	virtual void SetNote(CNote *note, double secPerBeat) = 0;
+
+protected:
+	CAmplitudeFilter mAmplitudeFilter;
 };

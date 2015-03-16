@@ -30,6 +30,7 @@ void CResonFilter::Start()
 	SetResonParameters();
 
 	mEnvelope.SetDuration(mDuration);
+	mEnvelope.SetSampleRate(GetSampleRate());
 	mEnvelope.Start();
 }
 

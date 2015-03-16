@@ -4,11 +4,8 @@
 #include "TriangleWave.h"
 #include "SquareWave.h"
 #include "SawtoothWave.h"
-#include "ADSR.h"
-#include <vector>
 #include "ResonFilter.h"
-#include "BaseWave.h"
-#include "AmplitudeFilter.h"
+#include <vector>
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -38,10 +35,7 @@ private:
 
 	double mDuration;
 	double mTime;
-	CADSR mADSR;
 	
-	CAmplitudeFilter mAmplitudeFilter;
-
 	CResonFilter mReson;
 	Waveform mWaveform;
 

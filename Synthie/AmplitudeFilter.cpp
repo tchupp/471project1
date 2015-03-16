@@ -19,6 +19,7 @@ void CAmplitudeFilter::Start()
 	mTime = 0;
 
 	mEnvelope.SetDuration(mDuration);
+	mEnvelope.SetSampleRate(GetSampleRate());
 	mEnvelope.Start();
 }
 
@@ -26,7 +27,7 @@ void CAmplitudeFilter::Start()
 bool CAmplitudeFilter::Generate()
 {
 	mEnvelope.Generate();
-	double amplitudeFactor = mEnvelope.GetEnvelopeLevel();
+	auto amplitudeFactor = mEnvelope.GetEnvelopeLevel();
 
 	mFrame[0] = amplitudeFactor * mSource->Frame(0);
 	mFrame[1] = amplitudeFactor * mSource->Frame(1);

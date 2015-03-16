@@ -1,7 +1,6 @@
 #pragma once
 #include "Instrument.h"
 #include "WavFilePlayer.h"
-#include <string>
 
 
 class CScratchInstrument :
