@@ -1,3 +1,11 @@
+/**
+ * \file Envelope.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief Base class for Envelopes
+ */
+
 #pragma once
 #include "AudioNode.h"
 

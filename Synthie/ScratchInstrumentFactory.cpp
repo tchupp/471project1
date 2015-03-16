@@ -1,3 +1,9 @@
+/**
+ * \file ScratchInstrumentFactory.cpp
+ *
+ * \author Theo Chupp
+ */
+
 #include "stdafx.h"
 #include "ScratchInstrument.h"
 #include "ScratchInstrumentFactory.h"

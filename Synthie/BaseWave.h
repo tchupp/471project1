@@ -1,6 +1,15 @@
+/**
+ * \file BaseWave.h
+ *
+ * \author Su Adanali
+ *
+ * \brief base class for waves and wav file player
+ */
+
 #pragma once
 #include "AudioNode.h"
 #include <vector>
+
 class BaseWave : public CAudioNode
 {
 public:

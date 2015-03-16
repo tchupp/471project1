@@ -1,3 +1,11 @@
+/**
+ * \file ScratchInstrument.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief Instrument that uses a pitch filter with a specific envelope to modify a wav sample
+ */
+
 #pragma once
 #include "Instrument.h"
 #include "WavFilePlayer.h"
