@@ -26,11 +26,11 @@ void CSubtractiveInstrument::Start()
 		if (mResonFilter)
 		{
 			mReson.SetSource(&mSawtooth);
-			mADSR.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mReson);
 		}
 		else
 		{
-			mADSR.SetSource(&mSawtooth);
+			mAmplitudeFilter.SetSource(&mSawtooth);
 		}
 		
 	}
@@ -41,11 +41,11 @@ void CSubtractiveInstrument::Start()
 		if (mResonFilter)
 		{
 			mReson.SetSource(&mTriangle);
-			mADSR.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mReson);
 		}
 		else
 		{
-			mADSR.SetSource(&mTriangle);
+			mAmplitudeFilter.SetSource(&mTriangle);
 		}
 	}
 	else if (mWaveform == Square)
@@ -55,11 +55,11 @@ void CSubtractiveInstrument::Start()
 		if (mResonFilter)
 		{
 			mReson.SetSource(&mSquare);
-			mADSR.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mReson);
 		}
 		else
 		{
-			mADSR.SetSource(&mSquare);
+			mAmplitudeFilter.SetSource(&mSquare);
 		}
 		
 	}
@@ -70,21 +70,21 @@ void CSubtractiveInstrument::Start()
 		if (mResonFilter)
 		{
 			mReson.SetSource(&mSinewave);
-			mADSR.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mReson);
 		}
 		else
 		{
-			mADSR.SetSource(&mSinewave);
+			mAmplitudeFilter.SetSource(&mSinewave);
 		}
 	}
 
 	if (mResonFilter)
 	{
-		ResonFilter();
+		ResonFilterSetup();
 	}
-	mADSR.SetSampleRate(GetSampleRate());
-	mADSR.SetDuration(mDuration);
-	mADSR.Start();
+	mAmplitudeFilter.SetSampleRate(GetSampleRate());
+	mAmplitudeFilter.SetDuration(mDuration);
+	mAmplitudeFilter.Start();
 	
 }
 
@@ -112,10 +112,10 @@ bool CSubtractiveInstrument::Generate()
 	{
 		mReson.Generate();
 	}
-	valid = mADSR.Generate();
+	valid = mAmplitudeFilter.Generate();
 	// Read the component's sample and make it our resulting frame.
-	mFrame[0] = mADSR.Frame(0);
-	mFrame[1] = mADSR.Frame(1);
+	mFrame[0] = mAmplitudeFilter.Frame(0);
+	mFrame[1] = mAmplitudeFilter.Frame(1);
 	// Update time
 	mTime += GetSamplePeriod();
 	// We return true until the time reaches the duration.
@@ -209,7 +209,7 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 	mSquare.SetAmplitude(a);
 }
 
-void CSubtractiveInstrument::ResonFilter()
+void CSubtractiveInstrument::ResonFilterSetup()
 {
 	mReson.SetBandwidth(mResonBandwidth);
 	mReson.SetFrequency(mResonFrequency);

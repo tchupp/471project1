@@ -8,6 +8,7 @@
 #include <vector>
 #include "ResonFilter.h"
 #include "BaseWave.h"
+#include "AmplitudeFilter.h"
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -20,10 +21,9 @@ public:
 
 	void SetFreq(double f);
 	void SetAmplitude(double a);
-
 	void SetDuration(double d) { mDuration = d; }
 
-	void ResonFilter();
+	void ResonFilterSetup();
 
 	enum Waveform { Sawtooth, Triangle, Square };
 
@@ -39,6 +39,9 @@ private:
 	double mDuration;
 	double mTime;
 	CADSR mADSR;
+	
+	CAmplitudeFilter mAmplitudeFilter;
+
 	CResonFilter mReson;
 	Waveform mWaveform;
 
