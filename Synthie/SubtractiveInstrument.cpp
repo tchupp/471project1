@@ -8,6 +8,7 @@ double const RESONGAIN = 10;
 CSubtractiveInstrument::CSubtractiveInstrument()
 {
 	mDuration = 0.1;
+	mResonFilter = false;
 }
 
 
@@ -17,40 +18,72 @@ CSubtractiveInstrument::~CSubtractiveInstrument()
 
 void CSubtractiveInstrument::Start()
 {
-	//mSinewave.SetSampleRate(GetSampleRate());
-	//mSinewave.Start();
-
 	mTime = 0;
-	// Tell the AR object it gets its samples from 
-	// the sine wave object.
-
 	if (mWaveform == Sawtooth)
 	{
 		mSawtooth.SetSampleRate(GetSampleRate());
 		mSawtooth.Start();
-		mADSR.SetSource(&mSawtooth);
+		if (mResonFilter)
+		{
+			mReson.SetSource(&mSawtooth);
+		}
+		else
+		{
+			mADSR.SetSource(&mSawtooth);
+		}
 		
 	}
 	else if (mWaveform == Triangle)
 	{
 		mTriangle.SetSampleRate(GetSampleRate());
 		mTriangle.Start();
-		mADSR.SetSource(&mTriangle);
+		if (mResonFilter)
+		{
+			mReson.SetSource(&mTriangle);
+		}
+		else
+		{
+			mADSR.SetSource(&mTriangle);
+		}
 	}
 	else if (mWaveform == Square)
 	{
 		mSquare.SetSampleRate(GetSampleRate());
 		mSquare.Start();
-		mADSR.SetSource(&mSquare);	
+		if (mResonFilter)
+		{
+			mReson.SetSource(&mSquare);
+		}
+		else
+		{
+			mADSR.SetSource(&mSquare);
+		}
 	}
 	else
 	{
-		mADSR.SetSource(&mSinewave);
+		mSinewave.SetSampleRate(GetSampleRate());
+		mSinewave.Start();
+		if (mResonFilter)
+		{
+			mReson.SetSource(&mSinewave);
+		}
+		else
+		{
+			mADSR.SetSource(&mSinewave);
+		}
 	}
 
-	mADSR.SetSampleRate(GetSampleRate());
-	mADSR.SetDuration(mDuration);
-	mADSR.Start();
+	if (mResonFilter)
+	{
+		ResonFilter();
+	}
+	else
+	{
+		mADSR.SetSampleRate(GetSampleRate());
+		mADSR.SetDuration(mDuration);
+		mADSR.Start();
+	}
+
 }
 
 bool CSubtractiveInstrument::Generate()
@@ -72,12 +105,21 @@ bool CSubtractiveInstrument::Generate()
 		mSinewave.Generate();
 	}
 
-	auto valid = mADSR.Generate();
+	bool valid = false;
+	if (mResonFilter)
+	{
+		valid = mReson.Generate();
+		mFrame[0] = mReson.Frame(0);
+		mFrame[1] = mReson.Frame(1);
+	}
 
-	// Read the component's sample and make it our resulting frame.
-	mFrame[0] = mADSR.Frame(0);
-	mFrame[1] = mADSR.Frame(1);
-
+	else
+	{
+		valid = mADSR.Generate();
+		// Read the component's sample and make it our resulting frame.
+		mFrame[0] = mADSR.Frame(0);
+		mFrame[1] = mADSR.Frame(1);
+	}
 	// Update time
 	mTime += GetSamplePeriod();
 	// We return true until the time reaches the duration.
@@ -126,6 +168,7 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 		}
 		else if (name == "resonfrequency")
 		{
+			mResonFilter = true;
 			value.ChangeType(VT_R8);
 			mResonFrequency = value.dblVal;
 		}
@@ -174,5 +217,8 @@ void CSubtractiveInstrument::ResonFilter()
 {
 	mReson.SetBandwidth(mResonBandwidth);
 	mReson.SetFrequency(mResonFrequency);
+	mReson.SetSampleRate(GetSampleRate());
+	mReson.SetDuration(mDuration);
+	mReson.Start();
 }
 

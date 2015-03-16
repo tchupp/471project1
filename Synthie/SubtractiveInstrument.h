@@ -7,6 +7,7 @@
 #include "ADSR.h"
 #include <vector>
 #include "ResonFilter.h"
+#include "BaseWave.h"
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -43,15 +44,6 @@ private:
 
 	void StringToWaveform(std::wstring waveform);
 
-	struct FilterTerm
-	{
-		int m_delay;
-		double m_weight;
-	};
+	bool mResonFilter;
 
-	std::vector<FilterTerm> mFilterXTerms;
-	std::vector<FilterTerm> mFilterYTerms;
-
-	int mNumXFilters;
-	int mNumYFilters;
 };
