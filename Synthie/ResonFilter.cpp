@@ -8,9 +8,6 @@ CResonFilter::CResonFilter()
 	mBandwidth = 0.01;
 	mFrequency = 0.02;
 	mGain = 10;
-
-	mEnvelope.SetAttack(0.);
-	mEnvelope.SetRelease(0.);
 }
 
 

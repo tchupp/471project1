@@ -1,7 +1,15 @@
+/**
+ * \file ScratchInstrument.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief Instrument that uses a pitch filter with a specific envelope to modify a wav sample
+ */
+
 #pragma once
 #include "Instrument.h"
 #include "WavFilePlayer.h"
-
+#include "PitchFilter.h"
 
 class CScratchInstrument :
 	public CInstrument
@@ -22,6 +30,8 @@ public:
 
 private:
 	CWavFilePlayer mWavPlayer;
+	CPitchFilter mPitchFilter;
+
 	double mDuration;
 	double mTime;
 	ScratchType mType;

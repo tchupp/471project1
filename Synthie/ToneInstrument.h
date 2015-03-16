@@ -1,7 +1,6 @@
 #pragma once
 #include "Instrument.h"
 #include "SineWave.h"
-#include "ADSR.h"
 
 class CToneInstrument :
 	public CInstrument
@@ -24,5 +23,4 @@ private:
 	CSineWave mSinewave;
 	double mDuration;
 	double mTime;
-	CADSR mADSR;
 };

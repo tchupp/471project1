@@ -20,23 +20,23 @@ void CAdditiveInstrument::Start()
 	mSinewave.Start();
 	mTime = 0;
 
-	// Tell the AR object it gets its samples from 
+	// Tell the amplitude filter object it gets its samples from 
 	// the sine wave object.
-	mADSR.SetSource(&mSinewave);
-	mADSR.SetSampleRate(GetSampleRate());
-	mADSR.SetDuration(mDuration);
-	mADSR.Start();
+	mAmplitudeFilter.SetSource(&mSinewave);
+	mAmplitudeFilter.SetSampleRate(GetSampleRate());
+	mAmplitudeFilter.SetDuration(mDuration);
+	mAmplitudeFilter.Start();
 }
 
 
 bool CAdditiveInstrument::Generate()
 {
 	// Tell the component to generate an audio sample
-	auto valid = mADSR.Generate();
+	auto valid = mAmplitudeFilter.Generate();
 
 	// Read the component's sample and make it our resulting frame.
-	mFrame[0] = mADSR.Frame(0);
-	mFrame[1] = mADSR.Frame(1);
+	mFrame[0] = mAmplitudeFilter.Frame(0);
+	mFrame[1] = mAmplitudeFilter.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();

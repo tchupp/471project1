@@ -1,3 +1,11 @@
+/**
+ * \file WavFilePlayer.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief wave class that can have a custom wave table set.
+ */
+
 #pragma once
 #include "BaseWave.h"
 
@@ -24,4 +32,3 @@ private:
 	double mSampleNumber;
 	double mSpeed;
 };
-

@@ -4,8 +4,6 @@
 
 CPitchFilter::CPitchFilter()
 {
-	mEnvelope.SetAttack(0.);
-	mEnvelope.SetRelease(0.);
 }
 
 
@@ -26,7 +24,7 @@ void CPitchFilter::Start()
 
 	mSource->Start();
 	auto valid = mSource->Generate();
-	while (valid)
+	for (auto time = 0.; time < mDuration; time += GetSamplePeriod())
 	{
 		mQueueL.push_back(mSource->Frame(0));
 		mQueueR.push_back(mSource->Frame(1));

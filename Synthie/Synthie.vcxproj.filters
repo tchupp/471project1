@@ -99,9 +99,6 @@
     <ClCompile Include="SynthieView.cpp">
       <Filter>Source Files\Don%27t touch</Filter>
     </ClCompile>
-    <ClCompile Include="ADSR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SubtractiveInstrument.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -126,9 +123,6 @@
     <ClCompile Include="BaseWave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FilterEnvelope.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AdditiveInstrument.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -139,6 +133,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AmplitudeFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Envelope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADSREnvelope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomEnvelope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomEnvelopeFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,9 +236,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files\Don%27t touch</Filter>
     </ClInclude>
-    <ClInclude Include="ADSR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SubtractiveInstrument.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -260,9 +263,6 @@
     <ClInclude Include="BaseWave.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FilterEnvelope.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PitchFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -270,6 +270,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AmplitudeFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Envelope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADSREnvelope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEnvelope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEnvelopeFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

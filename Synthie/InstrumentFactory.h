@@ -1,3 +1,11 @@
+/**
+ * \file InstrumentFactory.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief base class for Instrument Factories
+ */
+
 #pragma once
 
 class CNote;

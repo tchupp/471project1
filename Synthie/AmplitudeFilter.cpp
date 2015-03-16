@@ -1,11 +1,15 @@
+/**
+ * \file AmplitudeFilter.cpp
+ *
+ * \author Theo Chupp
+ */
+
 #include "stdafx.h"
 #include "AmplitudeFilter.h"
 
 
 CAmplitudeFilter::CAmplitudeFilter()
 {
-	mEnvelope.SetAttack(0.);
-	mEnvelope.SetRelease(0.);
 }
 
 

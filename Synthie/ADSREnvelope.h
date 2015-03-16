@@ -1,21 +1,17 @@
 #pragma once
-#include "AudioNode.h"
+#include "Envelope.h"
 
-class CADSR : public CAudioNode
+class CADSREnvelope : public CEnvelope
 {
 public:
-	CADSR();
-	virtual ~CADSR();
+	CADSREnvelope();
+	virtual ~CADSREnvelope();
 
 	//! Start the node generation
 	virtual void Start() override;
 
 	//! Cause one sample to be generated
 	virtual bool Generate() override;
-
-	//! Set the source audio
-	void SetSource(CAudioNode* source) { mSource = source; }
-	void SetDuration(double duration) { mDuration = duration; }
 
 	//! Set attack length
 	void SetAttack(double attack) { mAttack = attack; }
@@ -31,8 +27,5 @@ private:
 	double mDecay;
 	double mSustainLevel;
 	double mRelease;
-	double mDuration;
-	double mTime;
-
-	CAudioNode* mSource;
 };
+

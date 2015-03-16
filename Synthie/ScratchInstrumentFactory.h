@@ -1,3 +1,11 @@
+/**
+ * \file ScratchInstrumentFactory.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief Factory that creates scratch instruments with the proper wav samples
+ */
+
 #pragma once
 #include "InstrumentFactory.h"
 #include <vector>
