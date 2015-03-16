@@ -1,3 +1,11 @@
+/**
+ * \file AmplitudeFilter.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief Adjusts the amplitude of the source based on an envelope
+ */
+
 #pragma once
 #include "Filter.h"
 

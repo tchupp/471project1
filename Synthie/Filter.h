@@ -1,3 +1,11 @@
+/**
+ * \file Filter.h
+ *
+ * \author Theo Chupp
+ *
+ * \brief base class for Filters
+ */
+
 #pragma once
 #include "AudioNode.h"
 #include "ADSREnvelope.h"

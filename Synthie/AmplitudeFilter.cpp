@@ -1,3 +1,9 @@
+/**
+ * \file AmplitudeFilter.cpp
+ *
+ * \author Theo Chupp
+ */
+
 #include "stdafx.h"
 #include "AmplitudeFilter.h"
 

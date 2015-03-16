@@ -1,3 +1,9 @@
+/**
+ * \file Envelope.cpp
+ *
+ * \author Theo Chupp
+ */
+
 #include "stdafx.h"
 #include "Envelope.h"
 

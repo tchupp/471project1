@@ -90,7 +90,7 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	}
 	else if (type == L"cymbals")
 	{
-		//LoadFile?
+		LoadFile("wav/drums/cymbals.wav");
 	}
 	else if (type == L"tomshort")
 	{

@@ -5,7 +5,7 @@
 
 CDrumsInstrument::CDrumsInstrument()
 {
-	mDuration = 0.1;
+	mDuration = 0.25;
 }
 
 
@@ -61,5 +61,12 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 		// and then read its integer or double value from a member variable.
 		CComVariant value;
 		attrib->get_nodeValue(&value);
+
+		if (name == "duration")
+		{
+			value.ChangeType(VT_R8);
+			// number of beats * seconds per beat = seconds for note
+			SetDuration(value.dblVal * secPerBeat);
+		}
 	}
 }

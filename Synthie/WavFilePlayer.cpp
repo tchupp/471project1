@@ -1,3 +1,9 @@
+/**
+ * \file WavFilePlayer.cpp
+ *
+ * \author Theo Chupp
+ */
+
 #include "stdafx.h"
 #include "WavFilePlayer.h"
 
