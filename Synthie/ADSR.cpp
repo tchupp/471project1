@@ -41,6 +41,7 @@ bool CADSR::Generate()
 	{
 		fac = mSustainLevel;
 	}
+
 	mFrame[0] = fac * mSource->Frame(0);
 	mFrame[1] = fac * mSource->Frame(1);
 

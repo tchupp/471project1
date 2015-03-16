@@ -2,7 +2,7 @@
 #include "AdditiveInstrument.h"
 #include "Note.h"
 #include "Notes.h"
-
+#include <sstream>
 
 CAdditiveInstrument::CAdditiveInstrument()
 {
@@ -16,13 +16,13 @@ CAdditiveInstrument::~CAdditiveInstrument()
 
 void CAdditiveInstrument::Start()
 {
-	mSinewave.SetSampleRate(GetSampleRate());
-	mSinewave.Start();
+	mHarmonicsWave.SetSampleRate(GetSampleRate());
+	mHarmonicsWave.Start();
 	mTime = 0;
 
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
-	mADSR.SetSource(&mSinewave);
+	mADSR.SetSource(&mHarmonicsWave);
 	mADSR.SetSampleRate(GetSampleRate());
 	mADSR.SetDuration(mDuration);
 	mADSR.Start();
@@ -31,6 +31,9 @@ void CAdditiveInstrument::Start()
 
 bool CAdditiveInstrument::Generate()
 {
+	// Generate a wave from several sinusoids
+	mHarmonicsWave.Generate();
+
 	// Tell the component to generate an audio sample
 	auto valid = mADSR.Generate();
 
@@ -40,6 +43,7 @@ bool CAdditiveInstrument::Generate()
 
 	// Update time
 	mTime += GetSamplePeriod();
+
 	// We return true until the time reaches the duration.
 	return valid;
 }
@@ -82,5 +86,26 @@ void CAdditiveInstrument::SetNote(CNote* note, double secPerBeat)
 		{
 			SetFreq(NoteToFrequency(value.bstrVal));
 		}
+		else if (name == "harmonics")
+		{
+			AddHarmonics(value.bstrVal);
+		}
+		else if (name == "vibrato")
+		{
+			//SetVibrato(value.dblval);
+		}
+	}
+}
+
+void CAdditiveInstrument::AddHarmonics(wstring harmonics) 
+{
+	// Stringstream the value
+	wstringstream sstream(harmonics);
+	wstring harmonicAmplitude;
+
+	// Reading the harmonics into the harmonics wave
+	while (sstream >> harmonicAmplitude) {
+		// Index is the harmonic; value is the amplitude
+		mHarmonicsWave.AddHarmonic(stod(harmonicAmplitude));
 	}
 }

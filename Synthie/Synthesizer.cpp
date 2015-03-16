@@ -2,6 +2,7 @@
 #include "Synthesizer.h"
 #include "ToneInstrument.h"
 #include "SubtractiveInstrument.h"
+#include "AdditiveInstrument.h"
 #include "xmlhelp.h"
 #include "Note.h"
 #include <algorithm>
@@ -11,6 +12,7 @@ using namespace std;
 const wstring TONE_INSTRUMENT = L"ToneInstrument";
 const wstring SCRATCH_INSTRUMENT = L"ScratchInstrument";
 const wstring SUBTRACTIVE_INSTRUMENT = L"SubtractiveInstrument";
+const wstring ADDITIVE_INSTRUMENT = L"AdditiveInstrument";
 
 CSynthesizer::CSynthesizer()
 {
@@ -94,6 +96,11 @@ bool CSynthesizer::Generate(double* frame)
 		{
 			mFlangeEffect.SetNote(note, mSecPerBeat);
 		}
+		else if (note->Instrument() == ADDITIVE_INSTRUMENT)
+		{
+			instrument = new CAdditiveInstrument();
+		}
+
 		// Configure the instrument object
 		if (instrument != nullptr)
 		{

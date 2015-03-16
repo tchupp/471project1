@@ -139,6 +139,7 @@
     <ClCompile Include="DrumsInstrumentFactory.cpp" />
     <ClCompile Include="FilterEnvelope.cpp" />
     <ClCompile Include="FlangeEffect.cpp" />
+    <ClCompile Include="CustomWave.cpp" />
     <ClCompile Include="Instrument.cpp" />
     <ClCompile Include="InstrumentFactory.cpp" />
     <ClCompile Include="MainFrm.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="DrumsInstrumentFactory.h" />
     <ClInclude Include="FilterEnvelope.h" />
     <ClInclude Include="FlangeEffect.h" />
+    <ClInclude Include="CustomWave.h" />
     <ClInclude Include="Instrument.h" />
     <ClInclude Include="InstrumentFactory.h" />
     <ClInclude Include="MainFrm.h" />

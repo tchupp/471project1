@@ -11,7 +11,7 @@ public:
 	virtual void Start() override = 0;
 	//! Generate one frame of audio
 	virtual bool Generate() override = 0;
-	///!Sets wavetables per wave
+	//! Sets wavetables per wave
 	void SetWavetables();
 
 	void SetFreq(double f) { mFreq = f; }
