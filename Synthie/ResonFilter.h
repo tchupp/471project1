@@ -45,5 +45,4 @@ private:
 
 	std::vector<FilterTerm> mFilterXTerms;
 	std::vector<FilterTerm> mFilterYTerms;
-
 };
