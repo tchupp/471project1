@@ -23,6 +23,7 @@ void CResonFilter::Start()
 	int queueSize = 2 * GetSampleRate();
 	mQueueX.resize(queueSize);
 	mQueueY.resize(queueSize);
+	SetResonParameters();
 }
 
 bool CResonFilter::Generate()
