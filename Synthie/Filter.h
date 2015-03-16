@@ -10,7 +10,7 @@ public:
 	CFilter();
 	virtual ~CFilter();
 
-	void SetEnvelope(CFilterEnvelope envelope) { mEnvelope = envelope; };
+	void SetEnvelope(CFilterEnvelope envelope) { mEnvelope = envelope; }
 
 	//! Set the source audio
 	void SetSource(CAudioNode* source) { mSource = source; }

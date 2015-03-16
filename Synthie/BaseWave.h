@@ -7,12 +7,8 @@ public:
 	BaseWave();
 	virtual ~BaseWave();
 
-	//! Start audio generation
-	virtual void Start() override = 0;
-	//! Generate one frame of audio
-	virtual bool Generate() override = 0;
 	///!Sets wavetables per wave
-	void SetWavetables();
+	virtual void SetWavetables() = 0;
 
 	void SetFreq(double f) { mFreq = f; }
 	//! Set the sine wave amplitude
