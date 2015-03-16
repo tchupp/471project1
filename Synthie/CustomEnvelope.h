@@ -23,13 +23,10 @@ public:
 	//! Cause one sample to be generated
 	virtual bool Generate() override;
 
-	struct EnvelopePoint {
-		double mLevel;
-		double mTime;
-	};
+	struct EnvelopePoint { double mLevel; double mTime; };
 
-	void SetPoint(double level, double time);
+	void AddPoint(double level, double time);
 
 private:
-	std::vector <EnvelopePoint> mEnvelopePoints;
+	std::vector<EnvelopePoint> mEnvelopePoints;
 };

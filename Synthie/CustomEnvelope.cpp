@@ -17,7 +17,7 @@ CCustomEnvelope::~CCustomEnvelope()
 {
 }
 
-void CCustomEnvelope::SetPoint(double level, double time)
+void CCustomEnvelope::AddPoint(double level, double time)
 {
 	EnvelopePoint point;
 	point.mLevel = level;
