@@ -17,7 +17,7 @@ public:
 	virtual ~CEnvelope();
 
 	//! Start the node generation
-	virtual void Start() override {}
+	virtual void Start() override {};
 
 	//! Cause one sample to be generated
 	virtual bool Generate() override { return false; }

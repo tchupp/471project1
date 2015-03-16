@@ -9,10 +9,27 @@
 #pragma once
 #include "Envelope.h"
 
-class CCustomEnvelope :
-	public CEnvelope
+#include <vector>
+
+class CCustomEnvelope : public CEnvelope
 {
 public:
 	CCustomEnvelope();
 	virtual ~CCustomEnvelope();
+
+	//! Start the node generation
+	virtual void Start() override;
+
+	//! Cause one sample to be generated
+	virtual bool Generate() override;
+
+	struct EnvelopePoint {
+		double mLevel;
+		double mTime;
+	};
+
+	void SetPoint(double level, double time);
+
+private:
+	std::vector <EnvelopePoint> mEnvelopePoints;
 };
