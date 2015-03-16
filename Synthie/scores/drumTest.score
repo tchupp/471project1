@@ -12,5 +12,7 @@
           <note measure="5" beat="1.5" drumType="bass"/>
           <note measure="5" beat="2" drumType="snare"/>
           <note measure="5" beat="2.5" drumType="tomlong"/>
+
+          <note measure="5" beat="1.5" drumType="cymbals"/>
      </instrument>
 </score>
