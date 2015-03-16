@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="AdditiveInstrument.cpp" />
     <ClCompile Include="ADSR.cpp" />
+    <ClCompile Include="AmplitudeFilter.cpp" />
     <ClCompile Include="AudioEffect.cpp" />
     <ClCompile Include="AudioNode.cpp" />
     <ClCompile Include="audio\DirSound.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="ChorusEffect.cpp" />
     <ClCompile Include="DrumsInstrument.cpp" />
     <ClCompile Include="DrumsInstrumentFactory.cpp" />
+    <ClCompile Include="Filter.cpp" />
     <ClCompile Include="FilterEnvelope.cpp" />
     <ClCompile Include="FlangeEffect.cpp" />
     <ClCompile Include="Instrument.cpp" />
@@ -144,6 +146,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="PitchFilter.cpp" />
     <ClCompile Include="Progress.cpp" />
     <ClCompile Include="ProgressDlg.cpp" />
     <ClCompile Include="ResonFilter.cpp" />
@@ -170,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="AdditiveInstrument.h" />
     <ClInclude Include="ADSR.h" />
+    <ClInclude Include="AmplitudeFilter.h" />
     <ClInclude Include="AudioEffect.h" />
     <ClInclude Include="AudioNode.h" />
     <ClInclude Include="audio\DirSound.h" />
@@ -179,6 +183,7 @@
     <ClInclude Include="ChorusEffect.h" />
     <ClInclude Include="DrumsInstrument.h" />
     <ClInclude Include="DrumsInstrumentFactory.h" />
+    <ClInclude Include="Filter.h" />
     <ClInclude Include="FilterEnvelope.h" />
     <ClInclude Include="FlangeEffect.h" />
     <ClInclude Include="Instrument.h" />
@@ -186,6 +191,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="Notes.h" />
+    <ClInclude Include="PitchFilter.h" />
     <ClInclude Include="Progress.h" />
     <ClInclude Include="ProgressDlg.h" />
     <ClInclude Include="ResonFilter.h" />

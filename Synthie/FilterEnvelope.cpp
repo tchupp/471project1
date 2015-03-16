@@ -17,8 +17,8 @@ CFilterEnvelope::~CFilterEnvelope()
 
 void CFilterEnvelope::Start()
 {
-	mEnvelopeLevel = 1;
-	mTime = 0;
+	mEnvelopeLevel = 1.;
+	mTime = 0.;
 }
 
 bool CFilterEnvelope::Generate()

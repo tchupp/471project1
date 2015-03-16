@@ -8,6 +8,9 @@ CResonFilter::CResonFilter()
 	mBandwidth = 0.01;
 	mFrequency = 0.02;
 	mGain = 10;
+
+	mEnvelope.SetAttack(0.);
+	mEnvelope.SetRelease(0.);
 }
 
 
@@ -15,22 +18,30 @@ CResonFilter::~CResonFilter()
 {
 }
 
+
 void CResonFilter::Start()
 {
 	mTime = 0;
 	mWrLoc = 0;
 
-	int queueSize = 2 * GetSampleRate();
+	auto queueSize = int(2 * GetSampleRate());
 	mQueueX.resize(queueSize);
 	mQueueY.resize(queueSize);
 	SetResonParameters();
+
+	mEnvelope.SetDuration(mDuration);
+	mEnvelope.Start();
 }
+
 
 bool CResonFilter::Generate()
 {
+	//! generate next envelope
+	mEnvelope.Generate();
+
 	double audio[2];
 
-	int queueSize = 2 * GetSampleRate();
+	auto queueSize = int(2 * GetSampleRate());
 
 	audio[0] = mSource->Frame(0);
 	audio[1] = mSource->Frame(1);
@@ -67,14 +78,19 @@ bool CResonFilter::Generate()
 	mQueueY[mWrLoc] = audio[0];
 	mQueueY[mWrLoc + 1] = audio[1];
 
-	mFrame[0] = audio[0];
-	mFrame[1] = audio[1];
+	// get envelope level for wet vs dry
+	auto wetLevel = mEnvelope.GetEnvelopeLevel();
+	auto dryLevel = 1 - wetLevel;
+
+	mFrame[0] = wetLevel * audio[0] + dryLevel * mSource->Frame(0);
+	mFrame[1] = wetLevel * audio[1] + dryLevel * mSource->Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();
 	// We return true until the time reaches the duration.
 	return mTime < mDuration;
 }
+
 
 void CResonFilter::SetResonParameters()
 {
