@@ -4,8 +4,6 @@
 
 CPitchFilter::CPitchFilter()
 {
-	mEnvelope.SetAttack(0.);
-	mEnvelope.SetRelease(0.);
 }
 
 

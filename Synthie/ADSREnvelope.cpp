@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "FilterEnvelope.h"
+#include "ADSREnvelope.h"
 
 
-CFilterEnvelope::CFilterEnvelope()
+CADSREnvelope::CADSREnvelope()
 {
 	mAttack = 0.05;
 	mDecay = 0.;
@@ -11,17 +11,17 @@ CFilterEnvelope::CFilterEnvelope()
 }
 
 
-CFilterEnvelope::~CFilterEnvelope()
+CADSREnvelope::~CADSREnvelope()
 {
 }
 
-void CFilterEnvelope::Start()
+void CADSREnvelope::Start()
 {
 	mEnvelopeLevel = 1.;
 	mTime = 0.;
 }
 
-bool CFilterEnvelope::Generate()
+bool CADSREnvelope::Generate()
 {
 	if (mTime <= mAttack) // attack
 	{
