@@ -13,4 +13,3 @@ public:
 	//! Cause one sample to be generated
 	virtual bool Generate() override;
 };
-
