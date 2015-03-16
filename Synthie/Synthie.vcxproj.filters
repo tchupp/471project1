@@ -141,6 +141,9 @@
     <ClCompile Include="ADSREnvelope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CustomEnvelope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Synthesizer.h">
@@ -270,6 +273,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADSREnvelope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEnvelope.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -135,6 +135,7 @@
     <ClCompile Include="audio\DirSoundStream.cpp" />
     <ClCompile Include="BaseWave.cpp" />
     <ClCompile Include="ChorusEffect.cpp" />
+    <ClCompile Include="CustomEnvelope.cpp" />
     <ClCompile Include="DrumsInstrument.cpp" />
     <ClCompile Include="DrumsInstrumentFactory.cpp" />
     <ClCompile Include="Envelope.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="audio\DirSoundStream.h" />
     <ClInclude Include="BaseWave.h" />
     <ClInclude Include="ChorusEffect.h" />
+    <ClInclude Include="CustomEnvelope.h" />
     <ClInclude Include="DrumsInstrument.h" />
     <ClInclude Include="DrumsInstrumentFactory.h" />
     <ClInclude Include="Envelope.h" />
