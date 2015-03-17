@@ -147,12 +147,14 @@
     <ClCompile Include="Instrument.cpp" />
     <ClCompile Include="InstrumentFactory.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="NoiseGateEffect.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="PitchFilter.cpp" />
     <ClCompile Include="Progress.cpp" />
     <ClCompile Include="ProgressDlg.cpp" />
     <ClCompile Include="ResonFilter.cpp" />
+    <ClCompile Include="ReverbEffect.cpp" />
     <ClCompile Include="SawtoothWave.cpp" />
     <ClCompile Include="ScratchInstrument.cpp" />
     <ClCompile Include="ScratchInstrumentFactory.cpp" />
@@ -196,6 +198,7 @@
     <ClInclude Include="Instrument.h" />
     <ClInclude Include="InstrumentFactory.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="NoiseGateEffect.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="Notes.h" />
     <ClInclude Include="PitchFilter.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="ProgressDlg.h" />
     <ClInclude Include="ResonFilter.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ReverbEffect.h" />
     <ClInclude Include="SawtoothWave.h" />
     <ClInclude Include="ScratchInstrument.h" />
     <ClInclude Include="ScratchInstrumentFactory.h" />

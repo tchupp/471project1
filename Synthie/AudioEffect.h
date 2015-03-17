@@ -30,6 +30,7 @@ protected:
 	double	mDry;
 	int mWrloc;
 	int mRdloc;
+	double mTime = 5.0;
 	std::vector<short> mQueue;
 };
 

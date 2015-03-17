@@ -4,6 +4,8 @@
 #include <vector>
 #include "ChorusEffect.h"
 #include "FlangeEffect.h"
+#include "ReverbEffect.h"
+#include "NoiseGateEffect.h"
 #include "ScratchInstrumentFactory.h"
 #include "DrumsInstrumentFactory.h"
 
@@ -64,6 +66,8 @@ private:
 	//! Effects
 	CChorusEffect mChorusEffect;
 	CFlangeEffect mFlangeEffect;
+	CReverbEffect mReverbEffect;
+	CNoiseGateEffect mNoiseGateEffect;
 
 	//! Scratch Factory
 	CScratchInstrumentFactory mScratchFactory;
