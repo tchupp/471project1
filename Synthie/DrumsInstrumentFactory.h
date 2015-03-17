@@ -14,16 +14,12 @@ public:
 	virtual void SetNote(CNote* note) override;
 	virtual CInstrument* CreateInstrument() override;
 
-	bool LoadFile(const char* filename);
-	bool LoadBassWave(CSineWave wave);
-
 private:
 	std::vector<short> mWaveL;
 	std::vector<short> mWaveR;
 
-	bool mBassPresent = false;
-
-	CSineWave mBassWave;
+	bool LoadFile(const char* filename);
+	bool LoadBassWave();
 
 	void SetDrumType(std::wstring type);
 };

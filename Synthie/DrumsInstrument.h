@@ -20,13 +20,8 @@ public:
 
 	void SetDuration(double d) { mDuration = d; }
 
-	void SetBass(bool val) { mGenerateBass = val; }
-
 private:
 	CWavFilePlayer mWavPlayer;
 	double mDuration;
 	double mTime;
-
-	CSineWave mBassWave;
-	bool mGenerateBass = false; // CHANGE TO FALSE (TESTING)
 };

@@ -3,7 +3,8 @@
 #include "DrumsInstrument.h"
 #include "audio/DirSoundSource.h"
 #include "Note.h"
-
+#include "ADSREnvelope.h"
+#include "AmplitudeFilter.h"
 
 CDrumsInstrumentFactory::CDrumsInstrumentFactory()
 {
@@ -54,11 +55,6 @@ CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 	auto instrument = new CDrumsInstrument();
 	instrument->SetSamples(&mWaveL[0], &mWaveR[0], int(mWaveL.size()));
 
-	if (mBassPresent)
-	{
-		instrument->SetBass(true);
-	}
-
 	return instrument;
 }
 
@@ -92,8 +88,7 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	if (type == L"bass")
 	{
 		LoadFile("wav/drums/bass.wav");
-		mBassPresent = true;
-		//LoadBassWave(mBassWave);
+		LoadBassWave();
 	}
 	else if (type == L"cymbals")
 	{
@@ -113,16 +108,28 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	}
 }
 
-//bool CDrumsInstrumentFactory::LoadBassWave(CSineWave wave)
-//{
-//	mWaveL.clear();
-//	mWaveR.clear();
-//
-//	short frame[2];
-//	frame[0] = mBassWave.Generate();
-//	frame[1] = mBassWave.Generate();
-//	mWaveL.push_back(frame[0]);
-//	mWaveR.push_back(frame[1]);
-//
-//	return true;
-//}
+bool CDrumsInstrumentFactory::LoadBassWave()
+{
+	mWaveL.clear();
+	mWaveR.clear();
+
+	CSineWave mBassWave;
+	mBassWave.SetAmplitude(1.5);
+	mBassWave.SetFreq(1.5);
+	mBassWave.SetSampleRate(GetSampleRate());
+
+	CADSREnvelope mEnvelope;
+	mEnvelope.SetDuration(3);
+	mEnvelope.SetAttack(0.05);
+	mEnvelope.SetDecay(0.2);
+	mEnvelope.SetRelease(2.75);
+	mEnvelope.SetSampleRate(GetSampleRate());
+
+	CAmplitudeFilter mAmplitudeFilter;
+	mAmplitudeFilter.SetEnvelope(&mEnvelope);
+	mAmplitudeFilter.SetSource(&mBassWave);
+	mAmplitudeFilter.SetSampleRate(GetSampleRate());
+	mAmplitudeFilter.SetDuration(3);
+
+	return true;
+}
