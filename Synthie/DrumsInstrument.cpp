@@ -2,6 +2,7 @@
 #include "DrumsInstrument.h"
 #include "Instrument.h"
 #include "Note.h"
+#include "Notes.h"
 #include "Envelope.h"
 
 
@@ -96,6 +97,28 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 			value.ChangeType(VT_R8);
 			// number of beats * seconds per beat = seconds for note
 			SetDuration(value.dblVal * secPerBeat);
+		}
+		else if (name == "note")
+		{
+			SetFreq(NoteToFrequency(value.bstrVal));
+		}
+
+		if (name == "resonfrequency")
+		{
+			mResonFilter = true;
+			value.ChangeType(VT_R8);
+			mResonFrequency = value.dblVal;
+		}
+
+		if (name == "resonbandwidth")
+		{
+			value.ChangeType(VT_R8);
+			mResonBandwidth = value.dblVal;
+		}
+
+		if (name == "filter-envelope")
+		{
+			mPitchFilter = true;
 		}
 	}
 }

@@ -183,7 +183,7 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	}
 
 	else if (type == L"pitchsharpbass")
-	
+	{
 		LoadFile("wav/drums/bass.wav");
 		mPitchFilter = true;
 	}

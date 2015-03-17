@@ -14,6 +14,8 @@ public:
 	virtual void Start() override;
 	virtual bool Generate() override;
 	virtual void SetNote(CNote* note, double secPerBeat) override;
+	
+	void SetFreq(double f);
 
 	void SetSamples(short* sL, short* sR, int n) { mWavPlayer.SetSamples(sL, sR, n); }
 
