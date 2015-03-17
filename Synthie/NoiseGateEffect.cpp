@@ -11,7 +11,7 @@ CNoiseGateEffect::~CNoiseGateEffect()
 {
 }
 
-void CNoiseGateEffect::Process(double *input, double *output)
+void CNoiseGateEffect::Process(double *input, double *output, double time)
 {
 
 }
