@@ -4,6 +4,17 @@
 #include "Envelope.h"
 #include "ADSREnvelope.h"
 
+/*
+
+10 - Waveform playback from tables // Works from mWaveL and mWaveR
+20 - Envelope generation ------> // Envelope, Amplitude, and Filter Generation all integrated in Start/Generate
+30 - Polyphony ---> Done automatically with project structure and playback
+35 - Varying pitch playback from tables ---> 
+40 - At least 20 distinct drum sounds
+50 - Synthesized drum
+
+*/
+
 
 CDrumsInstrument::CDrumsInstrument()
 {
@@ -23,9 +34,6 @@ void CDrumsInstrument::Start()
 	mTime = 0;
 
 	mEnvelope = new CADSREnvelope();
-
-	// Use envelope pointer and setters to edit
-	// envelope ADSR
 
 	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSource(&mWavPlayer);

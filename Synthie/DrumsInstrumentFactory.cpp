@@ -16,7 +16,7 @@ CDrumsInstrumentFactory::~CDrumsInstrumentFactory()
 {
 }
 
-
+// Setting a note
 void CDrumsInstrumentFactory::SetNote(CNote* note)
 {
 	// Get a list of all attribute nodes and the
@@ -52,7 +52,7 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 	}
 }
 
-
+// Initializing and creating an instrument
 CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 {
 	auto instrument = new CDrumsInstrument();
@@ -61,7 +61,7 @@ CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 	return instrument;
 }
 
-
+// Loading wav file samples
 bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 {
 	mWaveL.clear();
@@ -113,7 +113,7 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	}
 }
 
-
+// Custom Synthesized Drum for Kick/Bass
 bool CDrumsInstrumentFactory::LoadBassWave()
 {
 	mWaveL.clear();
