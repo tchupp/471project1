@@ -35,6 +35,11 @@ void CSubtractiveInstrument::Start()
 			mReson.SetSource(&mSawtooth);
 			mAmplitudeFilter.SetSource(&mReson);
 		}
+		else if (mFilterEnvelope)
+		{
+			mPitchFilter.SetSource(&mSawtooth);
+			mAmplitudeFilter.SetSource(&mPitchFilter);
+		}
 		else
 		{
 			mAmplitudeFilter.SetSource(&mSawtooth);
@@ -54,7 +59,12 @@ void CSubtractiveInstrument::Start()
 		else if (mResonFilter)
 		{
 			mReson.SetSource(&mTriangle);
-			mAmplitudeFilter.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mPitchFilter);
+		}
+		else if (mFilterEnvelope)
+		{
+			mPitchFilter.SetSource(&mTriangle);
+			mAmplitudeFilter.SetSource(&mPitchFilter);
 		}
 		else
 		{
@@ -76,6 +86,11 @@ void CSubtractiveInstrument::Start()
 			mReson.SetSource(&mSquare);
 			mAmplitudeFilter.SetSource(&mReson);
 		}
+		else if (mFilterEnvelope)
+		{
+			mPitchFilter.SetSource(&mSquare);
+			mAmplitudeFilter.SetSource(&mPitchFilter);
+		}
 		else
 		{
 			mAmplitudeFilter.SetSource(&mSquare);
@@ -96,6 +111,11 @@ void CSubtractiveInstrument::Start()
 		{
 			mReson.SetSource(&mSinewave);
 			mAmplitudeFilter.SetSource(&mReson);
+		}
+		else if (mFilterEnvelope)
+		{
+			mPitchFilter.SetSource(&mSinewave);
+			mAmplitudeFilter.SetSource(&mPitchFilter);
 		}
 		else
 		{
