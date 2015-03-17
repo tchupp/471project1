@@ -26,6 +26,7 @@ CEnvelope* CCustomEnvelopeFactory::CreateBabyScratchEnvelope()
 	envelope->AddPoint(2.25, 1.1);
 	envelope->AddPoint(2.45, -0.9);
 	envelope->AddPoint(2.7, 1);
+	envelope->Start();
 	return envelope;
 }
 

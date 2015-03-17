@@ -36,9 +36,20 @@ void CCustomEnvelope::Start()
 
 bool CCustomEnvelope::Generate()
 {
-	SetEnvelopePoints();
-	mEnvelopeLevel = GenerateLevelValue();
+	if (mTime < mEnvelopePoints[0].mTime)
+	{
+		mEnvelopeLevel = mEnvelopePoints[0].mLevel / mEnvelopePoints[0].mTime * mTime;
+	}
 
+	else if (mEnvelopePoints[0].mTime < mTime < mEnvelopePoints[mEnvelopePoints.size()-1].mTime)
+	{
+		SetEnvelopePoints();
+		mEnvelopeLevel = GenerateLevelValue();
+	}
+	else
+	{
+		mEnvelopeLevel = mEnvelopePoints[mEnvelopePoints.size() - 1].mTime / (mDuration - mEnvelopePoints[mEnvelopePoints.size() - 1].mTime) * mTime;
+	}
 	mTime += GetSamplePeriod();
 	return mTime < mDuration;
 }
@@ -58,10 +69,10 @@ void CCustomEnvelope::SetEnvelopePoints()
 	for (auto point : mEnvelopePoints)
 	{
 		///future add a check to see if this is the end of the vector
-		if (mTime > point.mTime)
+		if (point.mTime > mTime)
 		{
-			mPrevPoint = point;
-			mNextPoint = mEnvelopePoints[index + 1];
+			mNextPoint = point;
+			mPrevPoint = mEnvelopePoints[index - 1];
 			return;
 		}
 		index++;
