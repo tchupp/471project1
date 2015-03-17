@@ -29,6 +29,8 @@ CSynthesizer::CSynthesizer()
 	mBeatsPerMeasure = 4;
 
 	mScratchFactory.LoadFile("wav/scratchs/triRise.wav");
+	mScratchFactory.SetSampleRate(GetSampleRate());
+	mDrumsFactory.SetSampleRate(GetSampleRate());
 }
 
 
