@@ -22,6 +22,8 @@ void CAdditiveInstrument::Start()
 	mTime = 0;
 
 	mEnvelope = new CADSREnvelope();
+	static_cast<CADSREnvelope*>(mEnvelope)->SetAttack(.05);
+	static_cast<CADSREnvelope*>(mEnvelope)->SetRelease(.05);
 
 	// Tell the amplitude filter object it gets its samples from 
 	// the sine wave object.
