@@ -16,9 +16,14 @@ public:
 
 	vector<double> GetHarmonics() { return mHarmonics; }
 	void AddHarmonic(double harmonic) { mHarmonics.push_back(harmonic); }
+	void ImplementHarmonics(double* sample, double time);
+	void ImplementVibrato(double* sineRadians, double* vibratoRadians);
 
 private:
 	// Any harmonics we have (index is the harmonic, value is the amplitude)
 	vector<double> mHarmonics;
+
+	double mVibrato = 15;
+	double mVibratoRate = 3;
 };
 
