@@ -6,6 +6,7 @@
 #include "SawtoothWave.h"
 #include "ResonFilter.h"
 #include <vector>
+#include "ADSREnvelope.h"
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -37,10 +38,12 @@ private:
 	double mTime;
 	
 	CResonFilter mReson;
+
 	Waveform mWaveform;
 
 	void StringToWaveform(std::wstring waveform);
 
 	bool mResonFilter;
-
+	bool mFilterEnvelope;
+	bool mADSREnvelope;
 };

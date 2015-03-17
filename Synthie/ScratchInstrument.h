@@ -11,8 +11,7 @@
 #include "WavFilePlayer.h"
 #include "PitchFilter.h"
 
-class CScratchInstrument :
-	public CInstrument
+class CScratchInstrument : public CInstrument
 {
 public:
 	CScratchInstrument();

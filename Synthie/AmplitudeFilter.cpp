@@ -22,7 +22,6 @@ CAmplitudeFilter::~CAmplitudeFilter()
 void CAmplitudeFilter::Start()
 {
 	mTime = 0;
-
 	// Make sure you do this!
 	mEnvelope->SetDuration(mDuration);
 	mEnvelope->SetSampleRate(GetSampleRate());

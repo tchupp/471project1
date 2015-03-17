@@ -4,12 +4,12 @@
 #include "Notes.h"
 #include "Envelope.h"
 
-double const RESONGAIN = 10;
-
 CSubtractiveInstrument::CSubtractiveInstrument()
 {
 	mDuration = 0.1;
 	mResonFilter = false;
+	mFilterEnvelope = false;
+	mADSREnvelope = false;
 }
 
 
@@ -33,7 +33,7 @@ void CSubtractiveInstrument::Start()
 		{
 			mAmplitudeFilter.SetSource(&mSawtooth);
 		}
-		
+
 	}
 	else if (mWaveform == Triangle)
 	{
@@ -79,10 +79,16 @@ void CSubtractiveInstrument::Start()
 		}
 	}
 
+
+
+	mEnvelope = new CADSREnvelope();
+	
 	if (mResonFilter)
 	{
 		ResonFilterSetup();
 	}
+
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
 	mAmplitudeFilter.Start();
@@ -166,17 +172,23 @@ void CSubtractiveInstrument::SetNote(CNote* note, double secPerBeat)
 		{
 			SetFreq(NoteToFrequency(value.bstrVal));
 		}
-		else if (name == "resonfrequency")
+
+		if (name == "resonfrequency")
 		{
 			mResonFilter = true;
 			value.ChangeType(VT_R8);
 			mResonFrequency = value.dblVal;
 		}
 
-		else if (name == "resonbandwidth")
+		if (name == "resonbandwidth")
 		{
 			value.ChangeType(VT_R8);
 			mResonBandwidth = value.dblVal;
+		}
+
+		if (name == "filter-envelope")
+		{
+			mFilterEnvelope = true;
 		}
 	}
 }
@@ -215,6 +227,7 @@ void CSubtractiveInstrument::SetAmplitude(double a)
 
 void CSubtractiveInstrument::ResonFilterSetup()
 {
+	mReson.SetEnvelope(mEnvelope);
 	mReson.SetBandwidth(mResonBandwidth);
 	mReson.SetFrequency(mResonFrequency);
 	mReson.SetSampleRate(GetSampleRate());
