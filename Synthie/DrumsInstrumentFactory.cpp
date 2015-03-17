@@ -197,7 +197,7 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 
 	CSineWave bassWave;
 	bassWave.SetAmplitude(8000);
-	bassWave.SetFreq(160);
+	bassWave.SetFreq(170);
 	bassWave.SetSampleRate(GetSampleRate());
 
 	CADSREnvelope envelope;
