@@ -132,14 +132,13 @@ void CAdditiveInstrument::SetNote(CNote* note, double secPerBeat)
 void CAdditiveInstrument::AddNextNote(CNote* nextNote, double secPerBeat)
 {
 	/**
-		Creates a temporary instrument from a passed note. 
+		Creates an instrument from a passed note. 
 		We can use this instrument to crossfade, by getting a frame.
 	**/
-	mNextNote = nextNote;
 	mNextNoteInstrument = new CAdditiveInstrument();
 
 	mNextNoteInstrument->SetSampleRate(GetSampleRate());
-	mNextNoteInstrument->SetNote(mNextNote, secPerBeat);
+	mNextNoteInstrument->SetNote(nextNote, secPerBeat);
 	mNextNoteInstrument->Start();
 
 	// Pair the two instruments 'custom waves' so we can interpolate

@@ -32,6 +32,5 @@ private:
 	CCustomWave mCustomWave;
 
 	double mCrossfadeDuration = 0;
-	CNote* mNextNote;		// Harmonic amplitudes
 	CAdditiveInstrument* mNextNoteInstrument = nullptr;
 };
