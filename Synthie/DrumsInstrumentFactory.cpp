@@ -187,6 +187,35 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 		LoadFile("wav/drums/bass.wav");
 		mPitchFilter = true;
 	}
+
+	else if (type == L"808clap")
+	{
+		LoadFile("wav/drums/808clap.wav");
+	}
+
+	else if (type == L"resonbass")
+	{
+		LoadBassWave();
+		mResonFilter = true;
+	}
+
+	else if (type == L"pitchbass")
+	{
+		LoadBassWave();
+		mPitchFilter = true;
+	}
+
+	else if (type == L"reson808clap")
+	{
+		LoadFile("wav/drums/808clap.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"pitch808clap")
+	{
+		LoadFile("wav/drums/808clap.wav");
+		mPitchFilter = true;
+	}
 }
 
 // Custom Synthesized Drum for Kick/Bass

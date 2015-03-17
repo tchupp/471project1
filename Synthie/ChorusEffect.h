@@ -8,7 +8,7 @@ public:
 	CChorusEffect();
 	virtual ~CChorusEffect();
 
-	virtual void Process(double *input, double *output) override;
+	virtual void Process(double *input, double *output, double time) override;
 	
 	virtual void Start() override;
 
