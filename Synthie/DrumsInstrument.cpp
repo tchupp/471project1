@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "DrumsInstrument.h"
+#include "Instrument.h"
 #include "Note.h"
 #include "Envelope.h"
-#include "ADSREnvelope.h"
+
 
 /*
 
@@ -40,6 +41,8 @@ void CDrumsInstrument::Start()
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
 	mAmplitudeFilter.Start();
+
+
 }
 
 bool CDrumsInstrument::Generate()

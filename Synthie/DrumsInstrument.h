@@ -1,6 +1,9 @@
 #pragma once
 #include "Instrument.h"
 #include "WavFilePlayer.h"
+#include "PitchFilter.h"
+#include "ResonFilter.h"
+#include "ADSREnvelope.h"
 
 class CDrumsInstrument : public CInstrument
 {
@@ -20,9 +23,15 @@ public:
 	void SetResonFilter(bool reson) { mResonFilter = reson; }
 
 private:
+	CResonFilter mReson;
+	CPitchFilter mPitch;
 	CWavFilePlayer mWavPlayer;
+
 	double mDuration;
 	double mTime;
+	double mResonFrequency;
+	double mResonBandwidth;
+
 	bool mPitchFilter = false;
 	bool mResonFilter = false;
 };
