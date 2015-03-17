@@ -1,6 +1,7 @@
 #pragma once
 #include "Instrument.h"
 #include "CustomWave.h"
+#include <list>
 
 using namespace std;
 
@@ -23,9 +24,13 @@ public:
 
 	void AddHarmonics(std::wstring harmonics);
 
+	void AddNextNote(CNote* nextNote, double secPerBeat); 
+
 private:
 	double mDuration;
 	double mTime;
-
 	CCustomWave mCustomWave;
+
+	double mCrossfadeDuration = 0;
+	CAdditiveInstrument* mNextNoteInstrument = nullptr;
 };
