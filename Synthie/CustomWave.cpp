@@ -84,7 +84,7 @@ void CCustomWave::GenerateCrossfade(double time, double crossfadeDuration)
 	double currentSample[2];
 	double interpolatedSample;
 
-	if (mPhase < mPartnerWave->GetWavetableSize() && mPhase < GetWavetableSize())
+	if (mPartnerWave != nullptr && mPhase < mPartnerWave->GetWavetableSize() && mPhase < GetWavetableSize())
 	{
 		nextSample[0] = nextSample[1] = mPartnerWave->mWavetable[mPhase];
 		currentSample[0] = currentSample[1] = mWavetable[mPhase];

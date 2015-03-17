@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <score bpm="60" beatspermeasure="4">
      <instrument instrument="AdditiveInstrument">
-          <note measure="1" beat="1" duration="4" harmonics="1" vibrato="12" vibratoRate="8" crossfade="2"/>
-          <note measure="2" beat="1" duration="4" harmonics="1 .5 .6" vibrato="5" vibratoRate="3" crossfade="1" />
-          <note measure="2" beat="1" duration="4" harmonics="1" />
+          <note measure="1" beat="1" duration="4" harmonics="1" vibrato="12" vibratoRate="8" crossfade="1" crossfadeOverlap="0" note="A3"/>
+          <note measure="2" beat="1" duration="4" harmonics="1 .5 .6" vibrato="5" vibratoRate="3" crossfade="1" crossfadeOverlap="2" />
+          <note measure="2" beat="3" duration="2" harmonics="1" note="C5" />
      </instrument>
 </score>
