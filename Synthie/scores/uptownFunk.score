@@ -408,14 +408,14 @@
 	<!-- Intro Plucks -->
 	<instrument instrument="SubtractiveInstrument" waveform="square">
 		<!-- Second Block (5 - 8) -->
-		<note measure="5" beat="1" duration=".25" note="F4"/>
-		<note measure="5" beat="1" duration=".25" note="D4"/>
-		<note measure="5" beat="1.75" duration=".25" note="F4"/>
-		<note measure="5" beat="1.75" duration=".25" note="D4"/>
-		<note measure="5" beat="3" duration=".25" note="F4"/>
-		<note measure="5" beat="3" duration=".25" note="D4"/>
-		<note measure="5" beat="3.75" duration=".25" note="F4"/>
-		<note measure="5" beat="3.75" duration=".25" note="D4"/>
+		<note measure="5" beat="1" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1.75" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1.75" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3.75" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3.75" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
 
 		<note measure="6" beat="1" duration=".25" note="F4"/>
 		<note measure="6" beat="1" duration=".25" note="B3"/>
@@ -493,7 +493,7 @@
 	<!-- Bass Guitar -->
 
 	<!-- Breakdown -->
-	<instrument instrument="SubtractiveInstrument" waveform="triangle">
+	<instrument instrument="SubtractiveInstrument" waveform="square">
 		<!-- Fourth Block (13 - 16) -->
 		<note measure="16" beat="3.5" duration=".5" note="C2"/>
 		<note measure="16" beat="4" duration=".25" note="D2"/>
