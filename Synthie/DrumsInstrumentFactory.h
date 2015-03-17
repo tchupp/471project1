@@ -19,6 +19,8 @@ private:
 
 	bool LoadFile(const char* filename);
 	bool LoadBassWave();
+	bool mPitchFilter = false;
+	bool mResonFilter = false;
 
 	void SetDrumType(std::wstring type);
 };

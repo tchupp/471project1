@@ -16,8 +16,13 @@ public:
 
 	void SetDuration(double d) { mDuration = d; }
 
+	void SetPitchFilter(bool pitch) { mPitchFilter = pitch; }
+	void SetResonFilter(bool reson) { mResonFilter = reson; }
+
 private:
 	CWavFilePlayer mWavPlayer;
 	double mDuration;
 	double mTime;
+	bool mPitchFilter = false;
+	bool mResonFilter = false;
 };

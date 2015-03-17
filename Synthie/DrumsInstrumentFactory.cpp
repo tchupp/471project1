@@ -56,6 +56,16 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 {
 	auto instrument = new CDrumsInstrument();
+
+	if (mPitchFilter)
+	{
+		instrument->SetPitchFilter(true);
+	}
+	if (mResonFilter)
+	{
+		instrument->SetResonFilter(true);
+	}
+
 	instrument->SetSamples(&mWaveL[0], &mWaveR[0], int(mWaveL.size()));
 
 	return instrument;
@@ -91,9 +101,9 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 
 void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 {
+	// This is the generated bass synthesis, the rest are processed from wav samples
 	if (type == L"bass")
 	{
-		//LoadFile("wav/drums/bass.wav");
 		LoadBassWave();
 	}
 	else if (type == L"cymbals")
@@ -111,6 +121,61 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	else if (type == L"snare")
 	{
 		LoadFile("wav/drums/snare.wav");
+	}
+
+	else if (type == L"sharpbass")
+	{
+		LoadFile("wav/drums/bass.wav");
+	}
+
+	else if (type == L"resoncymbals")
+	{
+		mResonFilter = true;
+	}
+
+	else if (type == L"resontomshort")
+	{
+		mResonFilter = true;
+	}
+
+	else if (type == L"resontomlong")
+	{
+		mResonFilter = true;
+	}
+
+	else if (type == L"resonsnare")
+	{
+		mResonFilter = true;
+	}
+
+	else if (type == L"resonsharpbass")
+	{
+		mResonFilter = true;
+	}
+
+	else if (type == L"pitchcymbals")
+	{
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchtomshort")
+	{
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchtomlong")
+	{
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchsnare")
+	{
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchsharpbass")
+	{
+		mPitchFilter = true;
 	}
 }
 
