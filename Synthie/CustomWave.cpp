@@ -38,25 +38,53 @@ void CCustomWave::SetWavetables()
 	mWavetable.resize(tableSize);
 	auto time = 0.;
 
-	auto nyquistFrequency = GetSampleRate() / 2;
+	double sineRadians = 0;										// Sine wave
+	double vibratoRadians = 0;
 
-	for (auto i = 0; i < tableSize; i++ , time += 1. / GetSampleRate())
+
+	for (auto i = 0; i < tableSize; i++, time += 1. / GetSampleRate())
 	{
-		auto sineSample = mAmp * sin(time * 2 * PI * mFreq);
+		auto sineSample = mAmp * sin(sineRadians);
 
 		// Harmonics
 		if (mHarmonics.size() > 0)
 		{
-			// Adding harmonics (index is harmonic, value is amplitude), while below nyquist
-			for (auto x = 0; x < mHarmonics.size() && (mFreq * (x + 1)) < nyquistFrequency; x++)
-			{
-				// Adjusting to fit harmonic number
-				auto harmonic = x + 1;
+			ImplementHarmonics(&sineSample, time);
+		}
 
-				sineSample += mHarmonics[x] * (mAmp / harmonic) * (sin(time * 2 * PI * harmonic * mFreq));
-			}
+		// Vibrato
+		if (true) // change to vibrat
+		{
+			ImplementVibrato(&sineRadians, &vibratoRadians);
 		}
 
 		mWavetable[i] = sineSample;
 	}
+}
+
+void CCustomWave::ImplementHarmonics(double* sample, double time)
+{
+	auto nyquistFrequency = GetSampleRate() / 2;
+
+	// Adding harmonics (index is harmonic, value is amplitude), while below nyquist
+	for (auto x = 0; x < mHarmonics.size() && (mFreq * (x + 1)) < nyquistFrequency; x++)
+	{
+		// Adjusting to fit harmonic number
+		auto harmonic = x + 1;
+
+		*sample += mHarmonics[x] * (mAmp / harmonic) * (sin(time * 2 * PI * harmonic * mFreq));
+	}
+}
+
+void CCustomWave::ImplementVibrato(double* sineRadians, double* vibratoRadians)
+{
+	// Creating sine wave
+	double sample = short(mAmp * sin(*sineRadians));
+
+	// Calculating the rate
+	double diff = sin(*vibratoRadians) * mVibrato;
+
+	// Increment phases
+	*sineRadians += (2 * PI * (mFreq + diff)) / mSampleRate;
+	*vibratoRadians += (2 * PI * mVibratoRate) / mSampleRate;
 }

@@ -4,12 +4,12 @@
 #include "Notes.h"
 #include "Envelope.h"
 #include <sstream>
+#include "ADSREnvelope.h"
 
 CAdditiveInstrument::CAdditiveInstrument()
 {
 	mDuration = 0.1;
 }
-
 
 CAdditiveInstrument::~CAdditiveInstrument()
 {
@@ -20,6 +20,9 @@ void CAdditiveInstrument::Start()
 	mCustomWave.SetSampleRate(GetSampleRate());
 	mCustomWave.Start();
 	mTime = 0;
+
+	mEnvelope = new CADSREnvelope();
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
 
 	// Tell the amplitude filter object it gets its samples from 
 	// the sine wave object.
