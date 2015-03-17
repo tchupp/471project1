@@ -3,6 +3,8 @@
 #include "Note.h"
 #include "Notes.h"
 #include "Envelope.h"
+#include "ADSREnvelope.h"
+
 
 
 CToneInstrument::CToneInstrument()
@@ -21,8 +23,11 @@ void CToneInstrument::Start()
 	mSinewave.Start();
 	mTime = 0;
 
+	mEnvelope = new CADSREnvelope();
+
 	// Tell the AR object it gets its samples from 
 	// the sine wave object.
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSource(&mSinewave);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);

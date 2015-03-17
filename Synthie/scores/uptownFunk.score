@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This song heavily uses 16th notes (thats why I cut into .25, .5, or .75 often)
+		Didn't use 16 beatspermeasure, because it changed the playback speed (way too slow)
+ -->
+<score bpm="115" beatspermeasure="4">
+
+	<!-- Vocals (can lower an octave for bassier sound) --> 
+
+	<!-- Intro Dos -->
+	<instrument instrument="ToneInstrument">
+		<!-- First Block (measures 1 - 4) -->
+		<note measure="1" beat="1" duration=".5" note="D4"/>
+		<note measure="1" beat="4.5" duration=".5" note="D4"/>
+
+		<note measure="2" beat="1" duration=".75" note="G4"/>
+		<note measure="2" beat="1.75" duration=".5" note="F4"/>
+		<note measure="2" beat="2.5" duration=".5" note="D4"/>
+		<note measure="2" beat="3" duration=".75" note="G4"/>
+		<note measure="2" beat="3.75" duration=".5" note="F4"/>
+		<note measure="2" beat="4.5" duration=".5" note="C4"/>
+
+		<note measure="3" beat="1" duration=".5" note="D4"/>
+		<note measure="3" beat="4.5" duration=".5" note="D4"/>
+
+		<note measure="4" beat="1" duration=".75" note="G4"/>
+		<note measure="4" beat="1.75" duration=".5" note="F4"/>
+		<note measure="4" beat="2.5" duration=".5" note="D4"/>
+		<note measure="4" beat="3" duration=".75" note="G4"/>
+		<note measure="4" beat="3.75" duration=".5" note="F4"/>
+		<note measure="4" beat="4.5" duration=".5" note="C4"/>
+
+		<!-- Second Block (5 - 8) -->
+		<note measure="5" beat="1" duration=".5" note="D4"/>
+		<note measure="5" beat="4.5" duration=".5" note="D4"/>
+
+		<note measure="6" beat="1" duration=".75" note="G4"/>
+		<note measure="6" beat="1.75" duration=".5" note="F4"/>
+		<note measure="6" beat="2.5" duration=".5" note="D4"/>
+		<note measure="6" beat="3" duration=".75" note="G4"/>
+		<note measure="6" beat="3.75" duration=".5" note="F4"/>
+		<note measure="6" beat="4.5" duration=".5" note="C4"/>
+
+		<note measure="7" beat="1" duration=".5" note="D4"/>
+		<note measure="7" beat="4.5" duration=".5" note="D4"/>
+
+		<note measure="8" beat="1" duration=".75" note="G4"/>
+		<note measure="8" beat="1.75" duration=".5" note="F4"/>
+		<note measure="8" beat="2.5" duration=".5" note="D4"/>
+		<note measure="8" beat="3" duration=".5" note="B4"/>
+	</instrument>
+
+	<!-- Singing Verse -->
+	<instrument instrument="ToneInstrument">
+		<!-- Third Block (9 - 12) -->
+		<note measure="9" beat="1" duration=".5" note="F4"/>
+		<note measure="9" beat="1.75" duration=".5" note="F4"/>
+		<note measure="9" beat="2.5" duration=".5" note="C4"/>
+		<note measure="9" beat="3" duration=".5" note="D4"/>
+		<note measure="9" beat="3.75" duration=".5" note="D4"/>
+		<note measure="9" beat="4.5" duration=".5" note="C4"/>
+
+		<note measure="10" beat="1" duration=".5" note="D4"/>
+		<note measure="10" beat="1.75" duration=".5" note="D4"/>
+		<note measure="10" beat="2.5" duration=".5" note="C4"/>
+		<note measure="10" beat="3" duration=".5" note="D4"/>
+		<note measure="10" beat="3.75" duration=".5" note="D4"/>
+
+		<note measure="11" beat="1" duration=".5" note="F4"/>
+		<note measure="11" beat="1.75" duration=".75" note="F4"/>
+		<note measure="11" beat="2.5" duration=".5" note="C4"/>
+		<note measure="11" beat="3" duration=".5" note="D4"/>
+		<note measure="11" beat="3.75" duration=".5" note="D4"/>
+		<note measure="11" beat="4.5" duration=".5" note="C4"/>
+
+		<note measure="12" beat="1" duration=".5" note="D4"/>
+		<note measure="12" beat="1.75" duration=".5" note="D4"/>
+		<note measure="12" beat="2.5" duration=".5" note="C4"/>
+		<note measure="12" beat="3" duration=".25" note="G4"/>
+		<note measure="12" beat="3.25" duration=".25" note="F4"/> 
+		<note measure="12" beat="3.5" duration=".75" note="D4"/>
+
+		<!-- Fourth block (13 - 16) -->
+		<note measure="13" beat="1" duration=".5" note="D4"/>
+		<note measure="13" beat="1.75" duration=".5" note="D4"/>
+		<note measure="13" beat="3" duration=".5" note="D4"/>
+		<note measure="13" beat="3.75" duration=".5" note="D4"/>
+
+		<note measure="14" beat="1" duration=".25" note="D4"/>
+		<note measure="14" beat="1.25" duration=".25" note="D4"/>   
+		<note measure="14" beat="1.5" duration=".25" note="D4"/>
+		<note measure="14" beat="1.75" duration=".25" note="C4"/>
+		<note measure="14" beat="2.25" duration=".25" note="C4"/>
+		<note measure="14" beat="2.5" duration=".25" note="C4"/>
+		<note measure="14" beat="3" duration=".5" note="D4"/>
+		<note measure="14" beat="4.75" duration=".25" note="D4"/>
+
+		<note measure="15" beat="1" duration=".5" note="G4"/>
+		<note measure="15" beat="1.75" duration=".5" note="G4"/>
+		<note measure="15" beat="2.5" duration=".5" note="C4"/>
+		<note measure="15" beat="3" duration=".5" note="D4"/>
+		<note measure="15" beat="3.75" duration=".5" note="D4"/>
+		<note measure="15" beat="4.75" duration=".5" note="C4"/>
+
+		<note measure="16" beat="1" duration=".25" note="D4"/>
+		<note measure="16" beat="2" duration=".25" note="D4"/>
+		<note measure="16" beat="3" duration=".25" note="D4"/>
+		<note measure="16" beat="4.5" duration=".25" note="F4"/>
+	</instrument>
+
+	<!-- Chorus -->
+	<instrument instrument="ToneInstrument">
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="1" duration=".75" note="F4"/>
+		<note measure="17" beat="4.5" duration=".25" note="C4"/>
+
+		<note measure="18" beat="1" duration=".75" note="C4"/>
+		<note measure="18" beat="1.75" duration=".25" note="D4"/>
+		<note measure="18" beat="2.25" duration=".25" note="D4"/>
+		<note measure="18" beat="2.5" duration=".5" note="C4"/>
+		<note measure="18" beat="3" duration=".5" note="F4"/>
+		<note measure="18" beat="3.5" duration=".5" note="C4"/>
+		<note measure="18" beat="4" duration=".5" note="D4"/>
+		<note measure="18" beat="4.5" duration=".25" note="F4"/>
+
+		<note measure="19" beat="1" duration=".75" note="F4"/>
+		<note measure="19" beat="4.5" duration=".25" note="C4"/>
+
+		<note measure="20" beat="1" duration=".75" note="C4"/>
+		<note measure="20" beat="1.75" duration=".25" note="D4"/>
+		<note measure="20" beat="2.25" duration=".25" note="D4"/>
+		<note measure="20" beat="2.5" duration=".5" note="C4"/>
+		<note measure="20" beat="3" duration=".5" note="F4"/>
+		<note measure="20" beat="3.5" duration=".5" note="C4"/>
+		<note measure="20" beat="4" duration=".5" note="D4"/>
+		<note measure="20" beat="4.5" duration=".25" note="F4"/>
+
+		<!-- Sixth Block (21 - 24) -->
+		<note measure="21" beat="1" duration=".75" note="F4"/>
+		<note measure="21" beat="4.5" duration=".25" note="C4"/>
+
+		<note measure="22" beat="1" duration=".75" note="C4"/>
+		<note measure="22" beat="1.75" duration=".25" note="D4"/>
+		<note measure="22" beat="2.25" duration=".25" note="D4"/>
+		<note measure="22" beat="2.5" duration=".5" note="C4"/>
+		<note measure="22" beat="3" duration=".5" note="F4"/>
+		<note measure="22" beat="3.5" duration=".5" note="F4"/>
+		<note measure="22" beat="4" duration=".5" note="D4"/>
+		<note measure="22" beat="4.5" duration=".25" note="F4"/>
+
+		<note measure="23" beat="1" duration=".75" note="F4"/>
+		<note measure="23" beat="4.5" duration=".25" note="C4"/>
+
+		<note measure="24" beat="1" duration=".75" note="C4"/>
+		<note measure="24" beat="1.75" duration=".25" note="D4"/>
+		<note measure="24" beat="2.25" duration=".25" note="D4"/>
+		<note measure="24" beat="2.5" duration=".5" note="C4"/>
+		<note measure="24" beat="3" duration=".5" note="F4"/>
+		<note measure="24" beat="3.5" duration=".5" note="C4"/>
+		<note measure="24" beat="4" duration=".5" note="D4"/>
+		<note measure="24" beat="4.5" duration=".25" note="C4"/>
+
+		<!-- Seventh Block (25- 28) -->
+		<note measure="25" beat="1" duration=".5" note="D4"/>
+	</instrument>
+
+
+	<!-- Drums -->
+
+	<!-- Clap -->
+	<instrument instrument="ToneInstrument">
+		<!-- First Block (1 - 4)-->
+		<note measure="1" beat="2" duration=".25" note="D5"/>
+		<note measure="1" beat="4" duration=".25" note="D5"/>
+		<note measure="2" beat="2" duration=".25" note="D5"/>
+		<note measure="2" beat="4" duration=".25" note="D5"/>
+		<note measure="3" beat="2" duration=".25" note="D5"/>
+		<note measure="3" beat="4" duration=".25" note="D5"/>
+		<note measure="4" beat="2" duration=".25" note="D5"/>
+		<note measure="4" beat="4" duration=".25" note="D5"/>
+
+		<!-- Second Block (5 - 8) -->
+		<note measure="5" beat="2" duration=".25" note="D5"/>
+		<note measure="5" beat="4" duration=".25" note="D5"/>
+		<note measure="6" beat="2" duration=".25" note="D5"/>
+		<note measure="6" beat="4" duration=".25" note="D5"/>
+		<note measure="7" beat="2" duration=".25" note="D5"/>
+		<note measure="7" beat="4" duration=".25" note="D5"/>
+		<note measure="8" beat="2" duration=".25" note="D5"/>
+		<note measure="8" beat="4" duration=".25" note="D5"/>
+		<!-- <note measure="8" beat="4.25" duration=".25" note="D5"/> (Extra Clap before breakdown?) --> 
+	</instrument> 
+
+	<!-- Snare -->
+	<instrument instrument="ToneInstrument">
+		<!-- Third Block (9 - 12) -->
+		<note measure="9" beat="2" duration=".25" note="D5"/>
+		<note measure="9" beat="4" duration=".25" note="D5"/>
+		<note measure="10" beat="2" duration=".25" note="D5"/>
+		<note measure="10" beat="4" duration=".25" note="D5"/>
+		<note measure="11" beat="2" duration=".25" note="D5"/>
+		<note measure="11" beat="4" duration=".25" note="D5"/>
+		<note measure="12" beat="2" duration=".25" note="D5"/>
+		<note measure="12" beat="4" duration=".25" note="D5"/>
+
+		<!-- Fourth Block (13 - 16) -->
+		<note measure="13" beat="2" duration=".25" note="D5"/>
+		<note measure="13" beat="4" duration=".25" note="D5"/>
+		<note measure="14" beat="2" duration=".25" note="D5"/>
+		<note measure="14" beat="4" duration=".25" note="D5"/>
+		<note measure="15" beat="2" duration=".25" note="D5"/>
+		<note measure="15" beat="4" duration=".25" note="D5"/>
+		<note measure="16" beat="2" duration=".25" note="D5"/>
+		<note measure="16" beat="4" duration=".25" note="D5"/>
+
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="2" duration=".25" note="D5"/>
+		<note measure="17" beat="4" duration=".25" note="D5"/>
+		<note measure="18" beat="2" duration=".25" note="D5"/>
+		<note measure="18" beat="4" duration=".25" note="D5"/>
+		<note measure="19" beat="2" duration=".25" note="D5"/>
+		<note measure="19" beat="4" duration=".25" note="D5"/>
+		<note measure="20" beat="2" duration=".25" note="D5"/>
+		<note measure="20" beat="4" duration=".25" note="D5"/>
+
+		<!-- Sixth Block (21 - 24) -->
+		<note measure="21" beat="2" duration=".25" note="D5"/>
+		<note measure="21" beat="4" duration=".25" note="D5"/>
+		<note measure="22" beat="2" duration=".25" note="D5"/>
+		<note measure="22" beat="4" duration=".25" note="D5"/>
+		<note measure="23" beat="2" duration=".25" note="D5"/>
+		<note measure="23" beat="4" duration=".25" note="D5"/>
+		<note measure="24" beat="2" duration=".25" note="D5"/>
+		<note measure="24" beat="4" duration=".25" note="D5"/>
+	</instrument>
+
+	<!-- Kick/Bass Drum -->
+	<instrument instrument="ToneInstrument">
+		<!-- Third Block (9 - 12) -->
+		<note measure="9" beat="1" duration=".25" note="D3"/>
+		<note measure="9" beat="2" duration=".25" note="D3"/>
+		<note measure="9" beat="3" duration=".25" note="D3"/>
+		<note measure="9" beat="4" duration=".25" note="D3"/>
+		<note measure="10" beat="1" duration=".25" note="D3"/>
+		<note measure="10" beat="2" duration=".25" note="D3"/>
+		<note measure="10" beat="3" duration=".25" note="D3"/>
+		<note measure="10" beat="4" duration=".25" note="D3"/>
+		<note measure="11" beat="1" duration=".25" note="D3"/>
+		<note measure="11" beat="2" duration=".25" note="D3"/>
+		<note measure="11" beat="3" duration=".25" note="D3"/>
+		<note measure="11" beat="4" duration=".25" note="D3"/>
+		<note measure="12" beat="1" duration=".25" note="D3"/>
+		<note measure="12" beat="2" duration=".25" note="D3"/>
+		<note measure="12" beat="3" duration=".25" note="D3"/>
+		<note measure="12" beat="4" duration=".25" note="D3"/>
+
+		<!-- Fourth Block -->
+		<note measure="13" beat="1" duration=".25" note="D3"/>
+		<note measure="13" beat="2" duration=".25" note="D3"/>
+		<note measure="13" beat="3" duration=".25" note="D3"/>
+		<note measure="13" beat="4" duration=".25" note="D3"/>
+		<note measure="14" beat="1" duration=".25" note="D3"/>
+		<note measure="14" beat="2" duration=".25" note="D3"/>
+		<note measure="14" beat="3" duration=".25" note="D3"/>
+		<note measure="14" beat="4" duration=".25" note="D3"/>
+		<note measure="15" beat="1" duration=".25" note="D3"/>
+		<note measure="15" beat="2" duration=".25" note="D3"/>
+		<note measure="15" beat="3" duration=".25" note="D3"/>
+		<note measure="15" beat="4" duration=".25" note="D3"/>
+		<note measure="16" beat="1" duration=".25" note="D3"/>
+		<note measure="16" beat="2" duration=".25" note="D3"/>
+		<note measure="16" beat="3" duration=".25" note="D3"/>
+		<note measure="16" beat="4" duration=".25" note="D3"/>
+
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="1" duration=".25" note="D3"/>
+		<note measure="17" beat="2" duration=".25" note="D3"/>
+		<note measure="17" beat="3" duration=".25" note="D3"/>
+		<note measure="17" beat="4" duration=".25" note="D3"/>
+		<note measure="18" beat="1" duration=".25" note="D3"/>
+		<note measure="18" beat="2" duration=".25" note="D3"/>
+		<note measure="18" beat="3" duration=".25" note="D3"/>
+		<note measure="18" beat="4" duration=".25" note="D3"/>
+		<note measure="19" beat="1" duration=".25" note="D3"/>
+		<note measure="19" beat="2" duration=".25" note="D3"/>
+		<note measure="19" beat="3" duration=".25" note="D3"/>
+		<note measure="19" beat="4" duration=".25" note="D3"/>
+		<note measure="20" beat="1" duration=".25" note="D3"/>
+		<note measure="20" beat="2" duration=".25" note="D3"/>
+		<note measure="20" beat="3" duration=".25" note="D3"/>
+		<note measure="16" beat="4" duration=".25" note="D3"/>
+
+		<!-- Sixth Block (21 - 24) -->
+		<note measure="21" beat="1" duration=".25" note="D3"/>
+		<note measure="21" beat="2" duration=".25" note="D3"/>
+		<note measure="21" beat="3" duration=".25" note="D3"/>
+		<note measure="21" beat="4" duration=".25" note="D3"/>
+		<note measure="22" beat="1" duration=".25" note="D3"/>
+		<note measure="22" beat="2" duration=".25" note="D3"/>
+		<note measure="22" beat="3" duration=".25" note="D3"/>
+		<note measure="22" beat="4" duration=".25" note="D3"/>
+		<note measure="23" beat="1" duration=".25" note="D3"/>
+		<note measure="23" beat="2" duration=".25" note="D3"/>
+		<note measure="23" beat="3" duration=".25" note="D3"/>
+		<note measure="23" beat="4" duration=".25" note="D3"/>
+		<note measure="24" beat="1" duration=".25" note="D3"/>
+		<note measure="24" beat="2" duration=".25" note="D3"/>
+		<note measure="24" beat="3" duration=".25" note="D3"/>
+		<note measure="24" beat="4" duration=".25" note="D3"/>
+
+		<!-- Seventh Block (25 - 28) -->
+		<note measure="25" beat="1" duration=".25" note="D3"/>
+		<note measure="25" beat="2" duration=".25" note="D3"/>
+		<note measure="25" beat="3" duration=".25" note="D3"/>
+		<note measure="25" beat="4" duration=".25" note="D3"/>
+		<note measure="26" beat="1" duration=".25" note="D3"/>
+		<note measure="26" beat="2" duration=".25" note="D3"/>
+		<note measure="26" beat="3" duration=".25" note="D3"/>
+		<note measure="26" beat="4" duration=".25" note="D3"/>
+		<note measure="27" beat="1" duration=".25" note="D3"/>
+		<note measure="27" beat="2" duration=".25" note="D3"/>
+		<note measure="27" beat="3" duration=".25" note="D3"/>
+		<note measure="27" beat="4" duration=".25" note="D3"/>
+		<note measure="28" beat="1" duration=".25" note="D3"/>
+		<note measure="28" beat="2" duration=".25" note="D3"/>
+		<note measure="28" beat="3" duration=".25" note="D3"/>
+		<note measure="28" beat="4" duration=".25" note="D3"/>
+	</instrument>
+
+	<!-- Hit Hat -->
+	<instrument instrument="ToneInstrument">
+		<!-- Third Block (9 - 12) -->
+		<note measure="9" beat="1.5" duration=".25" note="C4"/>
+		<note measure="9" beat="2.5" duration=".25" note="C4"/>
+		<note measure="9" beat="3.5" duration=".25" note="C4"/>
+		<note measure="9" beat="4.5" duration=".25" note="C4"/>
+		<note measure="10" beat="1.5" duration=".25" note="C4"/>
+		<note measure="10" beat="2.5" duration=".25" note="C4"/>
+		<note measure="10" beat="3.5" duration=".25" note="C4"/>
+		<note measure="10" beat="4.5" duration=".25" note="C4"/>
+		<note measure="11" beat="1.5" duration=".25" note="C4"/>
+		<note measure="11" beat="2.5" duration=".25" note="C4"/>
+		<note measure="11" beat="3.5" duration=".25" note="C4"/>
+		<note measure="11" beat="4.5" duration=".25" note="C4"/>
+		<note measure="12" beat="1.5" duration=".25" note="C4"/>
+		<note measure="12" beat="2.5" duration=".25" note="C4"/>
+		<note measure="12" beat="3.5" duration=".25" note="C4"/>
+		<note measure="12" beat="4.5" duration=".25" note="C4"/>
+
+		<!-- Fourth Block -->
+		<note measure="13" beat="1.5" duration=".25" note="C4"/>
+		<note measure="13" beat="2.5" duration=".25" note="C4"/>
+		<note measure="13" beat="3.5" duration=".25" note="C4"/>
+		<note measure="13" beat="4.5" duration=".25" note="C4"/>
+		<note measure="14" beat="1.5" duration=".25" note="C4"/>
+		<note measure="14" beat="2.5" duration=".25" note="C4"/>
+		<note measure="14" beat="3.5" duration=".25" note="C4"/>
+		<note measure="14" beat="4.5" duration=".25" note="C4"/>
+		<note measure="15" beat="1.5" duration=".25" note="C4"/>
+		<note measure="15" beat="2.5" duration=".25" note="C4"/>
+		<note measure="15" beat="3.5" duration=".25" note="C4"/>
+		<note measure="15" beat="4.5" duration=".25" note="C4"/>
+		<note measure="16" beat="1.5" duration=".25" note="C4"/>
+		<note measure="16" beat="2.5" duration=".25" note="C4"/>
+		<note measure="16" beat="3.5" duration=".25" note="C4"/>
+		<note measure="16" beat="4.5" duration=".25" note="C4"/>
+
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="1.5" duration=".25" note="C4"/>
+		<note measure="17" beat="2.5" duration=".25" note="C4"/>
+		<note measure="17" beat="3.5" duration=".25" note="C4"/>
+		<note measure="17" beat="4.5" duration=".25" note="C4"/>
+		<note measure="18" beat="1.5" duration=".25" note="C4"/>
+		<note measure="18" beat="2.5" duration=".25" note="C4"/>
+		<note measure="18" beat="3.5" duration=".25" note="C4"/>
+		<note measure="18" beat="4.5" duration=".25" note="C4"/>
+		<note measure="19" beat="1.5" duration=".25" note="C4"/>
+		<note measure="19" beat="2.5" duration=".25" note="C4"/>
+		<note measure="19" beat="3.5" duration=".25" note="C4"/>
+		<note measure="19" beat="4.5" duration=".25" note="C4"/>
+		<note measure="20" beat="1.5" duration=".25" note="C4"/>
+		<note measure="20" beat="2.5" duration=".25" note="C4"/>
+		<note measure="20" beat="3.5" duration=".25" note="C4"/>
+		<note measure="16" beat="4.5" duration=".25" note="C4"/>
+
+		<!-- Sixth Block (21 - 24) -->
+		<note measure="21" beat="1.5" duration=".25" note="C4"/>
+		<note measure="21" beat="2.5" duration=".25" note="C4"/>
+		<note measure="21" beat="3.5" duration=".25" note="C4"/>
+		<note measure="21" beat="4.5" duration=".25" note="C4"/>
+		<note measure="22" beat="1.5" duration=".25" note="C4"/>
+		<note measure="22" beat="2.5" duration=".25" note="C4"/>
+		<note measure="22" beat="3.5" duration=".25" note="C4"/>
+		<note measure="22" beat="4.5" duration=".25" note="C4"/>
+		<note measure="23" beat="1.5" duration=".25" note="C4"/>
+		<note measure="23" beat="2.5" duration=".25" note="C4"/>
+		<note measure="23" beat="3.5" duration=".25" note="C4"/>
+		<note measure="23" beat="4.5" duration=".25" note="C4"/>
+		<note measure="24" beat="1.5" duration=".25" note="C4"/>
+		<note measure="24" beat="2.5" duration=".25" note="C4"/>
+		<note measure="24" beat="3.5" duration=".25" note="C4"/>
+		<note measure="24" beat="4.5" duration=".25" note="C4"/>
+	</instrument>
+
+
+	<!-- Guitar -->
+
+	<!-- Intro Plucks -->
+	<instrument instrument="ToneInstrument">
+		<!-- Second Block (5 - 8) -->
+		<note measure="5" beat="1" duration=".25" note="F4"/>
+		<note measure="5" beat="1" duration=".25" note="D4"/>
+		<note measure="5" beat="1.75" duration=".25" note="F4"/>
+		<note measure="5" beat="1.75" duration=".25" note="D4"/>
+		<note measure="5" beat="3" duration=".25" note="F4"/>
+		<note measure="5" beat="3" duration=".25" note="D4"/>
+		<note measure="5" beat="3.75" duration=".25" note="F4"/>
+		<note measure="5" beat="3.75" duration=".25" note="D4"/>
+
+		<note measure="6" beat="1" duration=".25" note="F4"/>
+		<note measure="6" beat="1" duration=".25" note="B3"/>
+		<note measure="6" beat="1.75" duration=".25" note="F4"/>
+		<note measure="6" beat="1.75" duration=".25" note="B3"/>
+		<note measure="6" beat="2.5" duration=".25" note="F4"/>
+		<note measure="6" beat="2.5" duration=".25" note="B3"/>
+		<note measure="6" beat="3.5" duration=".25" note="F4"/>
+		<note measure="6" beat="3. 5" duration=".25" note="B3"/>
+
+		<note measure="7" beat="1" duration=".25" note="F4"/>
+		<note measure="7" beat="1" duration=".25" note="D4"/>
+		<note measure="7" beat="1.75" duration=".25" note="F4"/>
+		<note measure="7" beat="1.75" duration=".25" note="D4"/>
+		<note measure="7" beat="3" duration=".25" note="F4"/>
+		<note measure="7" beat="3" duration=".25" note="D4"/>
+		<note measure="7" beat="3.75" duration=".25" note="F4"/>
+		<note measure="7" beat="3.75" duration=".25" note="D4"/>
+
+		<note measure="8" beat="1" duration=".25" note="F4"/>
+		<note measure="8" beat="1" duration=".25" note="B3"/>
+		<note measure="8" beat="1.75" duration=".25" note="F4"/>
+		<note measure="8" beat="1.75" duration=".25" note="B3"/>
+		<note measure="8" beat="2.5" duration=".25" note="F4"/>
+		<note measure="8" beat="2.5" duration=".25" note="B3"/>
+		<note measure="8" beat="3.5" duration=".25" note="F4"/>
+		<note measure="8" beat="3. 5" duration=".25" note="B3"/>
+		<note measure="8" beat="4" duration=".25" note="D5"/>
+		<note measure="8" beat="4" duration=".25" note="F4"/>
+		<note measure="8" beat="4" duration=".25" note="B3"/>
+		<note measure="8" beat="4.25" duration=".25" note="D5"/>
+		<note measure="8" beat="4.25" duration=".25" note="F4"/>
+		<note measure="8" beat="4.25" duration=".25" note="B3"/>
+	</instrument> 
+
+	<!-- Verse Plucks -->
+	<instrument instrument="ToneInstrument">
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="1.5" duration=".25" note="C4"/>
+		<note measure="17" beat="2" duration=".25" note="C4"/>
+		<note measure="17" beat="2.5" duration=".25" note="C4"/>
+		<note measure="17" beat="3" duration=".25" note="C4"/>
+		<note measure="17" beat="3.5" duration=".25" note="C4"/>
+		<note measure="17" beat="4" duration=".25" note="C4"/>
+		<note measure="17" beat="4.25" duration=".5" note="D4"/>
+
+		<note measure="19" beat="1.5" duration=".25" note="C4"/>
+		<note measure="19" beat="2" duration=".25" note="C4"/>
+		<note measure="19" beat="2.5" duration=".25" note="C4"/>
+		<note measure="19" beat="3" duration=".25" note="C4"/>
+		<note measure="19" beat="3.5" duration=".25" note="C4"/>
+		<note measure="19" beat="4" duration=".25" note="C4"/>
+		<note measure="19" beat="4.25" duration=".5" note="D4"/>
+
+		<!-- Seventh Block (21 - 24) -->
+		<note measure="21" beat="1.5" duration=".25" note="C4"/>
+		<note measure="21" beat="2" duration=".25" note="C4"/>
+		<note measure="21" beat="2.5" duration=".25" note="C4"/>
+		<note measure="21" beat="3" duration=".25" note="C4"/>
+		<note measure="21" beat="3.5" duration=".25" note="C4"/>
+		<note measure="21" beat="4" duration=".25" note="C4"/>
+		<note measure="21" beat="4.25" duration=".5" note="D4"/>
+
+		<note measure="23" beat="1.5" duration=".25" note="C4"/>
+		<note measure="23" beat="2" duration=".25" note="C4"/>
+		<note measure="23" beat="2.5" duration=".25" note="C4"/>
+		<note measure="23" beat="3" duration=".25" note="C4"/>
+		<note measure="23" beat="3.5" duration=".25" note="C4"/>
+		<note measure="23" beat="4" duration=".25" note="C4"/>
+		<note measure="23" beat="4.25" duration=".5" note="D4"/>
+	</instrument>
+
+
+
+	<!-- Bass Guitar -->
+
+	<!-- Breakdown -->
+	<instrument instrument="ToneInstrument">
+		<!-- Fourth Block (13 - 16) -->
+		<note measure="16" beat="3.5" duration=".5" note="C2"/>
+		<note measure="16" beat="4" duration=".25" note="D2"/>
+		<note measure="16" beat="4.25" duration=".75" note="C2"/>
+
+		<!-- Fifth Block (17 - 20) -->
+		<note measure="17" beat="1" duration="1" note="D2"/>
+		<note measure="17" beat="4.5" duration=".5" note="D2"/>
+
+		<note measure="18" beat="1" duration=".75" note="G2"/>
+		<note measure="18" beat="1.75" duration=".5" note="F2"/>
+		<note measure="18" beat="2.5" duration=".5" note="D2"/>
+		<note measure="18" beat="3" duration=".75" note="G2"/>
+		<note measure="18" beat="3.75" duration=".5" note="F2"/>
+		<note measure="18" beat="4.5" duration=".5" note="C2" />
+
+		<note measure="19" beat="1" duration="1" note="D2"/>
+		<note measure="19" beat="4.5" duration=".5" note="D2"/>
+
+		<note measure="20" beat="1" duration=".75" note="G2"/>
+		<note measure="20" beat="1.75" duration=".5" note="F2"/>
+		<note measure="20" beat="2.5" duration=".5" note="D2"/>
+		<note measure="20" beat="3" duration=".75" note="G2"/>
+		<note measure="20" beat="3.75" duration=".5" note="F2"/>
+		<note measure="20" beat="4.5" duration=".5" note="C2" />
+
+		<!-- Sixth Block (21 - 24) -->
+		<note measure="21" beat="1" duration="1" note="D2"/>
+		<note measure="21" beat="4.5" duration=".5" note="D2"/>
+
+		<note measure="22" beat="1" duration=".75" note="G2"/>
+		<note measure="22" beat="1.75" duration=".5" note="F2"/>
+		<note measure="22" beat="2.5" duration=".5" note="D2"/>
+		<note measure="22" beat="3" duration=".75" note="G2"/>
+		<note measure="22" beat="3.75" duration=".5" note="F2"/>
+		<note measure="22" beat="4.5" duration=".5" note="C2" />
+
+		<note measure="23" beat="1" duration="1" note="D2"/>
+		<note measure="23" beat="4.5" duration=".5" note="D2"/>
+
+		<note measure="24" beat="1" duration=".75" note="G2"/>
+		<note measure="24" beat="1.75" duration=".5" note="F2"/>
+		<note measure="24" beat="2.5" duration=".5" note="D2"/>
+		<note measure="24" beat="3" duration="1" note="G2"/>
+		<note measure="24" beat="4" duration="1" note="C2"/>
+	</instrument>
+
+
+	<!-- Scratch -->
+	<instrument instrument="ToneInstrument">
+		<!-- Second Block (5 - 8) -->
+		<note measure="8" beat="3" duration="1.5" note="F5"/>
+
+		<!-- Add more scratches anywhere.. not sure where to put them yet -->
+	</instrument>
+
+
+</score>
