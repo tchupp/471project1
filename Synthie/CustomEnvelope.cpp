@@ -50,7 +50,7 @@ bool CCustomEnvelope::Generate()
 		}
 		else
 		{
-			mEnvelopeLevel = mEnvelopePoints[mEnvelopePoints.size() - 1].mTime / (mDuration - mEnvelopePoints[mEnvelopePoints.size() - 1].mTime) * mTime;
+			mEnvelopeLevel = -1 * mEnvelopePoints[mEnvelopePoints.size() - 1].mLevel / (mDuration - mEnvelopePoints[mEnvelopePoints.size() - 1].mTime) * mTime;
 		}
 	}
 	mTime += GetSamplePeriod();

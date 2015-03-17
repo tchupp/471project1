@@ -109,6 +109,6 @@ void CScratchInstrumentFactory::SetWaveFile(std::wstring type)
 	}
 	else
 	{
-		LoadFile("wav/scratchs/biggie.wav");
+		LoadFile("wav/scratchs/whiteNoise.wav");
 	}
 }
