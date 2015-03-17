@@ -98,10 +98,10 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 			// number of beats * seconds per beat = seconds for note
 			SetDuration(value.dblVal * secPerBeat);
 		}
-		else if (name == "note")
-		{
-			SetFreq(NoteToFrequency(value.bstrVal));
-		}
+	    // else  if (name == "note")
+		//{
+		//	SetFreq(NoteToFrequency(value.bstrVal));
+		//}
 
 		if (name == "resonfrequency")
 		{
