@@ -406,7 +406,7 @@
 	<!-- Guitar -->
 
 	<!-- Intro Plucks -->
-	<instrument instrument="ToneInstrument">
+	<instrument instrument="SubtractiveInstrument" waveform="square">
 		<!-- Second Block (5 - 8) -->
 		<note measure="5" beat="1" duration=".25" note="F4"/>
 		<note measure="5" beat="1" duration=".25" note="D4"/>
@@ -452,37 +452,37 @@
 	</instrument> 
 
 	<!-- Verse Plucks -->
-	<instrument instrument="ToneInstrument">
+	<instrument instrument="SubtractiveInstrument" waveform="sawtooth">
 		<!-- Fifth Block (17 - 20) -->
-		<note measure="17" beat="1.5" duration=".25" note="C4"/>
-		<note measure="17" beat="2" duration=".25" note="C4"/>
-		<note measure="17" beat="2.5" duration=".25" note="C4"/>
-		<note measure="17" beat="3" duration=".25" note="C4"/>
-		<note measure="17" beat="3.5" duration=".25" note="C4"/>
-		<note measure="17" beat="4" duration=".25" note="C4"/>
-		<note measure="17" beat="4.25" duration=".5" note="D4"/>
+		<note measure="17" beat="1.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="2" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="2.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="3" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="3.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="4" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="17" beat="4.25" duration=".5" note="D4" filter-envelope="1"/>
 
 		<note measure="19" beat="1.5" duration=".25" note="C4"/>
 		<note measure="19" beat="2" duration=".25" note="C4"/>
 		<note measure="19" beat="2.5" duration=".25" note="C4"/>
-		<note measure="19" beat="3" duration=".25" note="C4"/>
+		<note measure="19" beat="3" duration=".25" note="C4" />
 		<note measure="19" beat="3.5" duration=".25" note="C4"/>
 		<note measure="19" beat="4" duration=".25" note="C4"/>
 		<note measure="19" beat="4.25" duration=".5" note="D4"/>
 
 		<!-- Seventh Block (21 - 24) -->
-		<note measure="21" beat="1.5" duration=".25" note="C4"/>
-		<note measure="21" beat="2" duration=".25" note="C4"/>
-		<note measure="21" beat="2.5" duration=".25" note="C4"/>
-		<note measure="21" beat="3" duration=".25" note="C4"/>
-		<note measure="21" beat="3.5" duration=".25" note="C4"/>
-		<note measure="21" beat="4" duration=".25" note="C4"/>
-		<note measure="21" beat="4.25" duration=".5" note="D4"/>
+		<note measure="21" beat="1.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="2" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="2.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="3" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="3.5" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="4" duration=".25" note="C4" filter-envelope="1"/>
+		<note measure="21" beat="4.25" duration=".5" note="D4" filter-envelope="1"/>
 
 		<note measure="23" beat="1.5" duration=".25" note="C4"/>
 		<note measure="23" beat="2" duration=".25" note="C4"/>
 		<note measure="23" beat="2.5" duration=".25" note="C4"/>
-		<note measure="23" beat="3" duration=".25" note="C4"/>
+		<note measure="23" beat="3" duration=".25" note="C4" />
 		<note measure="23" beat="3.5" duration=".25" note="C4"/>
 		<note measure="23" beat="4" duration=".25" note="C4"/>
 		<note measure="23" beat="4.25" duration=".5" note="D4"/>
@@ -493,32 +493,32 @@
 	<!-- Bass Guitar -->
 
 	<!-- Breakdown -->
-	<instrument instrument="ToneInstrument">
+	<instrument instrument="SubtractiveInstrument" waveform="triangle">
 		<!-- Fourth Block (13 - 16) -->
-		<note measure="16" beat="3.5" duration=".5" note="C2"/>
-		<note measure="16" beat="4" duration=".25" note="D2"/>
-		<note measure="16" beat="4.25" duration=".75" note="C2"/>
+		<note measure="16" beat="3.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="16" beat="4" duration=".25" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="16" beat="4.25" duration=".75" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
 
 		<!-- Fifth Block (17 - 20) -->
-		<note measure="17" beat="1" duration="1" note="D2"/>
-		<note measure="17" beat="4.5" duration=".5" note="D2"/>
+		<note measure="17" beat="1" duration="1" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="17" beat="4.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
 
-		<note measure="18" beat="1" duration=".75" note="G2"/>
-		<note measure="18" beat="1.75" duration=".5" note="F2"/>
-		<note measure="18" beat="2.5" duration=".5" note="D2"/>
-		<note measure="18" beat="3" duration=".75" note="G2"/>
-		<note measure="18" beat="3.75" duration=".5" note="F2"/>
-		<note measure="18" beat="4.5" duration=".5" note="C2" />
+		<note measure="18" beat="1" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="1.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="2.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="3" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="3.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="4.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
 
-		<note measure="19" beat="1" duration="1" note="D2"/>
-		<note measure="19" beat="4.5" duration=".5" note="D2"/>
+		<note measure="19" beat="1" duration="1" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="19" beat="4.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
 
-		<note measure="20" beat="1" duration=".75" note="G2"/>
-		<note measure="20" beat="1.75" duration=".5" note="F2"/>
-		<note measure="20" beat="2.5" duration=".5" note="D2"/>
-		<note measure="20" beat="3" duration=".75" note="G2"/>
-		<note measure="20" beat="3.75" duration=".5" note="F2"/>
-		<note measure="20" beat="4.5" duration=".5" note="C2" />
+		<note measure="20" beat="1" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="1.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="2.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="3" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="3.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="4.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
 
 		<!-- Sixth Block (21 - 24) -->
 		<note measure="21" beat="1" duration="1" note="D2"/>
