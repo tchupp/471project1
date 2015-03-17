@@ -1,7 +1,6 @@
 #pragma once
 #include "InstrumentFactory.h"
 #include <vector>
-#include "SineWave.h"
 
 class CNote;
 
