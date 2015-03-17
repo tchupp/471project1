@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <score bpm="120" beatspermeasure="2">
      <instrument instrument="DrumsInstrument">
-          <note measure="1" beat="1" drumType="bass"/>
-
+          <note measure="1" beat="1" drumType="808clap"/>
+          <note measure="2" beat="1" drumType="tomshort"/>
+          <note measure="3" beat="1" drumType="cymbals"/>
+          <note measure="4" beat="1" drumType="snare"/>
+          <note measure="5" beat="1" drumType="bass"/>
+          <note measure="6" beat="1" drumType="sharpbass"/>
+          <note measure="7" beat="1" drumType="tomlong"/>
      </instrument>
 </score>

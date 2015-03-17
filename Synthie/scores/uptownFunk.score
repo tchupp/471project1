@@ -170,24 +170,24 @@
 	<!-- Clap -->
 	<instrument instrument="ToneInstrument">
 		<!-- First Block (1 - 4)-->
-		<note measure="1" beat="2" duration=".25" note="D5"/>
-		<note measure="1" beat="4" duration=".25" note="D5"/>
-		<note measure="2" beat="2" duration=".25" note="D5"/>
-		<note measure="2" beat="4" duration=".25" note="D5"/>
-		<note measure="3" beat="2" duration=".25" note="D5"/>
-		<note measure="3" beat="4" duration=".25" note="D5"/>
-		<note measure="4" beat="2" duration=".25" note="D5"/>
-		<note measure="4" beat="4" duration=".25" note="D5"/>
+		<note measure="1" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="1" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="2" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="2" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="3" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="3" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="4" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="4" beat="4" duration=".25" drumType="808clap"/>
 
 		<!-- Second Block (5 - 8) -->
-		<note measure="5" beat="2" duration=".25" note="D5"/>
-		<note measure="5" beat="4" duration=".25" note="D5"/>
-		<note measure="6" beat="2" duration=".25" note="D5"/>
-		<note measure="6" beat="4" duration=".25" note="D5"/>
-		<note measure="7" beat="2" duration=".25" note="D5"/>
-		<note measure="7" beat="4" duration=".25" note="D5"/>
-		<note measure="8" beat="2" duration=".25" note="D5"/>
-		<note measure="8" beat="4" duration=".25" note="D5"/>
+		<note measure="5" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="5" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="6" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="6" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="7" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="7" beat="4" duration=".25" drumType="808clap"/>
+		<note measure="8" beat="2" duration=".25" drumType="808clap"/>
+		<note measure="8" beat="4" duration=".25" drumType="808clap"/>
 		<!-- <note measure="8" beat="4.25" duration=".25" note="D5"/> (Extra Clap before breakdown?) --> 
 	</instrument> 
 
