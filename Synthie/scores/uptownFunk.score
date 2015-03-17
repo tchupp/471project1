@@ -164,6 +164,12 @@
 		<note measure="24" beat="4" duration=".5" note="D4" harmonics="1"/>
 		<note measure="24" beat="4.5" duration=".25" note="C4" harmonics="1"/>
 
+	<instrument instrument="Flange">
+		<note measure="24" beat="1" wet="0.5" dry="0.25" delay="0.25"/>
+		<note measure="24" beat="3" wet="0.5" dry="0.25" delay="0.25"/>
+	</instrument>
+
+
 		<!-- Seventh Block (25- 28) -->
 		<note measure="25" beat="1" duration=".5" note="D4" harmonics="1" vibrato="11" vibratoRate="8"/>
 	</instrument>
@@ -192,6 +198,11 @@
 		<note measure="7" beat="4" duration=".25" drumType="808clap"/>
 		<note measure="8" beat="2" duration=".25" drumType="808clap"/>
 		<note measure="8" beat="4" duration=".25" drumType="808clap"/>
+
+	<instrument instrument="Chorus">
+		<note measure="8" beat="2" wet="0.5" dry="0.25" delay="0.25"/>
+		<note measure="8" beat="4" wet="0.5" dry="0.25" delay="0.25"/>
+	</instrument>
 		<!-- <note measure="8" beat="4.25" duration=".25" note="D5"/> (Extra Clap before breakdown?) --> 
 	</instrument> 
 
@@ -543,6 +554,11 @@
 		<note measure="24" beat="2.5" duration=".5" note="D2"/>
 		<note measure="24" beat="3" duration="1" note="G2"/>
 		<note measure="24" beat="4" duration="1" note="C2"/>
+	</instrument>
+
+	<instrument instrument="Reverb">
+		<note measure="22" beat="1" wet="0.5" dry="0.25" delay="0.25"/>
+		<note measure="22" beat="3" wet="0.5" dry="0.25" delay="0.25"/>
 	</instrument>
 
 
