@@ -81,7 +81,7 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 		short frame[2];
 		mFile.ReadFrame(frame);
 		mWaveL.push_back(frame[0]);
-		mWaveR.push_back(frame[1]);
+		mWaveR.push_back(frame[0]);
 	}
 	mFile.Close();
 	return true;

@@ -43,7 +43,7 @@ bool CAdditiveInstrument::Generate()
 		// Generate using a crossfade
 		mCustomWave.GenerateCrossfade(mTime, mCrossfadeDuration);
 	}
-	else if (mCustomWave.GetCrossfadeFlag())
+	else
 	{
 		// Generate a wave from several sinusoids
 		mCustomWave.Generate();
