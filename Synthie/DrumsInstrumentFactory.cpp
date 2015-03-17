@@ -83,6 +83,7 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 		mWaveL.push_back(frame[0]);
 		mWaveR.push_back(frame[0]);
 	}
+
 	mFile.Close();
 	return true;
 }

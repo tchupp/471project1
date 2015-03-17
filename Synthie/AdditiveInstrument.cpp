@@ -37,11 +37,21 @@ bool CAdditiveInstrument::Generate()
 	// Call generate on the envelope here!! Instead of in a filter
 	mEnvelope->Generate();
 
-
-	if (mTime >= mCustomWave.GetCrossfadeBeginTime() && mCustomWave.GetCrossfadeFlag())
+	// Crossfading
+	if (mCustomWave.GetCrossfadeFlag())
 	{
-		// Generate using a crossfade
-		mCustomWave.GenerateCrossfade(mTime, mCrossfadeDuration);
+		auto crossfadeEndTime = mCustomWave.GetCrossfadeBeginTime() + mCrossfadeDuration;
+
+		if (mTime < mCustomWave.GetCrossfadeBeginTime())
+		{
+			// Generate a wave from several sinusoids
+			mCustomWave.Generate();
+		}
+		else if (mTime > mCustomWave.GetCrossfadeBeginTime() && mTime < crossfadeEndTime)
+		{
+			// Generate using a crossfade
+			mCustomWave.GenerateCrossfade(mTime, mCrossfadeDuration);
+		}
 	}
 	else
 	{
@@ -125,6 +135,16 @@ void CAdditiveInstrument::SetNote(CNote* note, double secPerBeat)
 
 			auto beginTime = mDuration - mCrossfadeDuration;
 			mCustomWave.SetCrossfadeBeginTime(beginTime);
+		}
+		else if (name == "crossfadeOverlap")	// This is how many beats our notes overlap. We use this to move the fade forward by that much.
+		{
+			// OVERLAP IN BEATS
+			value.ChangeType(VT_R8);
+
+			auto overlapTime = secPerBeat * value.dblVal;
+			auto crossfadeTime = mCustomWave.GetCrossfadeBeginTime();
+
+			mCustomWave.SetCrossfadeBeginTime(crossfadeTime - overlapTime);
 		}
 	}
 }
