@@ -130,51 +130,61 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 
 	else if (type == L"resoncymbals")
 	{
+		LoadFile("wav/drums/cymbals.wav");
 		mResonFilter = true;
 	}
 
 	else if (type == L"resontomshort")
 	{
+		LoadFile("wav/drums/tomshort.wav");
 		mResonFilter = true;
 	}
 
 	else if (type == L"resontomlong")
 	{
+		LoadFile("wav/drums/tomlong.wav");
 		mResonFilter = true;
 	}
 
 	else if (type == L"resonsnare")
 	{
+		LoadFile("wav/drums/snare.wav");
 		mResonFilter = true;
 	}
 
 	else if (type == L"resonsharpbass")
 	{
+		LoadFile("wav/drums/bass.wav");
 		mResonFilter = true;
 	}
 
 	else if (type == L"pitchcymbals")
 	{
+		LoadFile("wav/drums/cymbals.wav");
 		mPitchFilter = true;
 	}
 
 	else if (type == L"pitchtomshort")
 	{
+		LoadFile("wav/drums/tomshort.wav");
 		mPitchFilter = true;
 	}
 
 	else if (type == L"pitchtomlong")
 	{
+		LoadFile("wav/drums/tomlong.wav");
 		mPitchFilter = true;
 	}
 
 	else if (type == L"pitchsnare")
 	{
+		LoadFile("wav/drums/snare.wav");
 		mPitchFilter = true;
 	}
 
 	else if (type == L"pitchsharpbass")
-	{
+	
+		LoadFile("wav/drums/bass.wav");
 		mPitchFilter = true;
 	}
 }
