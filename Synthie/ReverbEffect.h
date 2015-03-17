@@ -1,15 +1,14 @@
 #pragma once
 #include "AudioEffect.h"
-
-class CChorusEffect :
+class CReverbEffect :
 	public CAudioEffect
 {
 public:
-	CChorusEffect();
-	virtual ~CChorusEffect();
+	CReverbEffect();
+	virtual ~CReverbEffect();
 
 	virtual void Process(double *input, double *output) override;
-	
+
 	virtual void Start() override;
 
 	virtual bool Generate() override;

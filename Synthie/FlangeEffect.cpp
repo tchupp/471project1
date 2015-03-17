@@ -24,9 +24,11 @@ void CFlangeEffect::Process(double *input, double *output)
 
 void CFlangeEffect::Start()
 {
+	mWrloc = 0;
+	mRdloc = 0;
 }
 
 bool CFlangeEffect::Generate()
 {
-	return false;
+	return true;
 }

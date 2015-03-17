@@ -21,7 +21,11 @@ public:
 
 	virtual void SetNote(CNote* note, double secPerBeat) = 0;
 
+	double Send(int i) { return mSends[i]; }
+	void SetSend(int i, double value) { mSends[i] = value; }
+
 protected:
 	CAmplitudeFilter mAmplitudeFilter;
 	CEnvelope* mEnvelope;
+	double mSends[5];
 };

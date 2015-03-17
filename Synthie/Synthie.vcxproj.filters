@@ -129,6 +129,9 @@
     <ClCompile Include="PitchFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Filter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AmplitudeFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -150,7 +153,10 @@
     <ClCompile Include="VibratoEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Filter.cpp">
+    <ClCompile Include="ReverbEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NoiseGateEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -272,6 +278,9 @@
     <ClInclude Include="PitchFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Filter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="AmplitudeFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -293,7 +302,10 @@
     <ClInclude Include="CustomEnvelopeFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Filter.h">
+    <ClInclude Include="ReverbEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NoiseGateEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
