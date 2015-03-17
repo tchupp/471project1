@@ -2,6 +2,7 @@
 #include "DrumsInstrument.h"
 #include "Note.h"
 #include "Envelope.h"
+#include "DrumsInstrumentFactory.h"
 
 
 CDrumsInstrument::CDrumsInstrument()
@@ -28,10 +29,17 @@ bool CDrumsInstrument::Generate()
 	// Call generate on the envelope here!! Instead of in a filter
 	mEnvelope->Generate();
 
-	mWavPlayer.Generate();
+	if (mGenerateBass)
+	{
+		mBassWave.Generate();
+		mFrame[0] = mBassWave.Frame(0);
+		mFrame[1] = mBassWave.Frame(1);
+	}
 
-	mFrame[0] = mWavPlayer.Frame(0);
-	mFrame[1] = mWavPlayer.Frame(1);
+		mWavPlayer.Generate();
+
+		mFrame[0] = mWavPlayer.Frame(0);
+		mFrame[1] = mWavPlayer.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();

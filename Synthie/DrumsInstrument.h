@@ -4,6 +4,7 @@
 #include "ADSREnvelope.h"
 #include "WavFilePlayer.h"
 #include <vector>
+#include "SineWave.h"
 
 class CDrumsInstrument : public CInstrument
 {
@@ -19,13 +20,13 @@ public:
 
 	void SetDuration(double d) { mDuration = d; }
 
+	void SetBass(bool val) { mGenerateBass = val; }
+
 private:
 	CWavFilePlayer mWavPlayer;
 	double mDuration;
 	double mTime;
 
-	std::vector<short> BassWavetable;
-	std::vector<short> SnareWavetable;
-	std::vector<short> TomsWavetable;
-	std::vector<short> CymbalsWavetable;
+	CSineWave mBassWave;
+	bool mGenerateBass = false; // CHANGE TO FALSE (TESTING)
 };

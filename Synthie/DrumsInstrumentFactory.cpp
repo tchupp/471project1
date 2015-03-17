@@ -54,6 +54,11 @@ CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 	auto instrument = new CDrumsInstrument();
 	instrument->SetSamples(&mWaveL[0], &mWaveR[0], int(mWaveL.size()));
 
+	if (mBassPresent)
+	{
+		instrument->SetBass(true);
+	}
+
 	return instrument;
 }
 
@@ -71,7 +76,7 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 		return false;
 	}
 
-	for (auto i = 0; i < mFile.NumSampleFrames(); ++i)
+	for (double i = 0; i < mFile.NumSampleFrames(); ++i)
 	{
 		short frame[2];
 		mFile.ReadFrame(frame);
@@ -87,6 +92,8 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	if (type == L"bass")
 	{
 		LoadFile("wav/drums/bass.wav");
+		mBassPresent = true;
+		//LoadBassWave(mBassWave);
 	}
 	else if (type == L"cymbals")
 	{
@@ -105,3 +112,17 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 		LoadFile("wav/drums/snare.wav");
 	}
 }
+
+//bool CDrumsInstrumentFactory::LoadBassWave(CSineWave wave)
+//{
+//	mWaveL.clear();
+//	mWaveR.clear();
+//
+//	short frame[2];
+//	frame[0] = mBassWave.Generate();
+//	frame[1] = mBassWave.Generate();
+//	mWaveL.push_back(frame[0]);
+//	mWaveR.push_back(frame[1]);
+//
+//	return true;
+//}
