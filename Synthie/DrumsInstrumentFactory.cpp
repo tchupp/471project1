@@ -114,15 +114,15 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 	mWaveR.clear();
 
 	CSineWave bassWave;
-	bassWave.SetAmplitude(5000);
-	bassWave.SetFreq(1000);
+	bassWave.SetAmplitude(8000);
+	bassWave.SetFreq(160);
 	bassWave.SetSampleRate(GetSampleRate());
 
 	CADSREnvelope envelope;
 	envelope.SetDuration(3);
 	envelope.SetAttack(0.05);
-	envelope.SetDecay(0.2);
-	envelope.SetSustainLevel(.7);
+	envelope.SetDecay(1.0);
+	envelope.SetSustainLevel(.3);
 	envelope.SetRelease(2.75);
 	envelope.SetSampleRate(GetSampleRate());
 
@@ -130,7 +130,7 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 	amplitudeFilter.SetEnvelope(&envelope);
 	amplitudeFilter.SetSource(&bassWave);
 	amplitudeFilter.SetSampleRate(GetSampleRate());
-	amplitudeFilter.SetDuration(3);
+	amplitudeFilter.SetDuration(5);
 	
 	bassWave.Start();
 	amplitudeFilter.Start();
