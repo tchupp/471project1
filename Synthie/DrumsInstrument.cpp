@@ -20,6 +20,7 @@ void CDrumsInstrument::Start()
 	mWavPlayer.SetSampleRate(GetSampleRate());
 	mWavPlayer.Start();
 	mTime = 0;
+	mEnvelope = new CADSREnvelope();
 }
 
 bool CDrumsInstrument::Generate()
