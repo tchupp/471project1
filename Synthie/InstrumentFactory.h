@@ -19,4 +19,14 @@ public:
 
 	virtual CInstrument* CreateInstrument() = 0;
 	virtual void SetNote(CNote* note) = 0;
+
+	//! Get the sample rate in samples per second
+	double GetSampleRate() { return mSampleRate; }
+
+	//! Set the sample rate
+	void SetSampleRate(double s) { mSampleRate = s; mSamplePeriod = 1 / s; }
+
+private:
+	double mSampleRate;
+	double mSamplePeriod;
 };

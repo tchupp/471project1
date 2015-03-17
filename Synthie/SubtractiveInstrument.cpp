@@ -24,7 +24,13 @@ void CSubtractiveInstrument::Start()
 	{
 		mSawtooth.SetSampleRate(GetSampleRate());
 		mSawtooth.Start();
-		if (mResonFilter)
+		if (mResonFilter && mFilterEnvelope)
+		{
+			mReson.SetSource(&mSawtooth);
+			mPitchFilter.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mAmplitudeFilter);
+		}
+		else if (mResonFilter)
 		{
 			mReson.SetSource(&mSawtooth);
 			mAmplitudeFilter.SetSource(&mReson);
@@ -39,7 +45,13 @@ void CSubtractiveInstrument::Start()
 	{
 		mTriangle.SetSampleRate(GetSampleRate());
 		mTriangle.Start();
-		if (mResonFilter)
+		if (mResonFilter && mFilterEnvelope)
+		{
+			mReson.SetSource(&mTriangle);
+			mPitchFilter.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mAmplitudeFilter);
+		}
+		else if (mResonFilter)
 		{
 			mReson.SetSource(&mTriangle);
 			mAmplitudeFilter.SetSource(&mReson);
@@ -53,7 +65,13 @@ void CSubtractiveInstrument::Start()
 	{
 		mSquare.SetSampleRate(GetSampleRate());
 		mSquare.Start();
-		if (mResonFilter)
+		if (mResonFilter && mFilterEnvelope)
+		{
+			mReson.SetSource(&mSquare);
+			mPitchFilter.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mAmplitudeFilter);
+		}
+		else if (mResonFilter)
 		{
 			mReson.SetSource(&mSquare);
 			mAmplitudeFilter.SetSource(&mReson);
@@ -68,7 +86,13 @@ void CSubtractiveInstrument::Start()
 	{
 		mSinewave.SetSampleRate(GetSampleRate());
 		mSinewave.Start();
-		if (mResonFilter)
+		if (mResonFilter && mFilterEnvelope)
+		{
+			mReson.SetSource(&mSinewave);
+			mPitchFilter.SetSource(&mReson);
+			mAmplitudeFilter.SetSource(&mAmplitudeFilter);
+		}
+		else if (mResonFilter)
 		{
 			mReson.SetSource(&mSinewave);
 			mAmplitudeFilter.SetSource(&mReson);
@@ -79,13 +103,18 @@ void CSubtractiveInstrument::Start()
 		}
 	}
 
-
-
 	mEnvelope = new CADSREnvelope();
 	
 	if (mResonFilter)
 	{
 		ResonFilterSetup();
+	}
+	if (mFilterEnvelope)
+	{
+		mPitchFilter.SetEnvelope(mEnvelope);
+		mPitchFilter.SetSampleRate(GetSampleRate());
+		mPitchFilter.SetDuration(mDuration);
+		mPitchFilter.Start();
 	}
 
 	mAmplitudeFilter.SetEnvelope(mEnvelope);
@@ -99,29 +128,35 @@ bool CSubtractiveInstrument::Generate()
 {
 	// Call generate on the envelope here!! Instead of in a filter
 	mEnvelope->Generate();
+	if (mFilterEnvelope)
+	{
+		mPitchFilter.Generate();
 
-	if (mWaveform == Sawtooth)
-	{
-		mSawtooth.Generate();
 	}
-	else if (mWaveform == Triangle)
+	else 
 	{
-		mTriangle.Generate();
-	}
-	else if (mWaveform == Square)
-	{
-		mSquare.Generate();
-	}
-	else
-	{
-		mSinewave.Generate();
-	}
+		if (mWaveform == Sawtooth)
+		{
+			mSawtooth.Generate();
+		}
+		else if (mWaveform == Triangle)
+		{
+			mTriangle.Generate();
+		}
+		else if (mWaveform == Square)
+		{
+			mSquare.Generate();
+		}
+		else
+		{
+			mSinewave.Generate();
+		}
 
-	if (mResonFilter)
-	{
-		mReson.Generate();
+		if (mResonFilter)
+		{
+			mReson.Generate();
+		}
 	}
-
 	auto valid = mAmplitudeFilter.Generate();
 	// Read the component's sample and make it our resulting frame.
 	mFrame[0] = mAmplitudeFilter.Frame(0);

@@ -2,6 +2,7 @@
 #include "DrumsInstrument.h"
 #include "Note.h"
 #include "Envelope.h"
+#include "ADSREnvelope.h"
 
 
 CDrumsInstrument::CDrumsInstrument()
@@ -20,18 +21,30 @@ void CDrumsInstrument::Start()
 	mWavPlayer.SetSampleRate(GetSampleRate());
 	mWavPlayer.Start();
 	mTime = 0;
+
 	mEnvelope = new CADSREnvelope();
+
+	// Use envelope pointer and setters to edit
+	// envelope ADSR
+
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
+	mAmplitudeFilter.SetSource(&mWavPlayer);
+	mAmplitudeFilter.SetSampleRate(GetSampleRate());
+	mAmplitudeFilter.SetDuration(mDuration);
+	mAmplitudeFilter.Start();
 }
 
 bool CDrumsInstrument::Generate()
 {
 	// Call generate on the envelope here!! Instead of in a filter
-	mEnvelope->Generate();
+	mEnvelope->Generate();	
 
 	mWavPlayer.Generate();
 
-	mFrame[0] = mWavPlayer.Frame(0);
-	mFrame[1] = mWavPlayer.Frame(1);
+	mAmplitudeFilter.Generate();
+
+	mFrame[0] = mAmplitudeFilter.Frame(0);
+	mFrame[1] = mAmplitudeFilter.Frame(1);
 
 	// Update time
 	mTime += GetSamplePeriod();

@@ -1,9 +1,6 @@
 #pragma once
 #include "Instrument.h"
-#include "Envelope.h"
-#include "ADSREnvelope.h"
 #include "WavFilePlayer.h"
-#include <vector>
 
 class CDrumsInstrument : public CInstrument
 {
@@ -23,9 +20,4 @@ private:
 	CWavFilePlayer mWavPlayer;
 	double mDuration;
 	double mTime;
-
-	std::vector<short> BassWavetable;
-	std::vector<short> SnareWavetable;
-	std::vector<short> TomsWavetable;
-	std::vector<short> CymbalsWavetable;
 };

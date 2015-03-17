@@ -3,7 +3,9 @@
 #include "DrumsInstrument.h"
 #include "audio/DirSoundSource.h"
 #include "Note.h"
-
+#include "ADSREnvelope.h"
+#include "AmplitudeFilter.h"
+#include "SineWave.h"
 
 CDrumsInstrumentFactory::CDrumsInstrumentFactory()
 {
@@ -13,6 +15,7 @@ CDrumsInstrumentFactory::CDrumsInstrumentFactory()
 CDrumsInstrumentFactory::~CDrumsInstrumentFactory()
 {
 }
+
 
 void CDrumsInstrumentFactory::SetNote(CNote* note)
 {
@@ -49,6 +52,7 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 	}
 }
 
+
 CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 {
 	auto instrument = new CDrumsInstrument();
@@ -56,6 +60,7 @@ CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 
 	return instrument;
 }
+
 
 bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 {
@@ -71,7 +76,7 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 		return false;
 	}
 
-	for (auto i = 0; i < mFile.NumSampleFrames(); ++i)
+	for (double i = 0; i < mFile.NumSampleFrames(); ++i)
 	{
 		short frame[2];
 		mFile.ReadFrame(frame);
@@ -82,11 +87,13 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 	return true;
 }
 
+
 void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 {
 	if (type == L"bass")
 	{
-		LoadFile("wav/drums/bass.wav");
+		//LoadFile("wav/drums/bass.wav");
+		LoadBassWave();
 	}
 	else if (type == L"cymbals")
 	{
@@ -104,4 +111,45 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	{
 		LoadFile("wav/drums/snare.wav");
 	}
+}
+
+
+bool CDrumsInstrumentFactory::LoadBassWave()
+{
+	mWaveL.clear();
+	mWaveR.clear();
+
+	CSineWave bassWave;
+	bassWave.SetAmplitude(8000);
+	bassWave.SetFreq(160);
+	bassWave.SetSampleRate(GetSampleRate());
+
+	CADSREnvelope envelope;
+	envelope.SetDuration(3);
+	envelope.SetAttack(0.05);
+	envelope.SetDecay(1.0);
+	envelope.SetSustainLevel(.3);
+	envelope.SetRelease(2.75);
+	envelope.SetSampleRate(GetSampleRate());
+
+	CAmplitudeFilter amplitudeFilter;
+	amplitudeFilter.SetEnvelope(&envelope);
+	amplitudeFilter.SetSource(&bassWave);
+	amplitudeFilter.SetSampleRate(GetSampleRate());
+	amplitudeFilter.SetDuration(5);
+	
+	bassWave.Start();
+	amplitudeFilter.Start();
+	envelope.Generate();
+
+	while (amplitudeFilter.Generate())
+	{
+		mWaveL.push_back(amplitudeFilter.Frame(0));
+		mWaveR.push_back(amplitudeFilter.Frame(1));
+
+		bassWave.Generate();
+		envelope.Generate();
+	}
+
+	return true;
 }
