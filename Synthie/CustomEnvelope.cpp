@@ -36,19 +36,22 @@ void CCustomEnvelope::Start()
 
 bool CCustomEnvelope::Generate()
 {
-	if (mTime < mEnvelopePoints[0].mTime)
+	if (mEnvelopePoints.size())
 	{
-		mEnvelopeLevel = mEnvelopePoints[0].mLevel / mEnvelopePoints[0].mTime * mTime;
-	}
+		if (mTime < mEnvelopePoints[0].mTime)
+		{
+			mEnvelopeLevel = mEnvelopePoints[0].mLevel / mEnvelopePoints[0].mTime * mTime;
+		}
 
-	else if (mEnvelopePoints[0].mTime < mTime < mEnvelopePoints[mEnvelopePoints.size()-1].mTime)
-	{
-		SetEnvelopePoints();
-		mEnvelopeLevel = GenerateLevelValue();
-	}
-	else
-	{
-		mEnvelopeLevel = mEnvelopePoints[mEnvelopePoints.size() - 1].mTime / (mDuration - mEnvelopePoints[mEnvelopePoints.size() - 1].mTime) * mTime;
+		else if (mEnvelopePoints[0].mTime < mTime < mEnvelopePoints[mEnvelopePoints.size() - 1].mTime)
+		{
+			SetEnvelopePoints();
+			mEnvelopeLevel = GenerateLevelValue();
+		}
+		else
+		{
+			mEnvelopeLevel = mEnvelopePoints[mEnvelopePoints.size() - 1].mTime / (mDuration - mEnvelopePoints[mEnvelopePoints.size() - 1].mTime) * mTime;
+		}
 	}
 	mTime += GetSamplePeriod();
 	return mTime < mDuration;

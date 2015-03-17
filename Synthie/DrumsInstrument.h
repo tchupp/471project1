@@ -1,10 +1,6 @@
 #pragma once
 #include "Instrument.h"
-#include "Envelope.h"
-#include "ADSREnvelope.h"
 #include "WavFilePlayer.h"
-#include <vector>
-#include "SineWave.h"
 
 class CDrumsInstrument : public CInstrument
 {

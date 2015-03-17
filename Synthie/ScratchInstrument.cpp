@@ -37,8 +37,6 @@ void CScratchInstrument::Start()
 		mEnvelope = new CEnvelope();
 		break;
 	}
-	mEnvelope->SetSampleRate(GetSampleRate());
-
 	mPitchFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetEnvelope(mEnvelope);
 
