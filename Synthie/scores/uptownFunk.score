@@ -10,42 +10,42 @@
 	<!-- Intro Dos -->
 	<instrument instrument="AdditiveInstrument">
 		<!-- First Block (measures 1 - 4) -->
-		<note measure="1" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="1" beat="4.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="1" beat="1" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
+		<note measure="1" beat="4.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 
 		<note measure="2" beat="1" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="2" beat="1.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="2" beat="2.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="2" beat="1.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="2" beat="2.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 		<note measure="2" beat="3" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="2" beat="3.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="2" beat="4.5" duration=".5" note="C4" harmonics="1"/>
+		<note measure="2" beat="3.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="2" beat="4.5" duration=".5" note="C4" harmonics="1 0 .9 0 .7"/>
 
-		<note measure="3" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="3" beat="4.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="3" beat="1" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
+		<note measure="3" beat="4.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 
 		<note measure="4" beat="1" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="4" beat="1.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="4" beat="2.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="4" beat="1.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="4" beat="2.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 		<note measure="4" beat="3" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="4" beat="3.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="4" beat="4.5" duration=".5" note="C4" harmonics="1"/>
+		<note measure="4" beat="3.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="4" beat="4.5" duration=".5" note="C4" harmonics="1 0 .9 0 .7"/>
 
 		<!-- Second Block (5 - 8) -->
-		<note measure="5" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="5" beat="4.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="5" beat="1" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
+		<note measure="5" beat="4.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 
 		<note measure="6" beat="1" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="6" beat="1.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="6" beat="2.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="6" beat="1.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="6" beat="2.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 		<note measure="6" beat="3" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="6" beat="3.75" duration=".5" note="F4" harmonics="1"/>
-		<note measure="6" beat="4.5" duration=".5" note="C4" harmonics="1"/>
+		<note measure="6" beat="3.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
+		<note measure="6" beat="4.5" duration=".5" note="C4" harmonics="1 0 .9 0 .7"/>
 
-		<note measure="7" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="7" beat="4.5" duration=".5" note="D4" harmonics="1"/>
+		<note measure="7" beat="1" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
+		<note measure="7" beat="4.5" duration=".5" note="D4" harmonics="1 0 .9 0 .7"/>
 
 		<note measure="8" beat="1" duration=".75" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="8" beat="1.75" duration=".5" note="F4" harmonics="1"/>
+		<note measure="8" beat="1.75" duration=".5" note="F4" harmonics="1 0 .9 0 .7"/>
 		<note measure="8" beat="2.5" duration=".5" note="D4" harmonics="1" crossfade=".5" crossfadeOverlap="0"/>
 		<note measure="8" beat="3" duration=".5" note="B4" harmonics="1" vibrato="11" vibratoRate="8"/>
 	</instrument>
@@ -53,59 +53,59 @@
 	<!-- Singing Verse -->
 	<instrument instrument="AdditiveInstrument">
 		<!-- Third Block (9 - 12) -->
-		<note measure="9" beat="1" duration=".5" note="F4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="9" beat="1.75" duration=".5" note="F4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="9" beat="2.5" duration=".5" note="C4" harmonics="1"/>
-		<note measure="9" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="9" beat="3.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="9" beat="4.5" duration=".5" note="C4" harmonics="1"/>
+		<note measure="9" beat="1" duration=".5" note="F4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="9" beat="1.75" duration=".5" note="F4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="9" beat="2.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="9" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="9" beat="3.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="9" beat="4.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="10" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="10" beat="1.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="10" beat="2.5" duration=".5" note="C4" harmonics="1"/>
-		<note measure="10" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="10" beat="3.75" duration=".5" note="D4" harmonics="1"/>
+		<note measure="10" beat="1" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="10" beat="1.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .91"/>
+		<note measure="10" beat="2.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="10" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="10" beat="3.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="11" beat="1" duration=".5" note="F4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="11" beat="1.75" duration=".75" note="F4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="11" beat="2.5" duration=".5" note="C4" harmonics="1"/>
-		<note measure="11" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="11" beat="3.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="11" beat="4.5" duration=".5" note="C4" harmonics="1"/>
+		<note measure="11" beat="1" duration=".5" note="F4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="11" beat="1.75" duration=".75" note="F4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="11" beat="2.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="11" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="11" beat="3.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="11" beat="4.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="12" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="12" beat="1.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="12" beat="2.5" duration=".5" note="C4" harmonics="1"/>
-		<note measure="12" beat="3" duration=".25" note="G4" harmonics="1"/>
-		<note measure="12" beat="3.25" duration=".25" note="F4" harmonics="1"/> 
-		<note measure="12" beat="3.5" duration=".75" note="D4" harmonics="1"/>
+		<note measure="12" beat="1" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="12" beat="1.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="12" beat="2.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="12" beat="3" duration=".25" note="G4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="12" beat="3.25" duration=".25" note="F4" harmonics="1 .9 .9 .9 .9"/> 
+		<note measure="12" beat="3.5" duration=".75" note="D4" harmonics="1 .9 .9 .9 .9"/>
 
 		<!-- Fourth block (13 - 16) -->
-		<note measure="13" beat="1" duration=".5" note="D4" harmonics="1"/>
-		<note measure="13" beat="1.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="13" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="13" beat="3.75" duration=".5" note="D4" harmonics="1"/>
+		<note measure="13" beat="1" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="13" beat="1.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="13" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="13" beat="3.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="14" beat="1" duration=".25" note="D4" harmonics="1"/>
-		<note measure="14" beat="1.25" duration=".25" note="D4" harmonics="1"/>   
-		<note measure="14" beat="1.5" duration=".25" note="D4" harmonics="1"/>
-		<note measure="14" beat="1.75" duration=".25" note="C4" harmonics="1"/>
-		<note measure="14" beat="2.25" duration=".25" note="C4" harmonics="1"/>
-		<note measure="14" beat="2.5" duration=".25" note="C4" harmonics="1"/>
-		<note measure="14" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="14" beat="4.75" duration=".25" note="D4" harmonics="1"/>
+		<note measure="14" beat="1" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="1.25" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>   
+		<note measure="14" beat="1.5" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="1.75" duration=".25" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="2.25" duration=".25" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="2.5" duration=".25" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="14" beat="4.75" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="15" beat="1" duration=".5" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="15" beat="1.75" duration=".5" note="G4" harmonics="1" vibrato="11" vibratoRate="8"/>
-		<note measure="15" beat="2.5" duration=".5" note="C4" harmonics="1"/>
-		<note measure="15" beat="3" duration=".5" note="D4" harmonics="1"/>
-		<note measure="15" beat="3.75" duration=".5" note="D4" harmonics="1"/>
-		<note measure="15" beat="4.75" duration=".5" note="C4" harmonics="1"/>
+		<note measure="15" beat="1" duration=".5" note="G4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="15" beat="1.75" duration=".5" note="G4" harmonics="1 .9 .9 .9 .9" vibrato="11" vibratoRate="8"/>
+		<note measure="15" beat="2.5" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="15" beat="3" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="15" beat="3.75" duration=".5" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="15" beat="4.75" duration=".5" note="C4" harmonics="1 .9 .9 .9 .9"/>
 
-		<note measure="16" beat="1" duration=".25" note="D4" harmonics="1"/>
-		<note measure="16" beat="2" duration=".25" note="D4" harmonics="1"/>
-		<note measure="16" beat="3" duration=".25" note="D4" harmonics="1"/>
-		<note measure="16" beat="4.5" duration=".25" note="F4" harmonics="1"/>
+		<note measure="16" beat="1" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="16" beat="2" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="16" beat="3" duration=".25" note="D4" harmonics="1 .9 .9 .9 .9"/>
+		<note measure="16" beat="4.5" duration=".25" note="F4" harmonics="1 .9 .9 .9 .9"/>
 	</instrument>
 
 	<!-- Singing Chorus -->
@@ -408,14 +408,14 @@
 	<!-- Intro Plucks -->
 	<instrument instrument="SubtractiveInstrument" waveform="square">
 		<!-- Second Block (5 - 8) -->
-		<note measure="5" beat="1" duration=".25" note="F4"/>
-		<note measure="5" beat="1" duration=".25" note="D4"/>
-		<note measure="5" beat="1.75" duration=".25" note="F4"/>
-		<note measure="5" beat="1.75" duration=".25" note="D4"/>
-		<note measure="5" beat="3" duration=".25" note="F4"/>
-		<note measure="5" beat="3" duration=".25" note="D4"/>
-		<note measure="5" beat="3.75" duration=".25" note="F4"/>
-		<note measure="5" beat="3.75" duration=".25" note="D4"/>
+		<note measure="5" beat="1" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1.75" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="1.75" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3.75" duration=".25" note="F4" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="5" beat="3.75" duration=".25" note="D4" resonfrequency="0.01" resonbandwidth="0.02"/>
 
 		<note measure="6" beat="1" duration=".25" note="F4"/>
 		<note measure="6" beat="1" duration=".25" note="B3"/>
@@ -485,7 +485,7 @@
 		<note measure="23" beat="3" duration=".25" note="C4" />
 		<note measure="23" beat="3.5" duration=".25" note="C4"/>
 		<note measure="23" beat="4" duration=".25" note="C4"/>
-		<note measure="23" beat="4.25" duration=".5" note="D4"/>
+		<note measure="23" beat="4.25" duration=".5" note="D4" filter-envelope="1"/>
 	</instrument>
 
 
@@ -493,32 +493,32 @@
 	<!-- Bass Guitar -->
 
 	<!-- Breakdown -->
-	<instrument instrument="SubtractiveInstrument" waveform="triangle">
+	<instrument instrument="SubtractiveInstrument" waveform="square">
 		<!-- Fourth Block (13 - 16) -->
-		<note measure="16" beat="3.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="16" beat="4" duration=".25" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="16" beat="4.25" duration=".75" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="16" beat="3.5" duration=".5" note="C2"/>
+		<note measure="16" beat="4" duration=".25" note="D2"/>
+		<note measure="16" beat="4.25" duration=".75" note="C2"/>
 
 		<!-- Fifth Block (17 - 20) -->
-		<note measure="17" beat="1" duration="1" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="17" beat="4.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="17" beat="1" duration="1" note="D2"/>
+		<note measure="17" beat="4.5" duration=".5" note="D2"/>
 
-		<note measure="18" beat="1" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="18" beat="1.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="18" beat="2.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="18" beat="3" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="18" beat="3.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="18" beat="4.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="18" beat="1" duration=".75" note="G2"/>
+		<note measure="18" beat="1.75" duration=".5"/>
+		<note measure="18" beat="2.5" duration=".5" note="D2"/>
+		<note measure="18" beat="3" duration=".75" note="G2"/>
+		<note measure="18" beat="3.75" duration=".5" note="F2"/>
+		<note measure="18" beat="4.5" duration=".5" note="C2"/>
 
-		<note measure="19" beat="1" duration="1" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="19" beat="4.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="19" beat="1" duration="1" note="D2"/>
+		<note measure="19" beat="4.5" duration=".5" note="D2"/>
 
-		<note measure="20" beat="1" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="20" beat="1.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="20" beat="2.5" duration=".5" note="D2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="20" beat="3" duration=".75" note="G2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="20" beat="3.75" duration=".5" note="F2" resonfrequency="0.01" resonbandwidth="0.02"/>
-		<note measure="20" beat="4.5" duration=".5" note="C2" resonfrequency="0.01" resonbandwidth="0.02"/>
+		<note measure="20" beat="1" duration=".75" note="G2"/>
+		<note measure="20" beat="1.75" duration=".5" note="F2"/>
+		<note measure="20" beat="2.5" duration=".5" note="D2"/>
+		<note measure="20" beat="3" duration=".75" note="G2"/>
+		<note measure="20" beat="3.75" duration=".5" note="F2"/>
+		<note measure="20" beat="4.5" duration=".5" note="C2"/>
 
 		<!-- Sixth Block (21 - 24) -->
 		<note measure="21" beat="1" duration="1" note="D2"/>
