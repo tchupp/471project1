@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <score bpm="60" beatspermeasure="4">
    <instrument instrument="ScratchInstrument">
-      <note measure="1" beat="1" duration="4" scratch="baby"/>
-	  <note measure="2" beat="1" duration="4" scratch="scribble"/>
-	  <note measure="3" beat="1" duration="4" scratch="chirp"/>
-	  <note measure="4" beat="1" duration="4" scratch="transform"/>
+      <note measure="1" beat="1" duration="4" scratch="baby" wave="biggie"/>
+	  <note measure="2" beat="1" duration="4" scratch="scribble" wave=""/>
+	  <note measure="3" beat="1" duration="4" scratch="chirp" wave=""/>
+	  <note measure="4" beat="1" duration="4" scratch="transform" wave=""/>
    </instrument>
 </score>
