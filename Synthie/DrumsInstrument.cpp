@@ -1,8 +1,21 @@
 #include "stdafx.h"
 #include "DrumsInstrument.h"
+#include "Instrument.h"
 #include "Note.h"
+#include "Notes.h"
 #include "Envelope.h"
-#include "ADSREnvelope.h"
+
+
+/*
+
+10 - Waveform playback from tables // Works from mWaveL and mWaveR
+20 - Envelope generation ------> // Envelope, Amplitude, and Filter Generation all integrated in Start/Generate
+30 - Polyphony ---> Done automatically with project structure and playback
+35 - Varying pitch playback from tables ---> 
+40 - At least 20 distinct drum sounds
+50 - Synthesized drum
+
+*/
 
 
 CDrumsInstrument::CDrumsInstrument()
@@ -24,14 +37,13 @@ void CDrumsInstrument::Start()
 
 	mEnvelope = new CADSREnvelope();
 
-	// Use envelope pointer and setters to edit
-	// envelope ADSR
-
 	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSource(&mWavPlayer);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
 	mAmplitudeFilter.Start();
+
+
 }
 
 bool CDrumsInstrument::Generate()
@@ -85,6 +97,28 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 			value.ChangeType(VT_R8);
 			// number of beats * seconds per beat = seconds for note
 			SetDuration(value.dblVal * secPerBeat);
+		}
+		else if (name == "note")
+		{
+			SetFreq(NoteToFrequency(value.bstrVal));
+		}
+
+		if (name == "resonfrequency")
+		{
+			mResonFilter = true;
+			value.ChangeType(VT_R8);
+			mResonFrequency = value.dblVal;
+		}
+
+		if (name == "resonbandwidth")
+		{
+			value.ChangeType(VT_R8);
+			mResonBandwidth = value.dblVal;
+		}
+
+		if (name == "filter-envelope")
+		{
+			mPitchFilter = true;
 		}
 	}
 }

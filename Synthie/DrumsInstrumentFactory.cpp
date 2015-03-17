@@ -16,7 +16,7 @@ CDrumsInstrumentFactory::~CDrumsInstrumentFactory()
 {
 }
 
-
+// Setting a note
 void CDrumsInstrumentFactory::SetNote(CNote* note)
 {
 	// Get a list of all attribute nodes and the
@@ -52,16 +52,26 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 	}
 }
 
-
+// Initializing and creating an instrument
 CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 {
 	auto instrument = new CDrumsInstrument();
+
+	if (mPitchFilter)
+	{
+		instrument->SetPitchFilter(true);
+	}
+	if (mResonFilter)
+	{
+		instrument->SetResonFilter(true);
+	}
+
 	instrument->SetSamples(&mWaveL[0], &mWaveR[0], int(mWaveL.size()));
 
 	return instrument;
 }
 
-
+// Loading wav file samples
 bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 {
 	mWaveL.clear();
@@ -91,9 +101,9 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 
 void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 {
+	// This is the generated bass synthesis, the rest are processed from wav samples
 	if (type == L"bass")
 	{
-		//LoadFile("wav/drums/bass.wav");
 		LoadBassWave();
 	}
 	else if (type == L"cymbals")
@@ -112,9 +122,74 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 	{
 		LoadFile("wav/drums/snare.wav");
 	}
+
+	else if (type == L"sharpbass")
+	{
+		LoadFile("wav/drums/bass.wav");
+	}
+
+	else if (type == L"resoncymbals")
+	{
+		LoadFile("wav/drums/cymbals.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"resontomshort")
+	{
+		LoadFile("wav/drums/tomshort.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"resontomlong")
+	{
+		LoadFile("wav/drums/tomlong.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"resonsnare")
+	{
+		LoadFile("wav/drums/snare.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"resonsharpbass")
+	{
+		LoadFile("wav/drums/bass.wav");
+		mResonFilter = true;
+	}
+
+	else if (type == L"pitchcymbals")
+	{
+		LoadFile("wav/drums/cymbals.wav");
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchtomshort")
+	{
+		LoadFile("wav/drums/tomshort.wav");
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchtomlong")
+	{
+		LoadFile("wav/drums/tomlong.wav");
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchsnare")
+	{
+		LoadFile("wav/drums/snare.wav");
+		mPitchFilter = true;
+	}
+
+	else if (type == L"pitchsharpbass")
+	{
+		LoadFile("wav/drums/bass.wav");
+		mPitchFilter = true;
+	}
 }
 
-
+// Custom Synthesized Drum for Kick/Bass
 bool CDrumsInstrumentFactory::LoadBassWave()
 {
 	mWaveL.clear();

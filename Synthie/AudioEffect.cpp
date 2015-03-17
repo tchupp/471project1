@@ -2,9 +2,12 @@
 #include "AudioEffect.h"
 #include "Note.h"
 
+const int MAXQUEUESIZE = 200000;
+
 
 CAudioEffect::CAudioEffect()
 {
+	mQueue.resize(MAXQUEUESIZE);
 }
 
 
