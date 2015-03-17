@@ -2,17 +2,14 @@
 <score bpm="120" beatspermeasure="2">
      <instrument instrument="DrumsInstrument">
           <note measure="1" beat="1" drumType="bass"/>
-          <note measure="2" beat="1" drumType="cymbals"/>
+          <note measure="2" beat="1" drumType="bass"/>
+          <note measure="1" beat="1" drumType="cymbals"/>
        
-          <note measure="3" beat="1" drumType="tomlong"/>
-          <note measure="3" beat="2" drumType="bass"/>
-          <note measure="4" beat="1" drumType="tomshort"/>
+          <note measure="2" beat="1" drumType="tomlong"/>
+          <note measure="2" beat="2" drumType="bass"/>
+          <note measure="3" beat="1" drumType="tomshort"/>
 
-          <note measure="5" beat="1" drumType="snare"/>
-          <note measure="5" beat="1.5" drumType="bass"/>
-          <note measure="5" beat="2" drumType="snare"/>
-          <note measure="5" beat="2.5" drumType="tomlong"/>
-
-          <note measure="5" beat="1.5" drumType="cymbals"/>
+          <note measure="2" beat="1" drumType="snare"/>
+          <note measure="3" beat="1" drumType="bass"/>
      </instrument>
 </score>
