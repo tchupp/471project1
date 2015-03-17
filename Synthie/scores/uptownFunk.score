@@ -5,6 +5,10 @@
  -->
 <score bpm="115" beatspermeasure="4">
 
+	<!-- BIGGIE -->
+	<instrument instrument="ScratchInstrument">
+		<note measure="1" beat="1" duration="7.2" scratch="baby" wave="biggie"/>
+	</instrument>
 	<!-- Vocals (can lower an octave for bassier sound) --> 
 
 	<!-- Intro Dos -->

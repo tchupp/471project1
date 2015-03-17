@@ -18,4 +18,5 @@ public:
 
 	CEnvelope* CreateBabyScratchEnvelope();
 	CEnvelope* CreateScribbleScratchEnvelope();
+	CEnvelope* CreateChirpScratchEnvelope();
 };

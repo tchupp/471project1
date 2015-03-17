@@ -31,6 +31,8 @@ CEnvelope* CCustomEnvelopeFactory::CreateBabyScratchEnvelope()
 	envelope->AddPoint(1.25, -5);
 	envelope->AddPoint(1.30, -5);
 	envelope->AddPoint(1.35, 1);
+	envelope->AddPoint(3.65, 1);
+	envelope->AddPoint(3.8, 0);
 	envelope->AddPoint(12, 1);
 	return envelope;
 }
@@ -49,5 +51,16 @@ CEnvelope* CCustomEnvelopeFactory::CreateScribbleScratchEnvelope()
 	envelope->AddPoint(3.80, -0.7);
 	envelope->AddPoint(4.35, 1.4);
 	envelope->AddPoint(6.00, 0);
+	return envelope;
+}
+
+CEnvelope* CCustomEnvelopeFactory::CreateChirpScratchEnvelope()
+{
+	auto envelope = new CCustomEnvelope();
+	envelope->AddPoint(0.01, 2);
+	envelope->AddPoint(0.2, -5);
+	envelope->AddPoint(1, -5);
+	envelope->AddPoint(1.1, 2);
+	envelope->AddPoint(12, 2);
 	return envelope;
 }

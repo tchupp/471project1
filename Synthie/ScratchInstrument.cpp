@@ -33,6 +33,9 @@ void CScratchInstrument::Start()
 	case Scribble:
 		mEnvelope = factory.CreateScribbleScratchEnvelope();
 		break;
+	case Chirp:
+		mEnvelope = factory.CreateChirpScratchEnvelope();
+		break;
 	default:
 		mEnvelope = new CEnvelope();
 		break;

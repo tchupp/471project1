@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<score bpm="60" beatspermeasure="4">
+<score bpm="115" beatspermeasure="4">
    <instrument instrument="ScratchInstrument">
-      <note measure="1" beat="1" duration="3.95" scratch="scribble" wave="biggie"/>
+	  <note measure="1" beat="1" duration="7.2" scratch="baby" wave="biggie"/>
    </instrument>
 </score>
