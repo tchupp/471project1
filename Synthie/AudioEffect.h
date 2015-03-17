@@ -12,7 +12,7 @@ class CAudioEffect :
 public:
 	virtual ~CAudioEffect();
 
-	virtual void Process(double *frameIn, double *frameOut) = 0;
+	virtual void Process(double *frameIn, double *frameOut, double time) = 0;
 
 	void SetDelay(double delay) { mDelay = delay; }
 

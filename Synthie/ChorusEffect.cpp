@@ -13,7 +13,7 @@ CChorusEffect::~CChorusEffect()
 {
 }
 
-void CChorusEffect::Process(double* input, double* output)
+void CChorusEffect::Process(double* input, double* output, double time)
 {
 	for (int i = 0; i < 2; i++)
 	{
@@ -21,7 +21,7 @@ void CChorusEffect::Process(double* input, double* output)
 		output[i] = mDry * input[i] + mWet * mQueue[(mRdloc + i) % MAXQUEUESIZE];
 	}
 
-	double chorus = 0.025 + sin(0.25 * 2 * M_PI) * 0.004;
+	double chorus = 0.025 + sin(0.25 * 2 * M_PI * time) * 0.004;
 
 	int delaylength = int((chorus * GetSampleRate() + 0.5) + 2);
 
