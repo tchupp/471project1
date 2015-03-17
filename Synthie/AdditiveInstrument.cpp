@@ -22,24 +22,33 @@ void CAdditiveInstrument::Start()
 	mTime = 0;
 
 	mEnvelope = new CADSREnvelope();
-	mAmplitudeFilter.SetEnvelope(mEnvelope);
 
 	// Tell the amplitude filter object it gets its samples from 
 	// the sine wave object.
+	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSource(&mCustomWave);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
 	mAmplitudeFilter.Start();
 }
 
-
 bool CAdditiveInstrument::Generate()
 {
 	// Call generate on the envelope here!! Instead of in a filter
 	mEnvelope->Generate();
 
-	// Generate a wave from several sinusoids
-	mCustomWave.Generate();
+
+	if (mTime >= mCustomWave.GetCrossfadeBeginTime() && mCustomWave.GetCrossfadeFlag())
+	{
+		// Generate using a crossfade
+		mCustomWave.GenerateCrossfade(mTime, mCrossfadeDuration);
+	}
+	else if (mCustomWave.GetCrossfadeFlag())
+	{
+		// Generate a wave from several sinusoids
+		mCustomWave.Generate();
+	}
+
 
 	// Tell the component to generate an audio sample
 	auto valid = mAmplitudeFilter.Generate();
@@ -99,9 +108,42 @@ void CAdditiveInstrument::SetNote(CNote* note, double secPerBeat)
 		}
 		else if (name == "vibrato")
 		{
-			//SetVibrato(value.dblval);
+			value.ChangeType(VT_R8);
+			mCustomWave.SetVibratoFlag(true);
+			mCustomWave.SetVibrato(value.dblVal);
+		}
+		else if (name == "vibratoRate")
+		{
+			value.ChangeType(VT_R8);
+			mCustomWave.SetVibratoRate(value.dblVal);
+		}
+		else if (name == "crossfade")
+		{
+			value.ChangeType(VT_R8);
+			mCrossfadeDuration = value.dblVal;
+			mCustomWave.SetCrossfadeFlag(true);
+
+			auto beginTime = mDuration - mCrossfadeDuration;
+			mCustomWave.SetCrossfadeBeginTime(beginTime);
 		}
 	}
+}
+
+void CAdditiveInstrument::AddNextNote(CNote* nextNote, double secPerBeat)
+{
+	/**
+		Creates a temporary instrument from a passed note. 
+		We can use this instrument to crossfade, by getting a frame.
+	**/
+	mNextNote = nextNote;
+	mNextNoteInstrument = new CAdditiveInstrument();
+
+	mNextNoteInstrument->SetSampleRate(GetSampleRate());
+	mNextNoteInstrument->SetNote(mNextNote, secPerBeat);
+	mNextNoteInstrument->Start();
+
+	// Pair the two instruments 'custom waves' so we can interpolate
+	mCustomWave.SetPartnerWave(&mNextNoteInstrument->mCustomWave);
 }
 
 void CAdditiveInstrument::AddHarmonics(wstring harmonics) 

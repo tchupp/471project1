@@ -82,6 +82,7 @@ bool CSynthesizer::Generate(double* frame)
 
 		// Create the instrument object
 		CInstrument* instrument = nullptr;
+
 		if (note->Instrument() == TONE_INSTRUMENT)
 		{
 			instrument = new CToneInstrument();
@@ -127,6 +128,12 @@ bool CSynthesizer::Generate(double* frame)
 		else if (note->Instrument() == ADDITIVE_INSTRUMENT)
 		{
 			instrument = new CAdditiveInstrument();
+
+			// If we can give our additive instrument the next note (for reference), do so
+			if ((mCurrentNote + 1) < m_notes.size())
+			{
+				static_cast<CAdditiveInstrument*>(instrument)->AddNextNote(&m_notes[mCurrentNote + 1], mSecPerBeat);
+			}
 		}
 
 		// Configure the instrument object
