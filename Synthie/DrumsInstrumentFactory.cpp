@@ -128,6 +128,7 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 	envelope.SetDuration(3);
 	envelope.SetAttack(0.05);
 	envelope.SetDecay(0.2);
+	envelope.SetSustainLevel(.7);
 	envelope.SetRelease(2.75);
 	envelope.SetSampleRate(GetSampleRate());
 
@@ -136,7 +137,7 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 	amplitudeFilter.SetSource(&bassWave);
 	amplitudeFilter.SetSampleRate(GetSampleRate());
 	amplitudeFilter.SetDuration(3);
-
+	
 	bassWave.Start();
 	amplitudeFilter.Start();
 	envelope.Generate();
