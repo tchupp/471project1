@@ -7,6 +7,7 @@
 #include "ResonFilter.h"
 #include <vector>
 #include "ADSREnvelope.h"
+#include "PitchFilter.h"
 
 class CSubtractiveInstrument : public CInstrument
 {
@@ -38,6 +39,7 @@ private:
 	double mTime;
 	
 	CResonFilter mReson;
+	CPitchFilter mPitchFilter;
 
 	Waveform mWaveform;
 

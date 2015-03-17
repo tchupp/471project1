@@ -5,6 +5,7 @@
 #include "Note.h"
 #include "ADSREnvelope.h"
 #include "AmplitudeFilter.h"
+#include "SineWave.h"
 
 CDrumsInstrumentFactory::CDrumsInstrumentFactory()
 {
@@ -14,6 +15,7 @@ CDrumsInstrumentFactory::CDrumsInstrumentFactory()
 CDrumsInstrumentFactory::~CDrumsInstrumentFactory()
 {
 }
+
 
 void CDrumsInstrumentFactory::SetNote(CNote* note)
 {
@@ -50,6 +52,7 @@ void CDrumsInstrumentFactory::SetNote(CNote* note)
 	}
 }
 
+
 CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 {
 	auto instrument = new CDrumsInstrument();
@@ -57,6 +60,7 @@ CInstrument* CDrumsInstrumentFactory::CreateInstrument()
 
 	return instrument;
 }
+
 
 bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 {
@@ -83,6 +87,7 @@ bool CDrumsInstrumentFactory::LoadFile(const char* filename)
 	return true;
 }
 
+
 void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 {
 	if (type == L"bass")
@@ -107,6 +112,7 @@ void CDrumsInstrumentFactory::SetDrumType(std::wstring type)
 		LoadFile("wav/drums/snare.wav");
 	}
 }
+
 
 bool CDrumsInstrumentFactory::LoadBassWave()
 {
@@ -140,6 +146,7 @@ bool CDrumsInstrumentFactory::LoadBassWave()
 	{
 		mWaveL.push_back(amplitudeFilter.Frame(0));
 		mWaveR.push_back(amplitudeFilter.Frame(1));
+
 		bassWave.Generate();
 		envelope.Generate();
 	}

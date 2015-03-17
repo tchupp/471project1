@@ -2,7 +2,7 @@
 #include "DrumsInstrument.h"
 #include "Note.h"
 #include "Envelope.h"
-#include "DrumsInstrumentFactory.h"
+#include "ADSREnvelope.h"
 
 
 CDrumsInstrument::CDrumsInstrument()
@@ -21,6 +21,7 @@ void CDrumsInstrument::Start()
 	mWavPlayer.SetSampleRate(GetSampleRate());
 	mWavPlayer.Start();
 	mTime = 0;
+
 	mEnvelope = new CADSREnvelope();
 
 	// Use envelope pointer and setters to edit
