@@ -22,6 +22,9 @@ public:
 	void SetDuration(double d) { mDuration = d; }
 
 	void SetPitchFilter(bool pitch) { mPitchFilter = pitch; }
+
+	void ResonFilterSetup();
+
 	void SetResonFilter(bool reson) { mResonFilter = reson; }
 
 private:

@@ -35,21 +35,64 @@ void CDrumsInstrument::Start()
 	mWavPlayer.Start();
 	mTime = 0;
 
+	if (mResonFilter && mPitchFilter)
+	{
+		mReson.SetSource(&mWavPlayer);
+		mPitch.SetSource(&mReson);
+		mAmplitudeFilter.SetSource(&mAmplitudeFilter);
+	}
+	else if (mResonFilter)
+	{
+		mReson.SetSource(&mWavPlayer);
+		mAmplitudeFilter.SetSource(&mReson);
+	}
+	else if (mPitchFilter)
+	{
+		mPitch.SetSource(&mWavPlayer);
+		mAmplitudeFilter.SetSource(&mPitch);
+	}
+	else
+	{
+		mAmplitudeFilter.SetSource(&mWavPlayer);
+	}
+
+
 	mEnvelope = new CADSREnvelope();
+
+	if (mResonFilter)
+	{
+		ResonFilterSetup();
+	}
+
+	if (mPitchFilter)
+	{
+		mPitch.SetEnvelope(mEnvelope);
+		mPitch.SetSampleRate(GetSampleRate());
+		mPitch.SetDuration(mDuration);
+		mPitch.Start();
+	}
 
 	mAmplitudeFilter.SetEnvelope(mEnvelope);
 	mAmplitudeFilter.SetSource(&mWavPlayer);
 	mAmplitudeFilter.SetSampleRate(GetSampleRate());
 	mAmplitudeFilter.SetDuration(mDuration);
 	mAmplitudeFilter.Start();
-
-
 }
 
 bool CDrumsInstrument::Generate()
 {
 	// Call generate on the envelope here!! Instead of in a filter
 	mEnvelope->Generate();	
+
+	if (mPitchFilter)
+	{
+		mPitch.Generate();
+	}
+
+	if (mResonFilter)
+	{
+		mReson.Generate();
+	}
 
 	mWavPlayer.Generate();
 
@@ -121,4 +164,14 @@ void CDrumsInstrument::SetNote(CNote* note, double secPerBeat)
 			mPitchFilter = true;
 		}
 	}
+}
+
+void CDrumsInstrument::ResonFilterSetup()
+{
+	mReson.SetEnvelope(mEnvelope);
+	mReson.SetBandwidth(mResonBandwidth);
+	mReson.SetFrequency(mResonFrequency);
+	mReson.SetSampleRate(GetSampleRate());
+	mReson.SetDuration(mDuration);
+	mReson.Start();
 }
